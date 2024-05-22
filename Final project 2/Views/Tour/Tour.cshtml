@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en" dir="">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../output.css"/>
+    <script src="./Tour.js" defer></script>
+    
+    <title>Tour</title>
+</head>
+<body>
+    <div class="bg-white">
+      <div id="Tourpicpopup" style="grid-template-columns: 30px auto 30px;" class="bg-black invisible  w-full z-50 h-full fixed grid  content-center ">
+      
+        
+        <button onclick="lastphoto()" class="text-gray-300 text-2xl  hover:text-white  h-full  mt-0">
+
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+          </svg>
+          
+        </button>
+
+        <img src="" class="mt-24 mx-auto w-3/4 h-3/4" id="popupimg" alt="">
+
+        
+        
+        <div>
+          <button onclick="exitpopup()" class="text-gray-300  absolute top-0 my-5  hover:text-white  h-12 ">
+
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+            </svg>
+            
+            
+            
+          </button>
+
+          <button onclick="nextphoto()" class="text-gray-300    hover:text-white  h-full ml-0 ">
+
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class=" w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+            </svg>
+            
+            
+          </button>
+        </div>
+        
+
+      </div>
+      <nav class="bg-white">
+        <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+          <div class="relative flex h-16 items-center justify-between">
+            <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+            <!-- Mobile menu button-->
+              <button type="button" class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+                <span class="absolute -inset-0.5"></span>
+                <span class="sr-only">Open main menu</span>
+                <!--
+                Icon when menu is closed.
+    
+                Menu open: "hidden", Menu closed: "block"
+                -->
+                <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+                <!--
+                Icon when menu is open.
+    
+                Menu open: "block", Menu closed: "hidden"
+                -->
+                <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+          </div>
+            
+          <!---- ------- Main links ------- ----->
+            <div class="flex space-x-4">
+            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+              <a href="#" class="text-black flex hover:bg-gray-700 hover:text-white rounded-md px-5 py-2 text-sm font-medium" >
+                <p class="mx-1 mt-1">صفحه اصلی</p>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+                </svg>
+                
+              </a>
+              <a href="#" class="text-black flex hover:bg-gray-700 hover:text-white rounded-md px-4 py-2 text-sm font-medium">
+
+                <p class="mx-1 mt-1">تغییر زبان</p>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="m10.5 21 5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 0 1 6-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C11.176 10.658 7.69 15.08 3 17.502m9.334-12.138c.896.061 1.785.147 2.666.257m-4.589 8.495a18.023 18.023 0 0 1-3.827-5.802" />
+                </svg>
+              </a>
+              <a href="#" class="text-black flex hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">
+                
+                <p class="mx-1 mt-1"> پشتیبانی</p>
+
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
+                </svg>
+                
+              </a>
+
+
+            </div>
+            
+            
+            
+    
+            <!-- Profile dropdown -->
+            <div class="relative ml-3 ">
+                <div>
+                  <button type="button" onclick="open_menu()" class="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+                      <span class="absolute -inset-1.5"></span>
+                      <span class="sr-only">Open user menu</span>
+                      <img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+                  </button>
+                </div>
+    
+                <div id="prof_popover" class="absolute invisible left-0 z-10 mt-2 w-28 origin-top-right rounded-md bg-gray-50 py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+                  <!-- Active: "bg-gray-100", Not Active: "" -->
+                  <a href="#" class="block px-4 py-2 text-sm  hover:bg-gray-700 hover:text-white text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0"> پروفایل</a>
+                  <a href="#" class="block px-4 py-2 text-sm  hover:bg-gray-700 hover:text-white text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">خروج</a>
+                
+                </div>
+            </div>
+            </div>
+        </div>
+        
+    
+        <!-- Mobile menu, show/hide based on menu state. -->
+        <div class="sm:hidden" id="mobile-menu">
+        <div class="space-y-1 px-2 pb-3 pt-2">
+            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+            <a href="#" class="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium" aria-current="page">Dashboard</a>
+            <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Team</a>
+            <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Projects</a>
+            <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Calendar</a>
+        </div>
+        </div>
+      </nav>
+
+
+
+
+        <!-- --------   Content   -------- -->
+
+        <img src="../../Media/Photo/desktop_.webp"/> 
+
+
+
+
+
+
+
+
+
+        <div class="mx-auto grid max-w-2xl grid-cols-1 items-center gap-x-8 gap-y-16 px-4 py-24 sm:px-6 sm:py-32 lg:max-w-7xl lg:grid-cols-2 lg:px-8">
+          <div>
+            <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+              تور سیشل
+            </h2>
+            <p class="mt-4 border-b-2 pb-4 text-gray-500">
+              8روزه، به همراه پرواز امارت ، هتل با صبحانه وترانسفر فرودگاهی، ویزای فرودگاهی
+            </p>
+      
+            <p class="mt-4 text-gray-500">
+              سیشل یک کشور جزیره‌ای واقع در اقیانوس هند است. این کشور از 115 جزیره تشکیل شده که تنها 33 جزیره از آنها قابل سکونت هستند
+              . جزیره ماهه، بزرگترین جزیره این مجمع الجزایر محسوب می‌شود که پایتخت کشور، ویکتوریا، در آن قرار دارد. آب و هوای
+               سیشل استوایی است و دمای آن در طول سال تقریبا ثابت و بین 24 تا 30 درجه سانتی‌گراد است. این بهشت گرمسیری، به دلیل 
+              داشتن سواحل زیبا، آب‌های زلال و تنوع زیستی منحصر به فرد، به عنوان یک مقصد گردشگری محبوب شناخته می‌شود. مردم سیشل
+               از نژادها و قومیت‌های مختلفی هستند و زبان‌های اصلی آنها انگلیسی، فرانسوی و کریول سیشلی است. در سیشل می‌توانید
+               در باغ‌ها و پارک‌های سرسبز گردش کنید، به سواحل بکر و زیبا با آب زلال بروید و از طعم غذاهای بومی لذت ببرید.
+            </p>
+
+
+            <dl class="mt-16 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:gap-x-8">
+              <div class="border-t ml-4 border-gray-200 pt-4 col-span-2">
+                <dt class="font-medium text-gray-900">قوانین تور</dt>
+                <dd class="mt-2 text-sm text-gray-500 ">
+                  تور غیرقابل کنسل است.
+هزینه ورودی 600.000 تومان به عهده مسافر است.
+هزینه گشت های آپشنال به عهده مسافر است.
+                </dd>
+              </div>
+              <div class="border-t border-gray-200 pt-4">
+                <dt class="font-medium text-gray-900">
+                   قیمت به ازای هر نفر
+                </dt>
+                <dd class="mt-2 text-sm text-gray-500">
+                  تومان 300.000.000
+                  </dd>
+              </div>
+              <div class="border-t border-gray-200 pt-4">
+                <dt class="font-medium text-gray-900">مدت تور</dt>
+                <dd class="mt-2 text-sm text-gray-500">5 روز</dd>
+              </div>
+              <div class="border-t border-gray-200 pt-4">
+                <dt class="font-medium text-gray-900">مقاصد</dt>
+                <dd class="mt-2 text-sm text-gray-500">
+                  مرکز پرورش لاک پشت کوسگودا
+                  جزیره سینامون
+                  معبد کلانیا راجا ماها ویهارا
+                  باغ بریف
+                  شهر باستانی پولونارووا
+                  ساحل مونت لاوینیا
+                  باغ گیاه شناسی سلطنتی
+                  معبد دندان
+                  قلعه هلندی گال
+                </dd>
+              </div>
+             
+            </dl>
+          </div>
+
+
+          <div class="grid grid-cols-2 grid-rows-2 gap-4 sm:gap-6 lg:gap-8">
+            <img id="image1" onclick="openimage(1)" src="../../Media/Photo/Serilanka/05.webp" alt="Walnut card tray with white powder coated steel divider and 3 punchout holes." class="cursor-pointer rounded-lg bg-gray-100">
+            <img id="image2" onclick="openimage(2)" src="../../Media/Photo/Serilanka/02.webp" alt="Top down view of walnut card tray with embedded magnets and card groove." class="cursor-pointer rounded-lg bg-gray-100">
+            <img id="image3" onclick="openimage(3)" src="../../Media/Photo/Serilanka/03.webp" alt="Side of walnut card tray with card groove and recessed card area." class=" cursor-pointer rounded-lg bg-gray-100">
+            <img id="image4" onclick="openimage(4)" src="../../Media/Photo/Serilanka/04.webp" alt="Side of walnut card tray with card groove and recessed card area." class="cursor-pointer rounded-lg bg-gray-100">
+            <img id="image5" onclick="openimage(5)" src="../../Media/Photo/Serilanka/01.webp" alt="Walnut card tray filled with cards and card angled in dedicated groove." class=" cursor-pointer rounded-lg w-full  col-span-2 bg-red-600">
+          </div>
+
+        </div>
+
+        
+
+
+
+        <div class="grid grid-cols-2 grid-rows-2  gap-4 sm:gap-6 lg:gap-8">
+          
+          
+          <button class="rounded-md w-20 mx-auto h-12 mt-5 bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Reserve</button>
+
+          
+
+          <div class="">
+            <label for="first-name" class="block text-sm font-medium leading-6 text-gray-900">Amount</label>
+            <div class="mt-2">
+              <input type="text" name="first-name" id="first-name" autocomplete="given-name" class="block lg:w-60 w-32 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            </div>
+          </div>
+
+
+        </div>
+
+        <!---------   -----   Comments   -----   -------->
+
+
+
+        <section class="bg-white dark:bg-gray-900 py-8 lg:py-16 antialiased">
+          <div class="max-w-2xl mx-auto px-4">
+              <div class="flex justify-between items-center mb-6">
+                <h2 class="text-lg lg:text-2xl font-bold text-gray-900 dark:text-white">Discussion (20)</h2>
+            </div>
+            <form class="mb-6">
+                <div class="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+                    <label for="comment" class="sr-only">Your comment</label>
+                    <textarea id="comment" rows="6"
+                        class="px-0 w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none dark:text-white dark:placeholder-gray-400 dark:bg-gray-800"
+                        placeholder="Write a comment..." required></textarea>
+                </div>
+                <button type="submit"
+                    class="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-primary-900 hover:bg-blue-800">
+                    Post comment
+                </button>
+            </form>
+            <article class="p-6 text-base bg-white rounded-lg dark:bg-gray-900">
+                <footer class="flex justify-between items-center mb-2">
+                    <div class="flex items-center">
+                        <p class="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white font-semibold"><img
+                                class="mr-2 w-6 h-6 rounded-full"
+                                src="https://flowbite.com/docs/images/people/profile-picture-2.jpg"
+                                alt="Michael Gough">Michael Gough</p>
+                        <p class="text-sm text-gray-600 dark:text-gray-400"><time pubdate datetime="2022-02-08"
+                                title="February 8th, 2022">Feb. 8, 2022</time></p>
+                    </div>
+                    <div>
+                      <button id="dropdownComment1Button" onclick="aaa()" data-dropdown-toggle="dropdownComment1"
+                        class="inline-flex items-center p-2 text-sm font-medium text-center text-gray-500 dark:text-gray-400 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-50 dark:bg-gray-900 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                        type="button">
+                        <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 3">
+                            <path d="M2 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm6.041 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM14 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Z"/>
+                        </svg>
+                        <span class="sr-only">Comment settings</span>
+                    </button>
+                    <!-- Dropdown menu -->
+                    <div id="dropdownComment1" class="absolute  float-right  invisible  w-36 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
+                      <ul class="py-1 text-sm text-gray-700 dark:text-gray-200"
+                          >
+                          <li>
+                              <a href="#"
+                                  class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Edit</a>
+                          </li>
+                          <li>
+                              <a href="#"
+                                  class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Remove</a>
+                          </li>
+                          <li>
+                              <a href="#"
+                                  class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Report</a>
+                          </li>
+                      </ul>
+                  </div>
+                    </div>
+                </footer>
+                
+                <p class="text-gray-500 dark:text-gray-400">Very straight-to-point article. Really worth time reading. Thank you! But tools are just the
+                    instruments for the UX designers. The knowledge of the design tools are as important as the
+                    creation of the design strategy.</p>
+                <div class="flex items-center mt-4 space-x-4">
+                    <button type="button"
+                        class="flex items-center text-sm text-gray-500 hover:underline dark:text-gray-400 font-medium">
+                        <svg class="mr-1.5 w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 18">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5h5M5 8h2m6-3h2m-5 3h6m2-7H2a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h3v5l5-5h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1Z"/>
+                        </svg>
+                        Reply
+                    </button>
+                </div>
+            </article>
+            <article class="p-6 mb-3 ml-6 lg:ml-12 text-base bg-white rounded-lg dark:bg-gray-900">
+                <footer class="flex justify-between items-center mb-2">
+                    <div class="flex items-center">
+                        <p class="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white font-semibold"><img
+                                class="mr-2 w-6 h-6 rounded-full"
+                                src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
+                                alt="Jese Leos">Jese Leos</p>
+                        <p class="text-sm text-gray-600 dark:text-gray-400"><time pubdate datetime="2022-02-12"
+                                title="February 12th, 2022">Feb. 12, 2022</time></p>
+                    </div>
+                    <button id="dropdownComment2Button" data-dropdown-toggle="dropdownComment2"
+                        class="inline-flex items-center p-2 text-sm font-medium text-center text-gray-500 dark:text-gray-40 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-50 dark:bg-gray-900 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                        type="button">
+                        <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 3">
+                            <path d="M2 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm6.041 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM14 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Z"/>
+                        </svg>
+                        <span class="sr-only">Comment settings</span>
+                    </button>
+                    <!-- Dropdown menu -->
+                    <div id="dropdownComment2"
+                        class="hidden z-10 w-36 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
+                        <ul class="py-1 text-sm text-gray-700 dark:text-gray-200"
+                            aria-labelledby="dropdownMenuIconHorizontalButton">
+                            <li>
+                                <a href="#"
+                                    class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Edit</a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                    class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Remove</a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                    class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Report</a>
+                            </li>
+                        </ul>
+                    </div>
+                </footer>
+                <p class="text-gray-500 dark:text-gray-400">Much appreciated! Glad you liked it ☺️</p>
+                <div class="flex items-center mt-4 space-x-4">
+                    <button type="button"
+                        class="flex items-center text-sm text-gray-500 hover:underline dark:text-gray-400 font-medium">
+                        <svg class="mr-1.5 w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 18">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5h5M5 8h2m6-3h2m-5 3h6m2-7H2a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h3v5l5-5h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1Z"/>
+                        </svg>                
+                        Reply
+                    </button>
+                </div>
+            </article>
+            <article class="p-6 mb-3 text-base bg-white border-t border-gray-200 dark:border-gray-700 dark:bg-gray-900">
+                <footer class="flex justify-between items-center mb-2">
+                    <div class="flex items-center">
+                        <p class="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white font-semibold"><img
+                                class="mr-2 w-6 h-6 rounded-full"
+                                src="https://flowbite.com/docs/images/people/profile-picture-3.jpg"
+                                alt="Bonnie Green">Bonnie Green</p>
+                        <p class="text-sm text-gray-600 dark:text-gray-400"><time pubdate datetime="2022-03-12"
+                                title="March 12th, 2022">Mar. 12, 2022</time></p>
+                    </div>
+                    <button id="dropdownComment3Button" data-dropdown-toggle="dropdownComment3"
+                        class="inline-flex items-center p-2 text-sm font-medium text-center text-gray-500 dark:text-gray-40 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-50 dark:bg-gray-900 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                        type="button">
+                        <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 3">
+                            <path d="M2 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm6.041 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM14 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Z"/>
+                        </svg>
+                        <span class="sr-only">Comment settings</span>
+                    </button>
+                    <!-- Dropdown menu -->
+                    <div id="dropdownComment3"
+                        class="hidden z-10 w-36 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
+                        <ul class="py-1 text-sm text-gray-700 dark:text-gray-200"
+                            aria-labelledby="dropdownMenuIconHorizontalButton">
+                            <li>
+                                <a href="#"
+                                    class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Edit</a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                    class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Remove</a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                    class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Report</a>
+                            </li>
+                        </ul>
+                    </div>
+                </footer>
+                <p class="text-gray-500 dark:text-gray-400">The article covers the essentials, challenges, myths and stages the UX designer should consider while creating the design strategy.</p>
+                <div class="flex items-center mt-4 space-x-4">
+                    <button type="button"
+                        class="flex items-center text-sm text-gray-500 hover:underline dark:text-gray-400 font-medium">
+                        <svg class="mr-1.5 w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 18">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5h5M5 8h2m6-3h2m-5 3h6m2-7H2a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h3v5l5-5h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1Z"/>
+                        </svg>
+                        Reply
+                    </button>
+                </div>
+            </article>
+            <article class="p-6 text-base bg-white border-t border-gray-200 dark:border-gray-700 dark:bg-gray-900">
+                <footer class="flex justify-between items-center mb-2">
+                    <div class="flex items-center">
+                        <p class="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white font-semibold"><img
+                                class="mr-2 w-6 h-6 rounded-full"
+                                src="https://flowbite.com/docs/images/people/profile-picture-4.jpg"
+                                alt="Helene Engels">Helene Engels</p>
+                        <p class="text-sm text-gray-600 dark:text-gray-400"><time pubdate datetime="2022-06-23"
+                                title="June 23rd, 2022">Jun. 23, 2022</time></p>
+                    </div>
+                    <button id="dropdownComment4Button" data-dropdown-toggle="dropdownComment4"
+                        class="inline-flex items-center p-2 text-sm font-medium text-center text-gray-500 dark:text-gray-40 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-50 dark:bg-gray-900 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                        type="button">
+                        <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 3">
+                            <path d="M2 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm6.041 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM14 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Z"/>
+                        </svg>
+                    </button>
+                    <!-- Dropdown menu -->
+                    <div id="dropdownComment4"
+                        class="hidden z-10 w-36 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
+                        <ul class="py-1 text-sm text-gray-700 dark:text-gray-200"
+                            aria-labelledby="dropdownMenuIconHorizontalButton">
+                            <li>
+                                <a href="#"
+                                    class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Edit</a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                    class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Remove</a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                    class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Report</a>
+                            </li>
+                        </ul>
+                    </div>
+                </footer>
+                <p class="text-gray-500 dark:text-gray-400">Thanks for sharing this. I do came from the Backend development and explored some of the tools to design my Side Projects.</p>
+                <div class="flex items-center mt-4 space-x-4">
+                    <button type="button"
+                        class="flex items-center text-sm text-gray-500 hover:underline dark:text-gray-400 font-medium">
+                        <svg class="mr-1.5 w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 18">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5h5M5 8h2m6-3h2m-5 3h6m2-7H2a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h3v5l5-5h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1Z"/>
+                        </svg>
+                        Reply
+                    </button>
+                </div>
+            </article>
+          </div>
+        </section>
+
+
+
+
+
+
+      </div>
+      
+</body>
+</html>

@@ -1,0 +1,59 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>Final_project_2</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="Views\Home\Person\AdminPanel.cshtml" />
+    <Content Remove="Views\Home\Person\login.cshtml" />
+    <Content Remove="Views\Home\Person\Profile.cshtml" />
+    <Content Remove="Views\Home\Person\signin.cshtml" />
+    <Content Remove="Views\Home\Tour\Create.cshtml" />
+    <Content Remove="Views\Home\Tour\CreateTour.cshtml" />
+    <Content Remove="Views\Home\Tour\DeleteTour.cshtml" />
+    <Content Remove="Views\Home\Tour\EditTour.cshtml" />
+    <Content Remove="Views\Home\Tour\Tour.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.4" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.0.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.2" />
+  </ItemGroup>
+    
+    <ItemGroup>
+      <UpToDateCheckBuilt Include="wwwroot/css/site.css" Set="Css" />
+      <UpToDateCheckBuilt Include="tailwind.config.js" Set="Css" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <None Include="Views\Person\AdminPanel.cshtml" />
+      <None Include="Views\Person\login.cshtml" />
+      <None Include="Views\Person\Profile.cshtml" />
+      <None Include="Views\Person\signin.cshtml" />
+      <None Include="Views\Tour\Create.cshtml" />
+      <None Include="Views\Tour\CreateTour.cshtml" />
+      <None Include="Views\Tour\DeleteTour.cshtml" />
+      <None Include="Views\Tour\EditTour.cshtml" />
+      <None Include="Views\Tour\Tour.cshtml" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <Folder Include="Repository\" />
+      <Folder Include="Views\Home\Person\" />
+      <Folder Include="Views\Home\Tour\" />
+      <Folder Include="wwwroot\Images\" />
+    </ItemGroup>
+
+    <Target Name="Tailwind" BeforeTargets="Build">
+      <Exec Command="npm run css:build" />
+    </Target>
+</Project>
