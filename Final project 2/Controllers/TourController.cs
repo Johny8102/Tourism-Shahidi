@@ -17,16 +17,19 @@ namespace Final_project_2.Controllers
 
 
 
-        
 
 
 
 
 
-        
+        public IActionResult CreateToor()
+        {
+            return View();
+        }
 
 
-        
+
+
         public IActionResult CreateTour()
         {
             return View();
@@ -64,6 +67,31 @@ namespace Final_project_2.Controllers
             
             return "Added Successfully";
         }
+
+
+
+        [HttpPost]
+        public async Task<string> CreateToor(IFormFile file ,  Tour tour)
+        {
+            if (file != null && file.Length > 0)
+            {
+                if (file != null && file.Length > 0)
+                {
+                    string fileName = Path.GetFileName(file.FileName);
+                    string path = Path.Combine("./wwwroot/Images/", fileName);
+                    file.CopyTo(new FileStream(fileName, FileMode.Create));
+                }
+                //todo Reposiory
+            }
+
+            //await _context.Tour.AddAsync(tour);
+            //await _context.SaveChangesAsync();
+
+            return "Added Successfully";
+        }
+
+
+
 
 
 
