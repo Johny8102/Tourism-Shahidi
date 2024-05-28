@@ -32,26 +32,52 @@ namespace Final_project_2.Controllers
             return View();
         }
 
-        [HttpPost]
-        public async Task<string> CreateTour(Tour tour)
+        public string ImageAdder(IFormFile file)
         {
-            //if (file != null && file.Length > 0)
-            //{
-                
-            //        if (file != null && file.Length > 0)
-            //        {
-            //            string fileName = Path.GetFileName(file.FileName);
-            //            string path = Path.Combine("./wwwroot/Images/", fileName);
-            //            file.CopyTo(new FileStream(fileName, FileMode.Create));
+            
+            if (file != null && file.Length > 0)
+            { 
+                //string fileName = Path.GetFileName(file.FileName);
+                string fileName = $@"{Guid.NewGuid()}.PNG";
+                var tye = file.ContentType;
+                string path = Path.Combine("./wwwroot/Images/", fileName);
+                file.CopyTo(new FileStream(path, FileMode.Create));
+                //$@"{Guid.NewGuid()}.txt";
 
-                        
+                return fileName;
+            }
 
-            //        }
-                
-            //        //todo Reposiory
-                
-            //}
+            return string.Empty;
 
+            //todo Reposiory
+
+            
+        }
+
+
+        [HttpPost]
+        public async Task<string> CreateTour(Tour_Items tour)
+        {
+            var tour_obj = new Tour()
+            {
+                Image1 = tour.Image1,
+                Image2 = tour.Image2,
+                Capacity = tour.Capacity,
+                Description = tour.Description,
+                Id = tour.Id,
+                Image3 = tour.Image3,
+                Image4 = tour.Image4,
+                Image5 = tour.Image5,   
+                Touring_area = tour.Touring_area,
+                Image_bg = ImageAdder(tour.Image_bg),
+                Is_Acive = tour.Is_Acive,
+                Price_per_person = tour.Price_per_person,
+                Quality_level = tour.Quality_level,
+                Rules = tour.Rules,
+                Status_limit = tour.Status_limit,   
+                Title = tour.Title,
+                Tour_Name= tour.Tour_Name
+            };
 
 
 
@@ -61,7 +87,7 @@ namespace Final_project_2.Controllers
 
             //await _context.Tour.AddAsync(tour);
             //await _context.SaveChangesAsync();
-            
+
             return "Added Successfully";
         }
 

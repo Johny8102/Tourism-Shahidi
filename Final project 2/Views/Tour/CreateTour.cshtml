@@ -1,4 +1,4 @@
-﻿@model Final_project_2.Models.Tour
+﻿@model Final_project_2.Models.Tour_Items
 
 @{
     ViewData["Title"] = "CreateTour";
@@ -17,26 +17,9 @@
         <h2 class="leading-7 my-10 text-center text-2xl font-semibold text-gray-900">Add New Tour</h2>
 
 
-        <!-- --------   cover img   -------- -->
 
-        <div class="col-span-full bg-slate-50">
 
-            <div class="border-gray-900/25 mt-2 flex justify-center rounded-lg border border-dashed px-6 py-10">
-                <div class="text-center">
-                    <svg class="mx-auto h-12 w-12 text-gray-300" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                        <path fill-rule="evenodd" d="M1.5 6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v12a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 18V6zM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0021 18v-1.94l-2.69-2.689a1.5 1.5 0 00-2.12 0l-.88.879.97.97a.75.75 0 11-1.06 1.06l-5.16-5.159a1.5 1.5 0 00-2.12 0L3 16.061zm10.125-7.81a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0z" clip-rule="evenodd" />
-                    </svg>
-                    <div class="leading-6 mt-4 flex text-sm text-gray-600">
-                        <label for="file-upload" class="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500">
-                            <span>Upload a file</span>
-                            <input asp-for="Image_bg" id="file-upload" name="file-upload" type="file" class="sr-only" />
-                        </label>
-                        <p class="pl-1">or drag and drop</p>
-                    </div>
-                    <p class="leading-5 text-xs text-gray-600">PNG, JPG, GIF up to 10MB</p>
-                </div>
-            </div>
-        </div>
+        <input type="file" name="Image_bg" value="" />
 
 
 
@@ -50,20 +33,20 @@
                 <div class="sm:col-span-4">
                     <label for="TourName" class="leading-6 block text-sm font-medium text-gray-900">Tour Name</label>
                     <div class="ring-1 my-2 flex rounded-md bg-white px-2 shadow-sm ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-                        <input asp-for="Tour_Name" type="text" name="TourName" id="TourName" autocomplete="username" class="flex-1 border-0 block bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6">
+                        <input asp-for="Tour_Name" type="text" autocomplete="username" class="flex-1 border-0 block bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6">
                     </div>
                 </div>
                 <div class="col-span-full">
                     <label for="about" class="leading-6 block text-sm font-medium text-gray-900">Tour Descrition</label>
                     <div class="my-2">
-                        <textarea asp-for="Description" id="TourDes" name="TourDes" rows="3" class="border-0 ring-1 block w-full rounded-md py-1.5 text-gray-900 shadow-sm ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
+                        <textarea asp-for="Description" rows="3" class="border-0 ring-1 block w-full rounded-md py-1.5 text-gray-900 shadow-sm ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
                     </div>
                 </div>
 
                 <div class="col-span-full">
                     <label for="about" class="leading-6 block text-sm font-medium text-gray-900">Tour Rules</label>
                     <div class="my-2">
-                        <textarea asp-for="Rules" id="TourRul" name="TourRul" rows="4" class="border-0 ring-1 block w-full rounded-md py-1.5 text-gray-900 shadow-sm ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
+                        <textarea asp-for="Rules"  rows="4" class="border-0 ring-1 block w-full rounded-md py-1.5 text-gray-900 shadow-sm ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
                     </div>
                 </div>
 
@@ -73,7 +56,7 @@
                     <div class="sm:col-span-3">
                         <label for="first-name" class="leading-6 block text-sm font-medium text-gray-900">Tour Capacity</label>
                         <div class="mt-2">
-                            <input asp-for="Capacity" type="text" name="first-name" id="first-name" autocomplete="given-name" class="border-0 ring-1 block w-full rounded-md py-1.5 text-gray-900 shadow-sm ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <input asp-for="Capacity" type="text"  autocomplete="given-name" class="border-0 ring-1 block w-full rounded-md py-1.5 text-gray-900 shadow-sm ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                         </div>
                     </div>
 
@@ -81,7 +64,7 @@
                 <div class="sm:col-span-3">
                     <label for="last-name" class="leading-6 block text-sm font-medium text-gray-900">Price for each person</label>
                     <div class="mt-2">
-                        <input asp-for="Price_per_person" type="text" placeholder="ریال" name="last-name" id="last-name" autocomplete="family-name" class="border-0 ring-1 block w-full rounded-md py-1.5 text-gray-900 shadow-sm ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                        <input asp-for="Price_per_person" type="text" placeholder="ریال"  autocomplete="family-name" class="border-0 ring-1 block w-full rounded-md py-1.5 text-gray-900 shadow-sm ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                     </div>
                 </div>
 
@@ -108,7 +91,7 @@
                             <div class="leading-6 mt-4 flex text-sm text-gray-600">
                                 <label for="file-upload" class="relative cursor-pointer rounded-md font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500">
                                     <span>Upload a file</span>
-                                    <input asp-for="Image1" id="file-upload" name="file-upload" type="file" class="sr-only">
+                                    <input name="Image_holder1" type="file" class="sr-only">
                                 </label>
                                 <p class="pl-1">or drag and drop</p>
                             </div>
@@ -128,7 +111,7 @@
                             <div class="leading-6 mt-4 flex text-sm text-gray-600">
                                 <label for="file-upload" class="relative cursor-pointer rounded-md font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500">
                                     <span>Upload a file</span>
-                                    <input asp-for="Image2" id="file-upload" name="file-upload" type="file" class="sr-only">
+                                    <input name="Image_holder2" type="file" class="sr-only">
                                 </label>
                                 <p class="pl-1">or drag and drop</p>
                             </div>
@@ -148,7 +131,7 @@
                             <div class="leading-6 mt-4 flex text-sm text-gray-600">
                                 <label for="file-upload" class="relative cursor-pointer rounded-md font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500">
                                     <span>Upload a file</span>
-                                    <input asp-for="Image3" id="file-upload" name="file-upload" type="file" class="sr-only">
+                                    <input name="Image_holder3" type="file" class="sr-only">
                                 </label>
                                 <p class="pl-1">or drag and drop</p>
                             </div>
@@ -168,7 +151,7 @@
                             <div class="leading-6 mt-4 flex text-sm text-gray-600">
                                 <label for="file-upload" class="relative cursor-pointer rounded-md font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500">
                                     <span>Upload a file</span>
-                                    <input asp-for="Image4" id="file-upload" name="file-upload" type="file" class="sr-only">
+                                    <input name="Image_holder4" type="file" class="sr-only">
                                 </label>
                                 <p class="pl-1">or drag and drop</p>
                             </div>
@@ -188,7 +171,7 @@
                             <div class="leading-6 mt-4 flex text-sm text-gray-600">
                                 <label for="file-upload" class="relative cursor-pointer rounded-md font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500">
                                     <span>Upload a file</span>
-                                    <input asp-for="Image5" id="file-upload" name="file-upload" type="file" class="sr-only">
+                                    <input name="Image_holder5" type="file" class="sr-only">
                                 </label>
                                 <p class="pl-1">or drag and drop</p>
                             </div>

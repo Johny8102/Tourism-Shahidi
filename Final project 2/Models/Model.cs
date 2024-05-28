@@ -60,6 +60,20 @@ namespace Final_project_2.Models
     }
 
 
+
+
+
+    public class Tour_Items :Tour
+    {
+        public IFormFile Image_bg { get; set; }
+        public IFormFile Image_holder1 { get; set; }
+        public IFormFile Image_holder2 { get;set; }
+        public IFormFile Image_holder3 {  get;set; }
+        public IFormFile Image_holder4 { get; set; }
+        public IFormFile Image_holder5 { get; set; }
+    }
+
+
     public class Comments
     {
         public int Id { get; set; }
