@@ -60,26 +60,25 @@ namespace Final_project_2.Controllers
         {
             var tour_obj = new Tour()
             {
-                Image1 = tour.Image1,
-                Image2 = tour.Image2,
+                Tour_Name = tour.Tour_Name,
                 Capacity = tour.Capacity,
                 Description = tour.Description,
-                Id = tour.Id,
-                Image3 = tour.Image3,
-                Image4 = tour.Image4,
-                Image5 = tour.Image5,   
                 Touring_area = tour.Touring_area,
-                Image_bg = ImageAdder(tour.Image_bg),
                 Is_Acive = tour.Is_Acive,
                 Price_per_person = tour.Price_per_person,
                 Quality_level = tour.Quality_level,
                 Rules = tour.Rules,
                 Status_limit = tour.Status_limit,   
                 Title = tour.Title,
-                Tour_Name= tour.Tour_Name
+                Image1 = ImageAdder(tour.Image_holder1),
+                Image2 = ImageAdder(tour.Image_holder2),
+                Image3 = ImageAdder(tour.Image_holder3),
+                Image4 = ImageAdder(tour.Image_holder4),
+                Image5 = ImageAdder(tour.Image_holder5),
+                Image_bg = ImageAdder(tour.Image_bg)
             };
 
-
+            
 
 
 
