@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Drawing;
 
 namespace Final_project_2.Models
 {
@@ -59,13 +60,21 @@ namespace Final_project_2.Models
         public string Touring_area { get; set;}
     }
 
-
+    public class Image_properties: Tour_Items
+    {
+        public Image Image_propertie0 { get; set; }
+        public Image Image_propertie1 { get; set; }
+        public Image Image_propertie2 { get; set; }
+        public Image Image_propertie3 { get;set; }
+        public Image Image_propertie4 { get; set;}
+        public Image Image_propertie5 { get; set;}
+    }
 
 
 
     public class Tour_Items :Tour
     {
-        public IFormFile Image_bg { get; set; }
+        public IFormFile Image_holderbg { get; set; }
         public IFormFile Image_holder1 { get; set; }
         public IFormFile Image_holder2 { get;set; }
         public IFormFile Image_holder3 {  get;set; }

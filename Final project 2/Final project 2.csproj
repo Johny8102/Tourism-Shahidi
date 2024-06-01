@@ -7,6 +7,10 @@
     <RootNamespace>Final_project_2</RootNamespace>
   </PropertyGroup>
 
+	
+    
+
+    
   <ItemGroup>
     <Content Remove="Views\Home\Person\AdminPanel.cshtml" />
     <Content Remove="Views\Home\Person\login.cshtml" />
@@ -42,7 +46,6 @@
       <None Include="Views\Tour\Create.cshtml" />
       <None Include="Views\Tour\CreateTour.cshtml" />
       <None Include="Views\Tour\DeleteTour.cshtml" />
-      <None Include="Views\Tour\EditTour.cshtml" />
       <None Include="Views\Tour\Tour.cshtml" />
     </ItemGroup>
     

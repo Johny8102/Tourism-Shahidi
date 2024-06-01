@@ -1,0 +1,302 @@
+﻿@* @model Final_project_2.Models.Tour_Items *@
+@model Final_project_2.Models.Image_properties
+
+@{
+    ViewData["Title"] = "Update Tour";
+}
+
+
+<form asp-action="UpdateTour" method="post" enctype="multipart/form-data">
+    <div class="bg-gray-100">
+
+
+        <h2 class="leading-7 my-10 text-center text-2xl font-semibold text-gray-900">Add New Tour</h2>
+
+
+        <div class="border-gray-900/25 mt-2 flex justify-center rounded-lg border border-dashed px-6 py-10">
+            <div class="text-center">
+                <svg class="mx-auto h-12 w-12 text-gray-300" viewBox="0 0 24 24" id="svg-bg" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M1.5 6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v12a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 18V6zM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0021 18v-1.94l-2.69-2.689a1.5 1.5 0 00-2.12 0l-.88.879.97.97a.75.75 0 11-1.06 1.06l-5.16-5.159a1.5 1.5 0 00-2.12 0L3 16.061zm10.125-7.81a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0z" clip-rule="evenodd" />
+                </svg>
+                <div class="leading-6 mt-4 flex text-sm text-gray-600">
+
+                    <label for="myImagebg" class="relative cursor-pointer rounded-md font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500">
+                        <span>Upload a file</span>
+                        <img class="h-24" id="blah_bg" src="@Url.Content("~/Images/" + Model.Image_bg)" />
+                        <input name="Image_holderbg" id="myImagebg" onchange="readURL(this,blah_bg ,'svg-bg')" type="file" class="sr-only">
+                    </label>
+
+                </div>
+                <p class="leading-5 text-xs text-gray-600">PNG, JPG, GIF up to 10MB</p>
+            </div>
+        </div>
+
+
+        <div class="hidden">
+            <input type="text" asp-for="Id"  />
+            <input type="text" asp-for="Image1"  />
+            <input type="text" asp-for="Image2"  />
+            <input type="text" asp-for="Image3"  />
+            <input type="text" asp-for="Image4"  />
+            <input type="text" asp-for="Image5"  />
+            
+
+        </div>
+        <input type="text" asp-for="Image_bg" />
+
+
+
+
+
+        <div class="grid-cols-1 mx-auto grid max-w-2xl items-center gap-x-8 gap-y-16 px-4 py-24 sm:px-6 sm:py-32 lg:max-w-7xl lg:grid-cols-2 lg:px-8">
+            <div>
+                <div style="display: grid;  column-gap: 20px;" class="grid-cols-5">
+
+                    <div class="col-span-2">
+                        <label for="TourName" class="leading-6 block text-sm font-medium text-gray-900">Tour Name</label>
+                        <div class="ring-1 my-2 flex rounded-md bg-white px-2 shadow-sm ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                            <input asp-for="Tour_Name" type="text" class="flex-1 border-0 block bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6">
+                        </div>
+                    </div>
+                    <div class="col-span-3">
+                        <label for="TourName" class="leading-6 block text-sm font-medium text-gray-900">Title</label>
+                        <div class="ring-1 my-2 flex rounded-md bg-white px-2 shadow-sm ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                            <input asp-for="Title" type="text" class="flex-1 border-0 block bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-span-full">
+                    <label for="about" class="leading-6 block text-sm font-medium text-gray-900">Tour Descrition</label>
+                    <div class="my-2">
+                        <textarea asp-for="Description" rows="3" class="border-0 ring-1 block w-full rounded-md py-1.5 text-gray-900 shadow-sm ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
+                    </div>
+                </div>
+
+                <div class="col-span-full">
+                    <label for="about" class="leading-6 block text-sm font-medium text-gray-900">Tour Rules</label>
+                    <div class="my-2">
+                        <textarea asp-for="Rules" rows="4" class="border-0 ring-1 block w-full rounded-md py-1.5 text-gray-900 shadow-sm ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
+                    </div>
+                </div>
+
+
+                <div class="col-span-full">
+                    <label for="about" class="leading-6 block text-sm font-medium text-gray-900">Status Limit</label>
+                    <div class="my-2">
+                        <textarea asp-for="Status_limit" rows="2" class="border-0 ring-1 block w-full rounded-md py-1.5 text-gray-900 shadow-sm ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: auto auto ; column-gap: 20px;" class="">
+                    <div class="">
+                        <div class="sm:col-span-3">
+                            <label for="first-name" class="leading-6 block text-sm font-medium text-gray-900">Quality Level</label>
+                            <div class="mt-2">
+                                <input asp-for="Quality_level" type="text" autocomplete="given-name" class="border-0 ring-1 block w-full rounded-md py-1.5 text-gray-900 shadow-sm ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="">
+                        <label for="last-name" class="leading-6 block text-sm font-medium text-gray-900">Touring Area</label>
+                        <div class="mt-2">
+                            <input asp-for="Touring_area" type="text" autocomplete="family-name" class="border-0 ring-1 block w-full rounded-md py-1.5 text-gray-900 shadow-sm ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                        </div>
+                    </div>
+
+                </div>
+
+                <div style="display: grid; grid-template-columns: auto auto auto; column-gap: 20px;" class="mt-5">
+                    <div class="">
+                        <div class="sm:col-span-3">
+                            <label for="first-name" class="leading-6 block text-sm font-medium text-gray-900">Tour Capacity</label>
+                            <div class="mt-2">
+                                <input asp-for="Capacity" type="text" autocomplete="given-name" class="border-0 ring-1 block w-full rounded-md py-1.5 text-gray-900 shadow-sm ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="">
+                        <label for="last-name" class="leading-6 block text-sm font-medium text-gray-900">Price for each person</label>
+                        <div class="mt-2">
+                            <input asp-for="Price_per_person" type="text" placeholder="ریال" autocomplete="family-name" class="border-0 ring-1 block w-full rounded-md py-1.5 text-gray-900 shadow-sm ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                        </div>
+                    </div>
+
+                    <label class="grid cursor-pointer">
+                        <span class="text-sm font-medium text-gray-900 dark:text-gray-300">Tour is Active</span>
+                        <div class="inline-flex items-center">
+                            <input asp-for="Is_Acive" type="checkbox" checked="true" value="" class="peer sr-only">
+                            <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+
+                        </div>
+
+                    </label>
+                </div>
+
+
+
+            </div>
+
+
+
+
+            <!--- All images ----->
+
+            <div class="grid-cols-2 grid-rows-2 grid gap-4 sm:gap-6 lg:gap-8">
+
+                <!--- image 1 ----->
+
+                <div class="">
+
+                    <div class="border-gray-900/25 mt-2 flex justify-center rounded-lg border border-dashed px-6 py-10">
+                        <div class="text-center">
+                            <svg class="mx-auto h-12 w-12 text-gray-300" viewBox="0 0 24 24" id="svg-1" fill="currentColor" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M1.5 6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v12a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 18V6zM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0021 18v-1.94l-2.69-2.689a1.5 1.5 0 00-2.12 0l-.88.879.97.97a.75.75 0 11-1.06 1.06l-5.16-5.159a1.5 1.5 0 00-2.12 0L3 16.061zm10.125-7.81a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0z" clip-rule="evenodd" />
+                            </svg>
+                            <div class="leading-6 mt-4 flex text-sm text-gray-600">
+                                <label for="Image1_id" class="relative cursor-pointer rounded-md font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500">
+                                    <img class="h-24" id="blah_1" src="@Url.Content("~/Images/" + Model.Image1)" alt="your image" />
+                                    <span>Upload a file</span>
+                                    <input name="Image_holder1" onchange="readURL(this,blah_1,'svg-1')" id="Image1_id" type="file" class="Image-input sr-only">
+                                </label>
+
+                            </div>
+                            <p class="leading-5 text-xs text-gray-600">PNG, JPG, GIF up to 10MB</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!----- image 2 ------->
+                <div class="">
+
+                    <div class="border-gray-900/25 mt-2 flex justify-center rounded-lg border border-dashed px-6 py-10">
+                        <div class="text-center">
+                            <svg class="mx-auto h-12 w-12 text-gray-300" viewBox="0 0 24 24" id="svg-2" fill="currentColor" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M1.5 6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v12a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 18V6zM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0021 18v-1.94l-2.69-2.689a1.5 1.5 0 00-2.12 0l-.88.879.97.97a.75.75 0 11-1.06 1.06l-5.16-5.159a1.5 1.5 0 00-2.12 0L3 16.061zm10.125-7.81a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0z" clip-rule="evenodd" />
+                            </svg>
+                            <div class="leading-6 mt-4 flex text-sm text-gray-600">
+                                <label for="Image2_id" class="relative cursor-pointer rounded-md font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500">
+                                    <img class="h-24" id="blah_2" src="@Url.Content("~/Images/" + Model.Image2)" alt="" />
+                                    <span>Upload a file</span>
+                                    <input name="Image_holder2" onchange="readURL(this,blah_2,'svg-2')" id="Image2_id" type="file" class="Image-input sr-only">
+                                </label>
+
+                            </div>
+                            <p class="leading-5 text-xs text-gray-600">PNG, JPG, GIF up to 10MB</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!----- image 3 ------->
+                <div class="">
+
+                    <div class="border-gray-900/25 mt-2 flex justify-center rounded-lg border border-dashed px-6 py-10">
+                        <div class="text-center">
+                            <svg class="mx-auto h-12 w-12 text-gray-300" viewBox="0 0 24 24" id="svg-3" fill="currentColor" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M1.5 6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v12a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 18V6zM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0021 18v-1.94l-2.69-2.689a1.5 1.5 0 00-2.12 0l-.88.879.97.97a.75.75 0 11-1.06 1.06l-5.16-5.159a1.5 1.5 0 00-2.12 0L3 16.061zm10.125-7.81a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0z" clip-rule="evenodd" />
+                            </svg>
+                            <div class="leading-6 mt-4 flex text-sm text-gray-600">
+                                <label for="Image3_id" class="relative cursor-pointer rounded-md font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500">
+                                    <img class="h-24" id="blah_3" src="@Url.Content("~/Images/" + Model.Image3)" alt="" />
+
+                                    <span>Upload a file</span>
+                                    <input name="Image_holder3" onchange="readURL(this,blah_3,'svg-3')" id="Image3_id" type="file" class="Image-input sr-only">
+                                </label>
+
+                            </div>
+                            <p class="leading-5 text-xs text-gray-600">PNG, JPG, GIF up to 10MB</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!----- image 4 ------->
+                <div class="">
+
+                    <div class="border-gray-900/25 mt-2 flex justify-center rounded-lg border border-dashed px-6 py-10">
+                        <div class="text-center">
+                            <svg class="mx-auto h-12 w-12 text-gray-300" viewBox="0 0 24 24" id="svg-4" fill="currentColor" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M1.5 6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v12a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 18V6zM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0021 18v-1.94l-2.69-2.689a1.5 1.5 0 00-2.12 0l-.88.879.97.97a.75.75 0 11-1.06 1.06l-5.16-5.159a1.5 1.5 0 00-2.12 0L3 16.061zm10.125-7.81a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0z" clip-rule="evenodd" />
+                            </svg>
+                            <div class="leading-6 mt-4 flex text-sm text-gray-600">
+                                <label for="Image4_id" class="relative cursor-pointer rounded-md font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500">
+                                    <img class="h-24" id="blah_4" src="@Url.Content("~/Images/" + Model.Image4)" alt="" />
+
+                                    <span>Upload a file</span>
+                                    <input name="Image_holder4" onchange="readURL(this,blah_4 ,'svg-4')" id="Image4_id" type="file" class="Image-input sr-only">
+                                </label>
+
+                            </div>
+                            <p class="leading-5 text-xs text-gray-600">PNG, JPG, GIF up to 10MB</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!----- image 5 ------->
+                <div class="col-span-2">
+
+                    <div class="border-gray-900/25 mt-2 flex justify-center rounded-lg border border-dashed px-6 py-10">
+                        <div class="text-center">
+                            <svg class="mx-auto h-12 w-12 text-gray-300" viewBox="0 0 24 24" id="svg-5" fill="currentColor" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M1.5 6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v12a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 18V6zM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0021 18v-1.94l-2.69-2.689a1.5 1.5 0 00-2.12 0l-.88.879.97.97a.75.75 0 11-1.06 1.06l-5.16-5.159a1.5 1.5 0 00-2.12 0L3 16.061zm10.125-7.81a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0z" clip-rule="evenodd" />
+                            </svg>
+                            <div class="leading-6 mt-4 flex text-sm text-gray-600">
+                                <label for="Image5_id" class="relative cursor-pointer rounded-md font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500">
+                                    <img class="h-24" id="blah_5" src="@Url.Content("~/Images/" + Model.Image5)" alt="" />
+                                    <span>Upload a file</span>
+                                    <input name="Image_holder5" onchange="readURL(this,blah_5,'svg-5')" id="Image5_id" type="file" class="Image-input sr-only">
+                                </label>
+
+                            </div>
+                            <p class="leading-5 text-xs text-gray-600">PNG, JPG, GIF up to 10MB</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+
+        </div>
+        <div class="grid gap-4 pb-20 sm:gap-6 lg:gap-8">
+
+
+            <input value="Update" type="submit" class="mx-auto mt-5 h-12 w-20 rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" />
+
+
+
+
+
+
+
+
+
+
+        </div>
+
+        <script>
+            function readURL(item, imgId, svg_id) {
+                console.log(imgId.classList)
+                const [file] = item.files
+                if (file) {
+                    imgId.src = URL.createObjectURL(file)
+                    imgId.classList.remove("hidden")
+                    document.getElementById(svg_id).style.visibility = "hidden"
+                }
+            }
+
+
+
+        </script>
+
+
+
+
+
+
+
+    </div>
+</form>
+

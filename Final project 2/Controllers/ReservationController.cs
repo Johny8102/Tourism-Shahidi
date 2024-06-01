@@ -50,7 +50,13 @@ namespace Final_project_2.Controllers
 
         }
 
+        //ublic async Task<Reservation> UpdateReserve(Reservation reserve)
+        //{
+        //    _context.Reservations.Update(reserve);
+        //    await _context.SaveChangesAsync();
+        //    return reserve;
 
+        //}
 
 
     }
