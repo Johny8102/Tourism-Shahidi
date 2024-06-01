@@ -101,14 +101,13 @@ namespace Final_project_2.Controllers
 
 
 
-        public IActionResult DeleteTour()
-        {
-            return View("DeleteTour");
-        }
+        public IActionResult DeleteTour(int id)=>  View(GetTour(id));
         
-        public async Task<string> DeleteTour(int id)
+
+        [HttpPost]
+        public async Task<string> DeleteTour(Tour tour)
         {
-            _context.Tour.Remove(GetTour(id));
+            _context.Tour.Remove(tour);
             await _context.SaveChangesAsync();
             return "Deleted Successfully";
         }
@@ -127,36 +126,36 @@ namespace Final_project_2.Controllers
         {
             if (id == 0) return View("/Error/NotFound");
             var temp_data = GetTour(id);
-            var form_data = new Image_properties()
-            {
-                Capacity = temp_data.Capacity,
-                Description = temp_data.Description,
-                Is_Acive = temp_data.Is_Acive,
-                Price_per_person = temp_data.Price_per_person,
-                Quality_level = temp_data.Quality_level,
-                Rules = temp_data.Rules,
-                Status_limit = temp_data.Status_limit,
-                Title = temp_data.Title ,
-                Touring_area = temp_data.Touring_area,
-                Tour_Name = temp_data.Tour_Name,
-                //Image_propertie0 = findImage(temp_data.Image_bg),
-                //Image_propertie1 = findImage(temp_data.Image1),
-                //Image_propertie2 = findImage(temp_data.Image2),
-                //Image_propertie3 = findImage(temp_data.Image3),
-                //Image_propertie4 = findImage(temp_data.Image4),
-                //Image_propertie5 = findImage(temp_data.Image5),
-                Image_bg = temp_data.Image_bg,
-                Image1 = temp_data.Image1,
-                Image2 = temp_data.Image2,
-                Image3 = temp_data.Image3,  
-                Image4 = temp_data.Image4,
-                Image5 = temp_data.Image5,
-                Id = id 
-            };
+            //var form_data = new Image_properties()
+            //{
+            //    Capacity = temp_data.Capacity,
+            //    Description = temp_data.Description,
+            //    Is_Acive = temp_data.Is_Acive,
+            //    Price_per_person = temp_data.Price_per_person,
+            //    Quality_level = temp_data.Quality_level,
+            //    Rules = temp_data.Rules,
+            //    Status_limit = temp_data.Status_limit,
+            //    Title = temp_data.Title ,
+            //    Touring_area = temp_data.Touring_area,
+            //    Tour_Name = temp_data.Tour_Name,
+            //    //Image_propertie0 = findImage(temp_data.Image_bg),
+            //    //Image_propertie1 = findImage(temp_data.Image1),
+            //    //Image_propertie2 = findImage(temp_data.Image2),
+            //    //Image_propertie3 = findImage(temp_data.Image3),
+            //    //Image_propertie4 = findImage(temp_data.Image4),
+            //    //Image_propertie5 = findImage(temp_data.Image5),
+            //    Image_bg = temp_data.Image_bg,
+            //    Image1 = temp_data.Image1,
+            //    Image2 = temp_data.Image2,
+            //    Image3 = temp_data.Image3,  
+            //    Image4 = temp_data.Image4,
+            //    Image5 = temp_data.Image5,
+            //    Id = id 
+            //};
             
 
 
-            return View(form_data);
+            return View(temp_data);
         }
 
         [HttpPost]
