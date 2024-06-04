@@ -69,11 +69,6 @@ namespace Final_project_2.Controllers
             };
 
             
-
-
-
-
-
             _context.Tour.Add(tour_obj);
             await _context.SaveChangesAsync();
 
@@ -85,17 +80,26 @@ namespace Final_project_2.Controllers
 
 
 
-        [Route("/Tour")]
-        [Route("/Tour/Index")]
-        public IActionResult Index()
-        {
-            return View();
-        }
+
         public Tour GetTour(int id)
         {
             
             return _context.Tour.FirstOrDefault(i => i.Id == id);
         }
+
+        public IActionResult Index(int id)
+        {
+            if (id <= 0) return NotFound();
+            ViewBag.Tour = GetTour(id);
+            var a =new ActiveToursController(_context).GetAllActiveTour();
+            //var b = a.Count();
+            ViewBag.Active_Tours = a;
+            return View();
+        }
+
+
+
+        
 
         public IEnumerable<Tour> GetAllTour() => _context.Tour;
 

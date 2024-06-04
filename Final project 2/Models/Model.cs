@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Drawing;
 
 namespace Final_project_2.Models
@@ -114,6 +115,8 @@ namespace Final_project_2.Models
     public class Active_Tours
     {
         public int Id { get; set; }
+        [NotMapped]
+        public int Tour_Id { get; set; }
         public Tour Tour { get; set; }
         public DateTime Start_time { get; set; }
         public DateTime End_time { get; set; }

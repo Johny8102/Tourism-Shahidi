@@ -12,6 +12,7 @@
 
     
   <ItemGroup>
+    <Content Remove="Views\ActiveTours\AddTour.cshtml" />
     <Content Remove="Views\Home\Person\AdminPanel.cshtml" />
     <Content Remove="Views\Home\Person\login.cshtml" />
     <Content Remove="Views\Home\Person\Profile.cshtml" />
@@ -43,20 +44,17 @@
       <None Include="Views\Person\login.cshtml" />
       <None Include="Views\Person\Profile.cshtml" />
       <None Include="Views\Person\signin.cshtml" />
-      <None Include="Views\Tour\Create.cshtml" />
       <None Include="Views\Tour\CreateTour.cshtml" />
       <None Include="Views\Tour\DeleteTour.cshtml" />
       <None Include="Views\Tour\Tour.cshtml" />
     </ItemGroup>
     
     <ItemGroup>
-      <Folder Include="Repository\" />
+      <Folder Include="Views\ActiveTours\" />
       <Folder Include="Views\Home\Person\" />
       <Folder Include="Views\Home\Tour\" />
       <Folder Include="wwwroot\Images\" />
     </ItemGroup>
 
-    <Target Name="Tailwind" BeforeTargets="Build">
-      <Exec Command="npm run css:build" />
-    </Target>
+   
 </Project>

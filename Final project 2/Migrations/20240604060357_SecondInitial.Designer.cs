@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Final_project_2.Migrations
 {
     [DbContext(typeof(Tourism))]
-    [Migration("20240513154930_edited1")]
-    partial class edited1
+    [Migration("20240604060357_SecondInitial")]
+    partial class SecondInitial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -39,10 +39,12 @@ namespace Final_project_2.Migrations
                     b.Property<DateTime>("Start_time")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("fk_Tour")
+                    b.Property<int>("TourId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("TourId");
 
                     b.ToTable("Active_Tours");
                 });
@@ -58,17 +60,21 @@ namespace Final_project_2.Migrations
                     b.Property<bool>("Is_Actived")
                         .HasColumnType("bit");
 
+                    b.Property<int>("PersonId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Text")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("fk_Person")
-                        .HasColumnType("int");
-
-                    b.Property<int>("fk_Tour")
+                    b.Property<int>("TourId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("PersonId");
+
+                    b.HasIndex("TourId");
 
                     b.ToTable("Comments");
                 });
@@ -85,10 +91,12 @@ namespace Final_project_2.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("fk_Tour")
+                    b.Property<int>("TourId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("TourId");
 
                     b.ToTable("Images");
                 });
@@ -146,10 +154,6 @@ namespace Final_project_2.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Phone")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("PhoneNumber")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -175,19 +179,23 @@ namespace Final_project_2.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<int>("Active_TourId")
+                        .HasColumnType("int");
+
                     b.Property<bool>("Is_Actived")
                         .HasColumnType("bit");
+
+                    b.Property<int>("PersonId")
+                        .HasColumnType("int");
 
                     b.Property<int>("Reserved_Count")
                         .HasColumnType("int");
 
-                    b.Property<int>("fk_Person")
-                        .HasColumnType("int");
-
-                    b.Property<int>("fk_Tour")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
+
+                    b.HasIndex("Active_TourId");
+
+                    b.HasIndex("PersonId");
 
                     b.ToTable("Reservations");
                 });
@@ -266,6 +274,66 @@ namespace Final_project_2.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Tour");
+                });
+
+            modelBuilder.Entity("Final_project_2.Models.Active_Tours", b =>
+                {
+                    b.HasOne("Final_project_2.Models.Tour", "Tour")
+                        .WithMany()
+                        .HasForeignKey("TourId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Tour");
+                });
+
+            modelBuilder.Entity("Final_project_2.Models.Comments", b =>
+                {
+                    b.HasOne("Final_project_2.Models.Person", "Person")
+                        .WithMany()
+                        .HasForeignKey("PersonId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Final_project_2.Models.Tour", "Tour")
+                        .WithMany()
+                        .HasForeignKey("TourId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Person");
+
+                    b.Navigation("Tour");
+                });
+
+            modelBuilder.Entity("Final_project_2.Models.Images", b =>
+                {
+                    b.HasOne("Final_project_2.Models.Tour", "Tour")
+                        .WithMany()
+                        .HasForeignKey("TourId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Tour");
+                });
+
+            modelBuilder.Entity("Final_project_2.Models.Reservation", b =>
+                {
+                    b.HasOne("Final_project_2.Models.Active_Tours", "Active_Tour")
+                        .WithMany()
+                        .HasForeignKey("Active_TourId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Final_project_2.Models.Person", "Person")
+                        .WithMany()
+                        .HasForeignKey("PersonId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Active_Tour");
+
+                    b.Navigation("Person");
                 });
 #pragma warning restore 612, 618
         }

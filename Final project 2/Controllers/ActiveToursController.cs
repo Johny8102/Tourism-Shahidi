@@ -1,8 +1,12 @@
 ﻿using Final_project_2.Models;
+using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Mvc;
+using RouteAttribute = Microsoft.AspNetCore.Mvc.RouteAttribute;
 
 namespace Final_project_2.Controllers
 {
+    
+    [Route("/ActiveTours/[action]")]
     public class ActiveToursController : Controller
     {
         private readonly Tourism _context;
@@ -12,31 +16,32 @@ namespace Final_project_2.Controllers
             _context = context;
         }
 
-        public IEnumerable<Active_Tours> GetAllTour() => _context.Active_Tours;
+        public IEnumerable<Active_Tours> GetAllActiveTour() => _context.Active_Tours;
 
-
-        public async Task<string> AddTour(Active_Tours tour)
+        [HttpPost]
+        public async Task<string> AddTour(Active_Tours activetour)
         {
-            await _context.Active_Tours.AddAsync(tour);
+            activetour.Tour = new TourController(_context).GetTour(activetour.Tour_Id);
+            await _context.Active_Tours.AddAsync(activetour);
             await _context.SaveChangesAsync();
 
             return "Added Successfully";
         }
 
-        public Active_Tours GetTour(int id)
+        public Active_Tours GetActiveTour(int id)
         {
 
             return _context.Active_Tours.FirstOrDefault(i => i.Id == id);
         }
 
-        public async Task<string> DeleteTour(Active_Tours tour)
+        public async Task<string> DeleteActiveTour(Active_Tours tour)
         {
             _context.Active_Tours.Remove(tour);
             await _context.SaveChangesAsync();
             return "Deleted Successfully";
         }
 
-        public async Task<Active_Tours> UpdateTour(Active_Tours tour)
+        public async Task<Active_Tours> UpdateActiveTour(Active_Tours tour)
         {
             _context.Active_Tours.Update(tour);
             await _context.SaveChangesAsync();
