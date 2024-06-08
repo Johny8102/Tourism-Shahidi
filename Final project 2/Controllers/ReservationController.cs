@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Final_project_2.Controllers
 {
+    [Route("/Reservation/[action]")]
     public class ReservationController : Controller
     {
         private readonly Tourism _context;
@@ -23,6 +24,8 @@ namespace Final_project_2.Controllers
 
         public async Task<string> AddReserve(Reservation reserve)
         {
+            reserve.Person= new PersonController(_context).GetPerson(reserve.fk_Person);
+            reserve.Active_Tour = new ActiveToursController(_context).GetActiveTour(reserve.fk_Active_Tour);
             await _context.Reservations.AddAsync(reserve);
             await _context.SaveChangesAsync();
 

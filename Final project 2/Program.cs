@@ -9,7 +9,7 @@ builder.Services.AddControllersWithViews();
 
 IConfiguration configuration = null;
 
-builder.Services.AddDbContext<Tourism>(options => options.UseSqlServer("server=DESKTOP-JP3GS28\\SQLEXPRESS;database=Tourism;TrustServerCertificate=True;Trusted_Connection=true"));
+builder.Services.AddDbContext<Tourism>(options => options.UseSqlServer("server=DESKTOP-JP3GS28\\SQLEXPRESS;database=Tourism;TrustServerCertificate=True;Trusted_Connection=true;Multiple Active Result Sets=True;"));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

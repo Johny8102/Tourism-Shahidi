@@ -56,5 +56,7 @@
       <Folder Include="wwwroot\Images\" />
     </ItemGroup>
 
-   
+	<Target Name="Tailwind" BeforeTargets="Build">
+		<Exec Command="npm run css:build" />
+	</Target>
 </Project>

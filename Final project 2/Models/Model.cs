@@ -89,24 +89,49 @@ namespace Final_project_2.Models
         public int Id { get; set; }
         public Tour Tour { get; set; }
         public Person Person { get; set; }
+
+        public Comments? comment { set; get; }
+        [ForeignKey("Comments")]
+        public int? fk_comment { set; get; }
+
+        [NotMapped]
+        public string Tour_Name { get; set; }
+        [NotMapped]
+        public string Person_Name { get; set; }
         public string Text { get; set; }
         public bool Is_Actived { get; set; }
+
+        [ForeignKey("Tour")]
+        public int fk_Tour { get; set; }
+        [ForeignKey("Person")]
+        public int fk_Person { get; set; }
 
     }
 
     public class Reservation
     {
         public int Id { get; set; }
+       
+        [NotMapped]
+        public string Tour_Name { get; set; }
+        [NotMapped]
+        public string Person_Name { get; set; }
         public Active_Tours Active_Tour { get; set; }
         public Person Person { get; set; }
-        public bool Is_Actived { get; set; }
+        public bool Is_Actived { get; set; } = false;
         public int Reserved_Count { get; set; }
 
+        [ForeignKey("Active_Tour")]
+        public int fk_Active_Tour { get; set; }
+        [ForeignKey("Person")]
+        public int fk_Person { get; set; }
     }
 
     public class Images
     {
         public int Id { get; set; }
+        [ForeignKey("Tour")]
+        public int fk_Tour { get; set; }
         public Tour Tour { get; set; }
         public string Image_Address { get; set; }
     }
@@ -115,11 +140,12 @@ namespace Final_project_2.Models
     public class Active_Tours
     {
         public int Id { get; set; }
-        [NotMapped]
-        public int Tour_Id { get; set; }
+
         public Tour Tour { get; set; }
-        public DateTime Start_time { get; set; }
-        public DateTime End_time { get; set; }
+        [ForeignKey("Tour")]
+        public int fk_Tour { get; set; }
+        public DateOnly Start_time { get; set; }
+        public DateOnly End_time { get; set; }
     }
 
 }

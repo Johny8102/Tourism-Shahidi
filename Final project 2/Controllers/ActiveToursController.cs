@@ -20,8 +20,8 @@ namespace Final_project_2.Controllers
 
         [HttpPost]
         public async Task<string> AddTour(Active_Tours activetour)
-        {
-            activetour.Tour = new TourController(_context).GetTour(activetour.Tour_Id);
+        {   
+            activetour.Tour = new TourController(_context).GetTour(activetour.fk_Tour);
             await _context.Active_Tours.AddAsync(activetour);
             await _context.SaveChangesAsync();
 
@@ -34,9 +34,11 @@ namespace Final_project_2.Controllers
             return _context.Active_Tours.FirstOrDefault(i => i.Id == id);
         }
 
-        public async Task<string> DeleteActiveTour(Active_Tours tour)
+
+        [HttpPost]
+        public async Task<string> DeleteActiveTour(int id)
         {
-            _context.Active_Tours.Remove(tour);
+            _context.Active_Tours.Remove(GetActiveTour(id));
             await _context.SaveChangesAsync();
             return "Deleted Successfully";
         }

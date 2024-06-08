@@ -4,6 +4,7 @@ using Final_project_2.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Final_project_2.Migrations
 {
     [DbContext(typeof(Tourism))]
-    partial class TourismModelSnapshot : ModelSnapshot
+    [Migration("20240606070508_EditDate")]
+    partial class EditDate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -36,12 +39,12 @@ namespace Final_project_2.Migrations
                     b.Property<DateOnly>("Start_time")
                         .HasColumnType("date");
 
-                    b.Property<int>("fk_Tour")
+                    b.Property<int>("TourId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("fk_Tour");
+                    b.HasIndex("TourId");
 
                     b.ToTable("Active_Tours");
                 });
@@ -57,21 +60,21 @@ namespace Final_project_2.Migrations
                     b.Property<bool>("Is_Actived")
                         .HasColumnType("bit");
 
+                    b.Property<int>("PersonId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Text")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("fk_Person")
-                        .HasColumnType("int");
-
-                    b.Property<int>("fk_Tour")
+                    b.Property<int>("TourId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("fk_Person");
+                    b.HasIndex("PersonId");
 
-                    b.HasIndex("fk_Tour");
+                    b.HasIndex("TourId");
 
                     b.ToTable("Comments");
                 });
@@ -88,12 +91,12 @@ namespace Final_project_2.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("fk_Tour")
+                    b.Property<int>("TourId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("fk_Tour");
+                    b.HasIndex("TourId");
 
                     b.ToTable("Images");
                 });
@@ -176,23 +179,23 @@ namespace Final_project_2.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<int>("Active_TourId")
+                        .HasColumnType("int");
+
                     b.Property<bool>("Is_Actived")
                         .HasColumnType("bit");
+
+                    b.Property<int>("PersonId")
+                        .HasColumnType("int");
 
                     b.Property<int>("Reserved_Count")
                         .HasColumnType("int");
 
-                    b.Property<int>("fk_Active_Tour")
-                        .HasColumnType("int");
-
-                    b.Property<int>("fk_Person")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("fk_Active_Tour");
+                    b.HasIndex("Active_TourId");
 
-                    b.HasIndex("fk_Person");
+                    b.HasIndex("PersonId");
 
                     b.ToTable("Reservations");
                 });
@@ -277,7 +280,7 @@ namespace Final_project_2.Migrations
                 {
                     b.HasOne("Final_project_2.Models.Tour", "Tour")
                         .WithMany()
-                        .HasForeignKey("fk_Tour")
+                        .HasForeignKey("TourId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -288,13 +291,13 @@ namespace Final_project_2.Migrations
                 {
                     b.HasOne("Final_project_2.Models.Person", "Person")
                         .WithMany()
-                        .HasForeignKey("fk_Person")
+                        .HasForeignKey("PersonId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Final_project_2.Models.Tour", "Tour")
                         .WithMany()
-                        .HasForeignKey("fk_Tour")
+                        .HasForeignKey("TourId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -307,7 +310,7 @@ namespace Final_project_2.Migrations
                 {
                     b.HasOne("Final_project_2.Models.Tour", "Tour")
                         .WithMany()
-                        .HasForeignKey("fk_Tour")
+                        .HasForeignKey("TourId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -318,13 +321,13 @@ namespace Final_project_2.Migrations
                 {
                     b.HasOne("Final_project_2.Models.Active_Tours", "Active_Tour")
                         .WithMany()
-                        .HasForeignKey("fk_Active_Tour")
+                        .HasForeignKey("Active_TourId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Final_project_2.Models.Person", "Person")
                         .WithMany()
-                        .HasForeignKey("fk_Person")
+                        .HasForeignKey("PersonId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
