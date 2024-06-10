@@ -4,6 +4,7 @@ using Final_project_2.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Final_project_2.Migrations
 {
     [DbContext(typeof(Tourism))]
-    partial class TourismModelSnapshot : ModelSnapshot
+    [Migration("20240608092527_CommentFK2")]
+    partial class CommentFK2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -61,8 +64,8 @@ namespace Final_project_2.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("Time")
-                        .HasColumnType("datetime2");
+                    b.Property<int?>("commentId")
+                        .HasColumnType("int");
 
                     b.Property<int>("fk_Person")
                         .HasColumnType("int");
@@ -74,6 +77,8 @@ namespace Final_project_2.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("commentId");
 
                     b.HasIndex("fk_Person");
 
@@ -292,6 +297,10 @@ namespace Final_project_2.Migrations
 
             modelBuilder.Entity("Final_project_2.Models.Comments", b =>
                 {
+                    b.HasOne("Final_project_2.Models.Comments", "comment")
+                        .WithMany()
+                        .HasForeignKey("commentId");
+
                     b.HasOne("Final_project_2.Models.Person", "Person")
                         .WithMany()
                         .HasForeignKey("fk_Person")
@@ -307,6 +316,8 @@ namespace Final_project_2.Migrations
                     b.Navigation("Person");
 
                     b.Navigation("Tour");
+
+                    b.Navigation("comment");
                 });
 
             modelBuilder.Entity("Final_project_2.Models.Images", b =>

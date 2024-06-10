@@ -1,4 +1,5 @@
 ﻿using Final_project_2.Models;
+using Final_project_2.Repository;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis.FlowAnalysis;
 using Microsoft.EntityFrameworkCore;
@@ -10,11 +11,15 @@ namespace Final_project_2.Controllers
     [Route("/Tour/[action]")]
     public class TourController : Controller
     {
-        private readonly Tourism _context;
+        private readonly ITourismRepository<Tour> _ToursRepo;
+        private readonly ITourismRepository<Active_Tours> _ActiveToursRepo;
+        private readonly ITourismRepository<Comments> _CommentsRepo;
 
-        public TourController(Tourism context)
+        public TourController(ITourismRepository<Tour> ToursRepo, ITourismRepository<Active_Tours> ActiveToursRepo, ITourismRepository<Comments> CommentsRepo)
         {
-            _context = context;
+            _ToursRepo = ToursRepo;
+            _ActiveToursRepo = ActiveToursRepo;
+            _CommentsRepo = CommentsRepo;
         }
 
         public string ImageAdder(IFormFile file)
@@ -46,7 +51,7 @@ namespace Final_project_2.Controllers
         }
 
         [HttpPost]
-        public async Task<string> CreateTour(Tour_Items tour)
+        public string CreateTour(Tour_Items tour)
         {
             var tour_obj = new Tour()
             {
@@ -68,9 +73,8 @@ namespace Final_project_2.Controllers
                 Image_bg = ImageAdder(tour.Image_holderbg)
             };
 
-            
-            _context.Tour.Add(tour_obj);
-            await _context.SaveChangesAsync();
+
+            _ToursRepo.Create(tour_obj);
 
             return "Added Successfully";
         }
@@ -81,19 +85,16 @@ namespace Final_project_2.Controllers
 
 
 
-        public Tour GetTour(int id)
-        {
-            
-            return _context.Tour.FirstOrDefault(i => i.Id == id);
-        }
+        public Tour GetTour(int id) => _ToursRepo.GetById(id);
 
         public IActionResult Index(int id)
         {
             if (id <= 0) return NotFound();
-            ViewBag.Tour = GetTour(id);
-            var a =new ActiveToursController(_context).GetAllActiveTour();
-            //var b = a.Count();
-            ViewBag.Active_Tours = a;
+            ViewBag.Tour = _ToursRepo.GetById(id);
+            ViewBag.Active_Tours = _ActiveToursRepo.GetAll().Where(i=>i.fk_Tour == id);
+            ViewBag.Comments = _CommentsRepo.GetAll();
+                
+            
             return View();
         }
 
@@ -101,7 +102,7 @@ namespace Final_project_2.Controllers
 
         
 
-        public IEnumerable<Tour> GetAllTour() => _context.Tour;
+        public IEnumerable<Tour> GetAllTour() => _ToursRepo.GetAll();
 
 
 
@@ -109,10 +110,9 @@ namespace Final_project_2.Controllers
         
 
         [HttpPost]
-        public async Task<string> DeleteTour(Tour tour)
+        public string DeleteTour(Tour tour)
         {
-            _context.Tour.Remove(tour);
-            await _context.SaveChangesAsync();
+            _ToursRepo.Delete(tour.Id);
             return "Deleted Successfully";
         }
 
@@ -163,7 +163,7 @@ namespace Final_project_2.Controllers
         }
 
         [HttpPost]
-        public async Task<Tour> UpdateTour(Tour_Items tour)
+        public Tour UpdateTour(Tour_Items tour)
         {
             var tour_temp = new Tour()
             {
@@ -189,8 +189,7 @@ namespace Final_project_2.Controllers
             };
 
 
-            _context.Tour.Update(tour_temp);
-            await _context.SaveChangesAsync();
+            _ToursRepo.Update(tour);
             return tour;
 
         }

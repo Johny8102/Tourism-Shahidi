@@ -20,6 +20,7 @@ namespace Final_project_2.Models
         [Required]
         public string Email { get; set; }
 
+        
         [Required]
         [MinLength(11)]
         public string PhoneNumber { get; set; } 
@@ -87,20 +88,21 @@ namespace Final_project_2.Models
     public class Comments
     {
         public int Id { get; set; }
-        public Tour Tour { get; set; }
-        public Person Person { get; set; }
+        public string Text { get; set; }
+        public bool Is_Actived { get; set; }
 
-        public Comments? comment { set; get; }
-        [ForeignKey("Comments")]
-        public int? fk_comment { set; get; }
+
+        public DateTime Time { get; set; }
 
         [NotMapped]
         public string Tour_Name { get; set; }
         [NotMapped]
         public string Person_Name { get; set; }
-        public string Text { get; set; }
-        public bool Is_Actived { get; set; }
-
+        public Tour Tour { get; set; }
+        public Person Person { get; set; }
+        
+        [ForeignKey("Comments")]
+        public Nullable<int> fk_comment { set; get; }
         [ForeignKey("Tour")]
         public int fk_Tour { get; set; }
         [ForeignKey("Person")]

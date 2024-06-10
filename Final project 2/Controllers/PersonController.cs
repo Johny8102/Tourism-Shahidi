@@ -1,4 +1,5 @@
 ﻿using Final_project_2.Models;
+using Final_project_2.Repository;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Final_project_2.Controllers
@@ -7,18 +8,25 @@ namespace Final_project_2.Controllers
     public class PersonController : Controller
     {
 
-        private readonly Tourism _context;
-
-        public PersonController(Tourism tourism)
+        private readonly ITourismRepository<Person> _PersonRepo;
+        private readonly ITourismRepository<Tour> _TourRepo;
+        private readonly ITourismRepository<Comments> _CommentsRepo;
+        private readonly ITourismRepository<Reservation> _ReservationsRepo;
+        private readonly ITourismRepository<Active_Tours> _ActiveToursRepo;
+        public PersonController(ITourismRepository<Person> Person , ITourismRepository<Tour> Tour, ITourismRepository<Comments> Comments , ITourismRepository<Reservation> Reserve , ITourismRepository<Active_Tours> ActiveToursRepo)
         {
-            _context = tourism;
+            _PersonRepo = Person;
+            _TourRepo = Tour;
+            _CommentsRepo = Comments;
+            _ReservationsRepo = Reserve;
+            _ActiveToursRepo = ActiveToursRepo;
         }
         //public IActionResult Index()
         //{
         //    return View();
         //}
 
-        public IEnumerable<Person> GetAllPerson() => _context.Person;
+        public IEnumerable<Person> GetAllPerson() => _PersonRepo.GetAll();
 
         public IActionResult CreatePerson()
         {
@@ -27,16 +35,15 @@ namespace Final_project_2.Controllers
 
         public IActionResult AdminPanel()
         {
-            var tour = new TourController(_context);
-            var person = new PersonController(_context);
-            ViewBag.Tours = tour.GetAllTour().Select(i => new Tour()
+            
+            ViewBag.Tours = _TourRepo.GetAll().Select(i => new Tour()
             {
                 Id = i.Id,
                 Title = i.Title,
                 Tour_Name = i.Tour_Name
             });
 
-            ViewBag.Person = person.GetAllPerson().Select(i => new Person
+            ViewBag.Person = _PersonRepo.GetAll().Select(i => new Person
             {
                 Id = i.Id,
                 Name = i.Name,
@@ -45,11 +52,11 @@ namespace Final_project_2.Controllers
                 Email = i.Email
             });
 
-            ViewBag.Reservation = new ReservationController(_context).GetAllReserve().Select(i => new Reservation()
+            ViewBag.Reservation = _ReservationsRepo.GetAll().Select(i => new Reservation()
             {
                 Id = i.Id,
                 Reserved_Count = i.Reserved_Count,
-                Tour_Name = tour.GetTour(new ActiveToursController(_context).GetActiveTour(i.fk_Active_Tour).fk_Tour).Tour_Name,
+                Tour_Name = _TourRepo.GetById(_ActiveToursRepo.GetById(i.fk_Active_Tour).fk_Tour).Tour_Name,
                 Person_Name = i.Person.Username,
                 Is_Actived = i.Is_Actived,
             });
@@ -69,10 +76,9 @@ namespace Final_project_2.Controllers
         }
 
         [HttpPost]
-        public async Task<string> CreatePerson(Person person)
+        public string CreatePerson(Person person)
         {
-            await _context.Person.AddAsync(person);
-            await _context.SaveChangesAsync();
+            _PersonRepo.Create(person);
 
             return "Added Successfully";
         }
@@ -87,16 +93,15 @@ namespace Final_project_2.Controllers
         public Person GetPerson(int id)
         {
 
-            return _context.Person.FirstOrDefault(i => i.Id == id);
+            return _PersonRepo.GetById(id);
         }
 
         
 
 
-        public async Task<string> DeletePerson(Person person)
+        public string DeletePerson(Person person)
         {
-            _context.Person.Remove(person);
-            await _context.SaveChangesAsync();
+            _PersonRepo.Delete(person.Id);
             return "Deleted Successfully";
         }
 
@@ -105,10 +110,9 @@ namespace Final_project_2.Controllers
             return View(GetPerson(id));
         }
 
-        public async Task<Person> UpdatePerson(Person person)
+        public Person UpdatePerson(Person person)
         {
-            _context.Person.Update(person);
-            await _context.SaveChangesAsync();
+            _PersonRepo.Update(person);
             return person;
 
         }

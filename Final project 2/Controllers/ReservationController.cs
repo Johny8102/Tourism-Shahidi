@@ -1,4 +1,5 @@
 ﻿using Final_project_2.Models;
+using Final_project_2.Repository;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -7,48 +8,36 @@ namespace Final_project_2.Controllers
     [Route("/Reservation/[action]")]
     public class ReservationController : Controller
     {
-        private readonly Tourism _context;
+        private readonly ITourismRepository<Reservation> _ReserveRepo;
 
-        public ReservationController(Tourism tourism)
+        public ReservationController(ITourismRepository<Reservation> ReserveRepo)
         {
-            _context = tourism;
+            _ReserveRepo = ReserveRepo;
         }
 
-        //public IActionResult Index()
-        //{
-        //    return View();
-        //}
 
-        public IEnumerable<Reservation> GetAllReserve() => _context.Reservations;
+        public IEnumerable<Reservation> GetAllReserve() => _ReserveRepo.GetAll();
 
 
-        public async Task<string> AddReserve(Reservation reserve)
+        public string AddReserve(Reservation reserve)
         {
-            reserve.Person= new PersonController(_context).GetPerson(reserve.fk_Person);
-            reserve.Active_Tour = new ActiveToursController(_context).GetActiveTour(reserve.fk_Active_Tour);
-            await _context.Reservations.AddAsync(reserve);
-            await _context.SaveChangesAsync();
+            _ReserveRepo.Create(reserve);
 
             return "Added Successfully";
         }
 
-        public Reservation GetReserve(int id)
-        {
+        public Reservation GetReserve(int id)=> _ReserveRepo.GetById(id);
+        
 
-            return _context.Reservations.FirstOrDefault(i => i.Id == id);
-        }
-
-        public async Task<string> DeleteReservation(Reservation reserve)
+        public string DeleteReservation(Reservation reserve)
         {
-            _context.Reservations.Remove(reserve);
-            await _context.SaveChangesAsync();
+            _ReserveRepo.Delete(reserve.Id);
             return "Deleted Successfully";
         }
 
-        public async Task<Reservation> UpdateReserve(Reservation reserve)
+        public Reservation UpdateReserve(Reservation reserve)
         {
-            _context.Reservations.Update(reserve);
-            await _context.SaveChangesAsync();
+            _ReserveRepo.Update(reserve);
             return reserve;
 
         }

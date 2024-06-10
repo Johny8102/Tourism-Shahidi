@@ -1,52 +1,42 @@
 ﻿using Final_project_2.Models;
+using Final_project_2.Repository;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace Final_project_2.Controllers
 {
+    [Route("Comments/[action]")]
     public class CommentsController : Controller
     {
-        private readonly Tourism _context;
+        private readonly ITourismRepository<Comments> _CommentsRepo;
 
-        public CommentsController(Tourism tourism)
+        public CommentsController(ITourismRepository<Comments> CommentsRepo)
         {
-            _context = tourism;
+            _CommentsRepo = CommentsRepo;
         }
 
-        //public IActionResult Index()
-        //{
-        //    return View();
-        //}
+        public IEnumerable<Comments> GetAllComment() => _CommentsRepo.GetAll();
 
 
-        public IEnumerable<Comments> GetAllComment() => _context.Comments;
-
-
-        public async Task<string> AddComment(Comments comment)
+        public  string  AddComment(Comments comment)
         {
-            await _context.Comments.AddAsync(comment);
-            await _context.SaveChangesAsync();
-
+            comment.Time = DateTime.Now;
+            _CommentsRepo.Create(comment);
             return "Added Successfully";
         }
 
-        public Comments GetComment(int id)
-        {
+        public Comments GetComment(int id)=>  _CommentsRepo.GetById(id);
 
-            return _context.Comments.FirstOrDefault(i => i.Id == id);
-        }
-
-        public async Task<string> DeleteComment(Comments comment)
+        public string  DeleteComment(Comments comment)
         {
-            _context.Comments.Remove(comment);
-            await _context.SaveChangesAsync();
+            _CommentsRepo.Delete(comment.Id);
             return "Deleted Successfully";
         }
 
-        public async Task<Comments> UpdateComment(Comments comment)
+        public Comments UpdateComment(Comments comment)
         {
-            _context.Comments.Update(comment);
-            await _context.SaveChangesAsync();
+            comment.Time = DateTime.Now;
+            _CommentsRepo.Update(comment);
             return comment;
 
         }
