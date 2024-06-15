@@ -9,37 +9,72 @@ namespace Final_project_2.Controllers
     public class CommentsController : Controller
     {
         private readonly ITourismRepository<Comments> _CommentsRepo;
-
-        public CommentsController(ITourismRepository<Comments> CommentsRepo)
+        private readonly ITourismRepository<Person> _PersonRepo;
+        private readonly ITourismRepository<Tour> _TourRepo;
+        public CommentsController(ITourismRepository<Comments> CommentsRepo , ITourismRepository<Person> PersonRepo, ITourismRepository<Tour> TourRepo)
         {
             _CommentsRepo = CommentsRepo;
+            _PersonRepo = PersonRepo;
+            _TourRepo = TourRepo;
         }
 
         public IEnumerable<Comments> GetAllComment() => _CommentsRepo.GetAll();
 
 
-        public  string  AddComment(Comments comment)
+
+        public IActionResult Index()
+        {
+            return View(GetAllComment().Select(x => new Comments()
+            {
+                Is_Actived = x.Is_Actived,
+                Id = x.Id,
+                Text = x.Text,
+                Time = x.Time,
+                Person_Name = _PersonRepo.GetById(x.fk_Person).Username,
+                Tour_Name = _TourRepo.GetById(x.fk_Tour).Tour_Name
+            }));
+        }
+
+        public IActionResult Index(int personId)
+        {
+            return View(GetAllComment().Where(i=>i.fk_Person == personId).Select(x => new Comments()
+            {
+                Is_Actived = x.Is_Actived,
+                Id = x.Id,
+                Text = x.Text,
+                Time = x.Time,
+                Person_Name = _PersonRepo.GetById(x.fk_Person).Username,
+                Tour_Name = _TourRepo.GetById(x.fk_Tour).Tour_Name
+            }));
+        }
+
+
+
+        public  IActionResult  AddComment(Comments comment)
         {
             comment.Time = DateTime.Now;
             _CommentsRepo.Create(comment);
-            return "Added Successfully";
+            return RedirectToAction("Tour", "TourController", new { id = comment.fk_Tour });
         }
 
         public Comments GetComment(int id)=>  _CommentsRepo.GetById(id);
 
-        public string  DeleteComment(Comments comment)
+        public string  DeleteComment(int Id)
         {
-            _CommentsRepo.Delete(comment.Id);
+            _CommentsRepo.Delete(Id);
             return "Deleted Successfully";
         }
 
-        public Comments UpdateComment(Comments comment)
+        public IActionResult RegisterComment(int id)
         {
-            comment.Time = DateTime.Now;
-            _CommentsRepo.Update(comment);
-            return comment;
+            var item = GetComment(id);
+            item.Is_Actived = true;
+            _CommentsRepo.Update(item);
+            return RedirectToAction( "Index","Comments");
 
         }
+
+
 
 
     }

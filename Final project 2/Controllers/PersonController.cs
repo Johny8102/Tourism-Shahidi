@@ -57,23 +57,31 @@ namespace Final_project_2.Controllers
                 Id = i.Id,
                 Reserved_Count = i.Reserved_Count,
                 Tour_Name = _TourRepo.GetById(_ActiveToursRepo.GetById(i.fk_Active_Tour).fk_Tour).Tour_Name,
-                Person_Name = i.Person.Username,
+                Person_Name = _PersonRepo.GetById(i.fk_Person).Name,
                 Is_Actived = i.Is_Actived,
             });
-            //i.Active_Tour.fk_Tour
-            //ViewBag.Comments = new CommentsController(_context).GetAllComment().Select(i => new Comments()
-            //{
-            //    Id=i.Id,
-            //    Person_Name= i.Person.Name,
-            //    Tour_Name = i.Tour.Tour_Name,
-            //    Text = i.Text,
-            //    Is_Actived=i.Is_Actived
-            //});
+            
+            ViewBag.Comments = _CommentsRepo.GetAll().Select(i => new Comments()
+            {
+                Id = i.Id,
+                Person_Name = _PersonRepo.GetById(i.fk_Person).Name,
+                Tour_Name = _TourRepo.GetById(i.fk_Tour).Tour_Name,
+                Time = i.Time,
+                Text = i.Text,
+                Is_Actived = i.Is_Actived
+            });
 
 
 
             return View();
         }
+
+        public IActionResult Index()
+        {
+
+            return View(GetAllPerson());
+        }
+
 
         [HttpPost]
         public string CreatePerson(Person person)
@@ -85,8 +93,25 @@ namespace Final_project_2.Controllers
 
         public IActionResult Profile(int id)
         {
-            
-            return View(GetPerson(id));
+            ViewBag.Person = GetPerson(id);
+            ViewBag.Comments = _CommentsRepo.GetAll().Where(i => i.fk_Person == id).Select(i => new Comments()
+            {
+                Id = i.Id,
+                Person_Name = _PersonRepo.GetById(i.fk_Person).Name,
+                Tour_Name = _TourRepo.GetById(i.fk_Tour).Tour_Name,
+                Time = i.Time,
+                Text = i.Text,
+                Is_Actived = i.Is_Actived
+            });
+            ViewBag.Reservation = _ReservationsRepo.GetAll().Where(i => i.fk_Person == id).Select(i => new Reservation()
+            {
+                Id = i.Id,
+                Reserved_Count = i.Reserved_Count,
+                Tour_Name = _TourRepo.GetById(_ActiveToursRepo.GetById(i.fk_Active_Tour).fk_Tour).Tour_Name,
+                Person_Name = _PersonRepo.GetById(i.fk_Person).Name,
+                Is_Actived = i.Is_Actived,
+            });
+            return View();
         }
 
 

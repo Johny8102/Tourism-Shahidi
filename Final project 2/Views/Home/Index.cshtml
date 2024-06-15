@@ -1,4 +1,6 @@
-﻿@{
+﻿@model System.Dynamic.ExpandoObject;
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -6,7 +8,7 @@
 
     <div>
 
-        
+        <!-- npx tailwindcss -i ./wwwroot/css/site.css -o ./wwwroot/css/style.css --watch --->
 
         <!-- --------   Content   -------- -->
 
@@ -157,69 +159,29 @@
           <div class="lg:space-y-0">
             <div class="max-w-7xl sm:px-6">
               <div class="mx-auto max-w-2xl sm:py-24 lg:max-w-none">
-                
+                <!---- A Row of pictures------>
                 <div class="lg:grid lg:grid-cols-3 lg:gap-x-6">
-                  <!---- A Row of pictures------>
-                  <div class="">
-                    <a href="">
-                      <div class="w-full overflow-hidden rounded-2xl border border-gray-300 bg-gray-50 group-hover:opacity-75">
-                        <img src="../Media/Photo/barca-cruise.webp" alt="Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug." class="object-contain object-top">
-                        <h3 class="bold mr-2 mt-1 text-xl font-semibold text-black">
-                          <a href="#">
-                            
-                            مشهد
-                          </a>
-                        </h3>
-                        
-                        <p class="font mr-2 mt-1 text-base text-gray-700">Work from home accessories</p>
-                        <p class="font mr-2 mt-4 text-base text-gray-700">Price stats from</p>
-                        <p class="float-left my-4 ml-2 text-xl font-semibold text-green-900">360,000,000</p>
-                        
-                        
-                      </div>
-                    </a>
-                    
-                  </div>
-                  <div class="">
-                    <a href="">
-                      <div class="w-full overflow-hidden rounded-2xl border border-gray-300 bg-gray-50 group-hover:opacity-75">
-                        <img src="../Media/Photo/barca-cruise.webp" alt="Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug." class="object-contain object-top">
-                        <h3 class="bold mr-2 mt-1 text-xl font-semibold text-black">
-                          <a href="#">
-                            
-                            مشهد
-                          </a>
-                        </h3>
-                        
-                        <p class="font mr-2 mt-1 text-base text-gray-700">Work from home accessories</p>
-                        <p class="font mr-2 mt-4 text-base text-gray-700">Price stats from</p>
-                        <p class="float-left my-4 ml-2 text-xl font-semibold text-green-900">360,000,000</p>
-                        
-                        
-                      </div>
-                    </a>
-                    
-                  </div>
-                  <div class="">
-                    <a href="">
-                      <div class="w-full overflow-hidden rounded-2xl border border-gray-300 bg-gray-50 group-hover:opacity-75">
-                        <img src="../Media/Photo/barca-cruise.webp" alt="Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug." class="object-contain object-top">
-                        <h3 class="bold mr-2 mt-1 text-xl font-semibold text-black">
-                          <a href="#">
-                            
-                            مشهد
-                          </a>
-                        </h3>
-                        
-                        <p class="font mr-2 mt-1 text-base text-gray-700">Work from home accessories</p>
-                        <p class="font mr-2 mt-4 text-base text-gray-700">Price stats from</p>
-                        <p class="float-left my-4 ml-2 text-xl font-semibold text-green-900">360,000,000</p>
-                        
-                        
-                      </div>
-                    </a>
-                    
-                  </div>
+                        @foreach (Tour tour in ViewBag.Tours)
+                    {
+                        <div class="">
+                            <a href="">
+                                <div class="w-full overflow-hidden rounded-2xl border border-gray-300 bg-gray-50 group-hover:opacity-75">
+                                        <img src="@Url.Content("~/Images/" + tour.Image5)" alt="TourPicture" class="object-contain object-top">
+                                    <h3 class="bold mr-2 mt-1 text-xl font-semibold text-black">
+                                        @tour.Tour_Name
+                                    </h3>
+
+                                    <p class="font mr-2 mt-1 text-base text-gray-700">@tour.Title</p>
+                                    <p class="font mr-2 mt-4 text-base text-gray-700">Price stats from</p>
+                                    <p class="float-left my-4 ml-2 text-xl font-semibold text-green-900">@tour.Price_per_person</p>
+
+
+                                </div>
+                            </a>
+                        </div>
+                    }
+                       
+                 
                 </div>
 
 
@@ -227,28 +189,7 @@
 <!------------------------------------------------------------------------------------------------------------------------>
 <!------------------------------------------------------------------------------------------------------------------------>
 
-                <div class="mt-10 lg:grid lg:grid-cols-3 lg:gap-x-6" id="">
-                  <div class="">
-                    <a href="">
-                      <div class="w-full overflow-hidden rounded-2xl border border-gray-300 bg-gray-50 group-hover:opacity-75">
-                        <img src="../Media/Photo/barca-cruise.webp" alt="Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug." class="object-contain object-top">
-                        <h3 class="bold mr-2 mt-1 text-xl font-semibold text-black">
-                          <a href="#">
-                            
-                            مشهد
-                          </a>
-                        </h3>
-                        
-                        <p class="font mr-2 mt-1 text-base text-gray-700">Work from home accessories</p>
-                        <p class="font mr-2 mt-4 text-base text-gray-700">Price stats from</p>
-                        <p class="float-left my-4 ml-2 text-xl font-semibold text-green-900">360,000,000</p>
-                        
-                        
-                      </div>
-                    </a>
-                    
-                  </div>
-                </div>
+               
                 
               </div>
             </div>

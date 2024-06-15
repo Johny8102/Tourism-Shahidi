@@ -46,7 +46,6 @@
       <None Include="Views\Person\signin.cshtml" />
       <None Include="Views\Tour\CreateTour.cshtml" />
       <None Include="Views\Tour\DeleteTour.cshtml" />
-      <None Include="Views\Tour\Tour.cshtml" />
     </ItemGroup>
     
     <ItemGroup>

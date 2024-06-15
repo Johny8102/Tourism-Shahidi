@@ -1,480 +1,634 @@
-<!DOCTYPE html>
-<html lang="en" dir="">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../output.css"/>
-    <script src="./Tour.js" defer></script>
-    
-    <title>Tour</title>
-</head>
-<body>
-    <div class="bg-white">
-      <div id="Tourpicpopup" style="grid-template-columns: 30px auto 30px;" class="bg-black invisible  w-full z-50 h-full fixed grid  content-center ">
-      
-        
-        <button onclick="lastphoto()" class="text-gray-300 text-2xl  hover:text-white  h-full  mt-0">
+﻿@model System.Dynamic.ExpandoObject;
+@*@model Final_project_2.Models.Image_properties*@
 
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
-          </svg>
-          
-        </button>
+@{
+    ViewData["Title"] = "Tour";
+}
 
-        <img src="" class="mt-24 mx-auto w-3/4 h-3/4" id="popupimg" alt="">
 
-        
-        
-        <div>
-          <button onclick="exitpopup()" class="text-gray-300  absolute top-0 my-5  hover:text-white  h-12 ">
 
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-            </svg>
-            
-            
-            
-          </button>
 
-          <button onclick="nextphoto()" class="text-gray-300    hover:text-white  h-full ml-0 ">
 
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class=" w-6 h-6">
-              <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-            </svg>
-            
-            
-          </button>
+
+
+<div class="bg-gray-100">
+
+
+    <h2 class="leading-7 my-10 text-center text-2xl font-semibold text-gray-900">@ViewBag.Tour.Tour_Name</h2>
+
+
+        <div class="border-gray-900/25 mt-2 flex justify-center rounded-lg border border-dashed px-6 py-10">
+
+
+        <img class="w-full" id="blah_bg" src="@Url.Content("~/Images/" + ViewBag.Tour.Image_bg)" />
+
+
         </div>
-        
 
-      </div>
-      <nav class="bg-white">
-        <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-          <div class="relative flex h-16 items-center justify-between">
-            <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
-            <!-- Mobile menu button-->
-              <button type="button" class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
-                <span class="absolute -inset-0.5"></span>
-                <span class="sr-only">Open main menu</span>
-                <!--
-                Icon when menu is closed.
-    
-                Menu open: "hidden", Menu closed: "block"
-                -->
-                <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                </svg>
-                <!--
-                Icon when menu is open.
-    
-                Menu open: "block", Menu closed: "hidden"
-                -->
-                <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                </svg>
+
+    <p class="">@ViewBag.Tour.Id"</p> 
+
+
+
+
+
+
+        <div class="grid-cols-1 mx-auto grid max-w-2xl items-center gap-x-8 gap-y-16 px-4 py-24 sm:px-6 sm:py-32 lg:max-w-7xl lg:grid-cols-2 lg:px-8">
+            <div>
+                <div style="display: grid;  column-gap: 20px;" class="grid-cols-5">
+
+                    <div class="col-span-2">
+
+                        <div class="my-2 flex sm:max-w-md">
+                            <p class="flex-1 block py-1.5 pl-1 text-gray-900 sm:text-sm sm:leading-6">
+                            @ViewBag.Tour.Tour_Name
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-span-3">
+                        <div class="my-2 flex sm:max-w-md">
+                            <p class="flex-1 block py-1.5 pl-1 text-gray-900 sm:text-sm sm:leading-6">
+                            @ViewBag.Title
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-span-full my-2">
+                    <p class="block w-full rounded-md py-1.5 text-gray-900 sm:text-sm sm:leading-6">
+                    @ViewBag.Description
+                    </p>
+                </div>
+
+                <div class="col-span-full my-2">
+
+                    <p class="block w-full rounded-md py-1.5 text-gray-900 ring-inset sm:text-sm sm:leading-6">
+                    @ViewBag.Rules
+                    </p>
+
+                </div>
+
+
+                <div class="col-span-full my-2">
+                    <p class="block w-full rounded-md py-1.5 text-gray-900 ring-inset sm:text-sm sm:leading-6">
+                    @ViewBag.Tour.Status_limit
+                    </p>
+                </div>
+
+                <div style="display: grid; grid-template-columns: auto auto ; column-gap: 20px;" class="">
+                    <div class="">
+                        <div class="mt-2">
+                            <p class="block w-full rounded-md py-1.5 text-gray-900 sm:text-sm sm:leading-6">
+                            @ViewBag.Tour.Quality_level
+                            </p>
+                        </div>
+
+                    </div>
+                    <div class="">
+                        <div class="mt-2">
+                            <a class="block w-full rounded-md py-1.5 text-gray-900 sm:text-sm sm:leading-6">
+                            @ViewBag.Tour.Touring_area
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div style="display: grid; grid-template-columns: auto auto auto; column-gap: 20px;" class="mt-5">
+
+                    <div class="mt-2">
+
+                        <p class="block w-full rounded-md py-1.5 text-gray-900 sm:text-sm sm:leading-6">
+                        @ViewBag.Tour.Capacity
+                        </p>
+                    </div>
+
+
+                    <div class="mt-2">
+
+                        <p class="block w-full rounded-md py-1.5 text-gray-900 sm:text-sm sm:leading-6">
+                        @ViewBag.Tour.Price_per_person
+                        </p>
+
+                    </div>
+
+                    <div class="mt-2">
+                        @{
+                            string data;
+                        if (ViewBag.Tour.Is_Acive) data = "Activated Tour";
+                            else
+                                data = "Not Active Tour";
+
+                        }
+                        <p class="block w-full rounded-md py-1.5 text-gray-900 sm:text-sm sm:leading-6">
+                            @data
+                        </p>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+
+
+
+
+            <!--- All images ----->
+
+            <div class="grid-cols-2 grid-rows-2 grid gap-4 sm:gap-6 lg:gap-8">
+
+                <!--- image 1 ----->
+
+                <div class="">
+
+                    <div class="border-gray-900/25 mt-2 flex justify-center rounded-lg border border-dashed px-6 py-10">
+
+                    <img class="" id="blah_1" src="@Url.Content("~/Images/" + ViewBag.Tour.Image1)" alt="your image" />
+
+
+                    </div>
+                </div>
+
+                <!----- image 2 ------->
+                <div class="">
+
+                    <div class="border-gray-900/25 mt-2 flex justify-center rounded-lg border border-dashed px-6 py-10">
+                    <img class="h-24" id="blah_2" src="@Url.Content("~/Images/" + ViewBag.Tour.Image2)" alt="" />
+
+                    </div>
+                </div>
+
+                <!----- image 3 ------->
+                <div class="">
+
+                    <div class="border-gray-900/25 mt-2 flex justify-center rounded-lg border border-dashed px-6 py-10">
+                    <img class="h-24" id="blah_3" src="@Url.Content("~/Images/" + ViewBag.Tour.Image3)" alt="" />
+
+                    </div>
+                </div>
+
+                <!----- image 4 ------->
+                <div class="">
+
+                    <div class="border-gray-900/25 mt-2 flex justify-center rounded-lg border border-dashed px-6 py-10">
+                        <img class="h-24" id="blah_4" src="@Url.Content("~/Images/" + ViewBag.Tour.Image4)" alt="" />
+
+
+                    </div>
+                </div>
+
+                <!----- image 5 ------->
+                <div class="col-span-2">
+
+                    <div class="border-gray-900/25 mt-2 flex justify-center rounded-lg border border-dashed px-6 py-10">
+                    <img class="h-24" id="blah_5" src="@Url.Content("~/Images/" + ViewBag.Tour.Image5)" alt="" />
+
+                    </div>
+                </div>
+
+            </div>
+
+
+
+
+        </div>
+
+
+        <!-------        Active Tours       --------->
+
+
+
+
+
+
+
+    <div class="relative mx-auto w-4/5 overflow-x-auto sm:rounded-lg">
+        
+            <p class="mb-12 text-lg">Active tours</p>
+            <table class="mb-2 w-full text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400">
+                <thead class="bg-gray-50 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Start Date
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            End Date
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Edit
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Delete
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Count
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Reserve
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                
+                    @foreach (Active_Tours ActiveTour in ViewBag.Active_Tours)
+                    {
+                        <tr class="border-b bg-white dark:bg-gray-800 dark:border-gray-700">
+                            <th scope="row" class="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white">
+                                @ActiveTour.Start_time
+                            </th>
+                            <td class="px-6 py-4">
+                                @ActiveTour.End_time
+                            </td>
+                            
+
+                            <td class="px-6 py-4">
+                            <button class="hover:text-blue-600" onclick="UdateDialogBox('@ActiveTour.Start_time' , '@ActiveTour.End_time' ,'@ActiveTour.Id')" data-modal-target="Update-modal" data-modal-toggle="Update-modal">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
+                                    </svg>
+                                    Update
+                                </button>
+
+                        </td>
+                            <td class="px-6 py-4">
+                            <button class="hover:text-red-600" onclick="RemoveDialogBox('@ActiveTour.Start_time' , '@ActiveTour.End_time' ,'@ActiveTour.Id')" data-modal-target="Delete-modal" data-modal-toggle="Delete-modal">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+                                    </svg>
+                                    Remove
+                                </button>
+
+                            </td>
+                            <td class="px-6 py-4">
+                                <div class="flex items-center">
+                                    <button class="me-3 inline-flex h-6 w-6 items-center justify-center rounded-full border border-gray-300 bg-white p-1 text-sm font-medium text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700" type="button">
+                                        <span class="sr-only">Quantity button</span>
+                                        <svg class="h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h16" />
+                                        </svg>
+                                    </button>
+                                    <div>
+                                        <input type="number" id="first_product" class="block w-14 rounded-lg border border-gray-300 bg-gray-50 px-2.5 py-1 text-sm text-gray-900 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required />
+                                    </div>
+                                    <button class="ms-3 inline-flex h-6 w-6 items-center justify-center rounded-full border border-gray-300 bg-white p-1 text-sm font-medium text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700" type="button">
+                                        <span class="sr-only">Quantity button</span>
+                                        <svg class="h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </td>
+                        <td class="px-6 py-4">
+                            <button class="hover:text-red-600" onclick="ReserveDialogBox(@ActiveTour.Id)" data-modal-target="Reserve-modal" data-modal-toggle="Reserve-modal">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z" />
+                                </svg>
+
+                                Reserve
+                            </button>
+
+                        </td>
+                        </tr>
+                    }
+
+                
+
+                </tbody>
+            </table>
+       
+            
+            <!-- Modal toggle -->
+            <button data-modal-target="Create-modal" data-modal-toggle="Create-modal" class="float-right mb-20 block rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+                Add Active Tour
             </button>
-          </div>
-            
-          <!---- ------- Main links ------- ----->
-            <div class="flex space-x-4">
-            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-              <a href="#" class="text-black flex hover:bg-gray-700 hover:text-white rounded-md px-5 py-2 text-sm font-medium" >
-                <p class="mx-1 mt-1">صفحه اصلی</p>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
-                </svg>
-                
-              </a>
-              <a href="#" class="text-black flex hover:bg-gray-700 hover:text-white rounded-md px-4 py-2 text-sm font-medium">
-
-                <p class="mx-1 mt-1">تغییر زبان</p>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="m10.5 21 5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 0 1 6-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C11.176 10.658 7.69 15.08 3 17.502m9.334-12.138c.896.061 1.785.147 2.666.257m-4.589 8.495a18.023 18.023 0 0 1-3.827-5.802" />
-                </svg>
-              </a>
-              <a href="#" class="text-black flex hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">
-                
-                <p class="mx-1 mt-1"> پشتیبانی</p>
-
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
-                </svg>
-                
-              </a>
-
-
-            </div>
-            
-            
-            
+  
+    </div>
+<!---------
+    <form  class="flex items-center justify-center pb-32">
+        <div class="relative">
+          
+            <input type="date" id="birthday" class="block w-52 rounded-lg border border-gray-300 bg-gray-50 p-2.5 ps-10 text-sm text-gray-900 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Select date end">
+        </div>
+        <span class="mx-4 text-gray-500">to</span>
+        <div class="relative">
+         
+          <input type="date" id="birthday" class="block w-52 rounded-lg border border-gray-300 bg-gray-50 p-2.5 ps-10 text-sm text-gray-900 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Select date end">
     
-            <!-- Profile dropdown -->
-            <div class="relative ml-3 ">
-                <div>
-                  <button type="button" onclick="open_menu()" class="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
-                      <span class="absolute -inset-1.5"></span>
-                      <span class="sr-only">Open user menu</span>
-                      <img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
-                  </button>
+        </div>
+        <input type="submit" value="New Tour" class="ml-6 rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"/>
+            
+       
+    </form>
+---------->
+
+
+    <script>
+        function UpdateDialogBox(startTime, endTime, Id) {
+            document.getElementById("Update_Id").setAttribute('value', Id);
+            document.getElementById("Update_StartTime").setAttribute('value', startTime)
+            document.getElementById("Update_EndTime").setAttribute('value', endTime)
+        }
+        function RemoveDialogBox(startTime, endTime, Id) {
+            document.getElementById("Delete_Id").setAttribute('value', Id);
+            document.getElementById("Delete_StartTime").innerHTML = startTime;
+            document.getElementById("Delete_EndTime").innerHTML = endTime;
+        }
+        function ReserveDialogBox(ActiveTourId) {
+            document.getElementById("ReserveActiveTourDialog").setAttribute('value', ActiveTourId);
+            
+        }
+    </script>
+
+
+
+    
+    <!--------------------------------------       Dialog Area       ------------------------------------->
+    <!-- Main Reserve modal -->
+    <div id="Reserve-modal" tabindex="-1" aria-hidden="true" class="h-[calc(100%-1rem)] fixed left-0 right-0 top-0 z-50 hidden max-h-full w-full items-center justify-center overflow-y-auto overflow-x-hidden md:inset-0">
+        <div class="relative max-h-full w-full max-w-md p-4">
+            <!-- Modal content -->
+            <div class="relative rounded-lg bg-white shadow dark:bg-gray-700">
+                <!-- Modal header -->
+                <div class="flex items-center justify-between rounded-t border-b p-4 dark:border-gray-600 md:p-5">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+                        Reservation
+                    </h3>
+                    <button type="button" class="ms-auto inline-flex h-8 w-8 items-center justify-center rounded-lg bg-transparent text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="Reserve-modal">
+                        <svg class="h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                        </svg>
+                        <span class="sr-only">Close modal</span>
+                    </button>
                 </div>
-    
-                <div id="prof_popover" class="absolute invisible left-0 z-10 mt-2 w-28 origin-top-right rounded-md bg-gray-50 py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
-                  <!-- Active: "bg-gray-100", Not Active: "" -->
-                  <a href="#" class="block px-4 py-2 text-sm  hover:bg-gray-700 hover:text-white text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0"> پروفایل</a>
-                  <a href="#" class="block px-4 py-2 text-sm  hover:bg-gray-700 hover:text-white text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">خروج</a>
-                
+                <!-- Modal body -->
+                @using (Html.BeginForm("AddReserve", "Reservation", FormMethod.Post))
+                {
+                    <div class="mb-4 grid gap-4">
+                        <input class="" value="" id="ReserveActiveTourDialog" name="fk_Active_Tour" />
+                        <input class="" value="1" id="ReservePersonDialog" name="fk_Person" />
+                        <div date-rangepicker class="flex items-center">
+                            <div>
+                                <input type="number"  name="Reserved_Count" id="" class="block w-14 rounded-lg border border-gray-300 bg-gray-50 px-2.5 py-1 text-sm text-gray-900 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required />
+                            </div>
+                            <button type="submit" class="inline-flex items-center rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                <svg class="-ms-1 me-1 h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd"></path></svg>
+                                Add new product
+                            </button>
+                        </div>
+                    </div>
+                    
+                }
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Main Create modal -->
+    <div id="Create-modal" tabindex="-1" aria-hidden="true" class="h-[calc(100%-1rem)] fixed left-0 right-0 top-0 z-50 hidden max-h-full w-full items-center justify-center overflow-y-auto overflow-x-hidden md:inset-0">
+        <div class="relative max-h-full w-full max-w-md p-4">
+            <!-- Modal content -->
+            <div class="relative rounded-lg bg-white shadow dark:bg-gray-700">
+                <!-- Modal header -->
+                <div class="flex items-center justify-between rounded-t border-b p-4 dark:border-gray-600 md:p-5">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+                        Create New Product
+                    </h3>
+                    <button type="button" class="ms-auto inline-flex h-8 w-8 items-center justify-center rounded-lg bg-transparent text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="Create-modal">
+                        <svg class="h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                        </svg>
+                        <span class="sr-only">Close modal</span>
+                    </button>
                 </div>
-            </div>
-            </div>
-        </div>
-        
-    
-        <!-- Mobile menu, show/hide based on menu state. -->
-        <div class="sm:hidden" id="mobile-menu">
-        <div class="space-y-1 px-2 pb-3 pt-2">
-            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-            <a href="#" class="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium" aria-current="page">Dashboard</a>
-            <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Team</a>
-            <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Projects</a>
-            <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Calendar</a>
-        </div>
-        </div>
-      </nav>
-
-
-
-
-        <!-- --------   Content   -------- -->
-
-        <img src="../../Media/Photo/desktop_.webp"/> 
-
-
-
-
-
-
-
-
-
-        <div class="mx-auto grid max-w-2xl grid-cols-1 items-center gap-x-8 gap-y-16 px-4 py-24 sm:px-6 sm:py-32 lg:max-w-7xl lg:grid-cols-2 lg:px-8">
-          <div>
-            <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-              تور سیشل
-            </h2>
-            <p class="mt-4 border-b-2 pb-4 text-gray-500">
-              8روزه، به همراه پرواز امارت ، هتل با صبحانه وترانسفر فرودگاهی، ویزای فرودگاهی
-            </p>
-      
-            <p class="mt-4 text-gray-500">
-              سیشل یک کشور جزیره‌ای واقع در اقیانوس هند است. این کشور از 115 جزیره تشکیل شده که تنها 33 جزیره از آنها قابل سکونت هستند
-              . جزیره ماهه، بزرگترین جزیره این مجمع الجزایر محسوب می‌شود که پایتخت کشور، ویکتوریا، در آن قرار دارد. آب و هوای
-               سیشل استوایی است و دمای آن در طول سال تقریبا ثابت و بین 24 تا 30 درجه سانتی‌گراد است. این بهشت گرمسیری، به دلیل 
-              داشتن سواحل زیبا، آب‌های زلال و تنوع زیستی منحصر به فرد، به عنوان یک مقصد گردشگری محبوب شناخته می‌شود. مردم سیشل
-               از نژادها و قومیت‌های مختلفی هستند و زبان‌های اصلی آنها انگلیسی، فرانسوی و کریول سیشلی است. در سیشل می‌توانید
-               در باغ‌ها و پارک‌های سرسبز گردش کنید، به سواحل بکر و زیبا با آب زلال بروید و از طعم غذاهای بومی لذت ببرید.
-            </p>
-
-
-            <dl class="mt-16 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:gap-x-8">
-              <div class="border-t ml-4 border-gray-200 pt-4 col-span-2">
-                <dt class="font-medium text-gray-900">قوانین تور</dt>
-                <dd class="mt-2 text-sm text-gray-500 ">
-                  تور غیرقابل کنسل است.
-هزینه ورودی 600.000 تومان به عهده مسافر است.
-هزینه گشت های آپشنال به عهده مسافر است.
-                </dd>
-              </div>
-              <div class="border-t border-gray-200 pt-4">
-                <dt class="font-medium text-gray-900">
-                   قیمت به ازای هر نفر
-                </dt>
-                <dd class="mt-2 text-sm text-gray-500">
-                  تومان 300.000.000
-                  </dd>
-              </div>
-              <div class="border-t border-gray-200 pt-4">
-                <dt class="font-medium text-gray-900">مدت تور</dt>
-                <dd class="mt-2 text-sm text-gray-500">5 روز</dd>
-              </div>
-              <div class="border-t border-gray-200 pt-4">
-                <dt class="font-medium text-gray-900">مقاصد</dt>
-                <dd class="mt-2 text-sm text-gray-500">
-                  مرکز پرورش لاک پشت کوسگودا
-                  جزیره سینامون
-                  معبد کلانیا راجا ماها ویهارا
-                  باغ بریف
-                  شهر باستانی پولونارووا
-                  ساحل مونت لاوینیا
-                  باغ گیاه شناسی سلطنتی
-                  معبد دندان
-                  قلعه هلندی گال
-                </dd>
-              </div>
+                <!-- Modal body -->
+                    @using (Html.BeginForm("AddTour", "ActiveTours", FormMethod.Post))
+                    {
+                        <div class="mb-4 grid gap-4">
+                            <input class="hidden" value="@ViewBag.Tour.Id" name="fk_Tour" />
+                            <div date-rangepicker class="flex items-center">
+                                <div class="relative">
+                                    <div class="pointer-events-none absolute inset-y-0 start-0 flex items-center ps-3">
+                                        <svg class="h-4 w-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
+                                        </svg>
+                                    </div>
+                                    <input name="Start_time" type="text" class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 ps-10 text-sm text-gray-900 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Select date start">
+                                </div>
+                                <span class="mx-4 text-gray-500">to</span>
+                                <div class="relative">
+                                    <div class="pointer-events-none absolute inset-y-0 start-0 flex items-center ps-3">
+                                        <svg class="h-4 w-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
+                                        </svg>
+                                    </div>
+                                    <input name="End_time" type="text" class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 ps-10 text-sm text-gray-900 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Select date end">
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="inline-flex items-center rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                            <svg class="-ms-1 me-1 h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd"></path></svg>
+                            Add new product
+                        </button>
+                    }
+                
+                
              
-            </dl>
-          </div>
-
-
-          <div class="grid grid-cols-2 grid-rows-2 gap-4 sm:gap-6 lg:gap-8">
-            <img id="image1" onclick="openimage(1)" src="../../Media/Photo/Serilanka/05.webp" alt="Walnut card tray with white powder coated steel divider and 3 punchout holes." class="cursor-pointer rounded-lg bg-gray-100">
-            <img id="image2" onclick="openimage(2)" src="../../Media/Photo/Serilanka/02.webp" alt="Top down view of walnut card tray with embedded magnets and card groove." class="cursor-pointer rounded-lg bg-gray-100">
-            <img id="image3" onclick="openimage(3)" src="../../Media/Photo/Serilanka/03.webp" alt="Side of walnut card tray with card groove and recessed card area." class=" cursor-pointer rounded-lg bg-gray-100">
-            <img id="image4" onclick="openimage(4)" src="../../Media/Photo/Serilanka/04.webp" alt="Side of walnut card tray with card groove and recessed card area." class="cursor-pointer rounded-lg bg-gray-100">
-            <img id="image5" onclick="openimage(5)" src="../../Media/Photo/Serilanka/01.webp" alt="Walnut card tray filled with cards and card angled in dedicated groove." class=" cursor-pointer rounded-lg w-full  col-span-2 bg-red-600">
-          </div>
-
-        </div>
-
-        
-
-
-
-        <div class="grid grid-cols-2 grid-rows-2  gap-4 sm:gap-6 lg:gap-8">
-          
-          
-          <button class="rounded-md w-20 mx-auto h-12 mt-5 bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Reserve</button>
-
-          
-
-          <div class="">
-            <label for="first-name" class="block text-sm font-medium leading-6 text-gray-900">Amount</label>
-            <div class="mt-2">
-              <input type="text" name="first-name" id="first-name" autocomplete="given-name" class="block lg:w-60 w-32 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
             </div>
-          </div>
-
-
         </div>
-
-        <!---------   -----   Comments   -----   -------->
-
+    </div>
 
 
-        <section class="bg-white dark:bg-gray-900 py-8 lg:py-16 antialiased">
-          <div class="max-w-2xl mx-auto px-4">
-              <div class="flex justify-between items-center mb-6">
-                <h2 class="text-lg lg:text-2xl font-bold text-gray-900 dark:text-white">Discussion (20)</h2>
+    <!-- Main Delete modal -->
+    <div id="Delete-modal" tabindex="-1" aria-hidden="true" class="h-[calc(100%-1rem)] fixed left-0 right-0 top-0 z-50 hidden max-h-full w-full items-center justify-center overflow-y-auto overflow-x-hidden md:inset-0">
+        <div class="relative max-h-full w-full max-w-md p-4">
+            <!-- Modal content -->
+            <div class="relative rounded-lg bg-white shadow dark:bg-gray-700">
+                <!-- Modal header -->
+                <div class="flex items-center justify-between rounded-t border-b p-4 dark:border-gray-600 md:p-5">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+                        Delete New Product
+                    </h3>
+                    <button type="button" class="ms-auto inline-flex h-8 w-8 items-center justify-center rounded-lg bg-transparent text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="Delete-modal">
+                        <svg class="h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                        </svg>
+                        <span class="sr-only">Close modal</span>
+                    </button>
+                </div>
+                <!-- Modal body -->
+                @using (Html.BeginForm("DeleteActiveTour", "ActiveTours", FormMethod.Post))
+                {
+                    <div class="mb-4 grid gap-4">
+                        <input class="hidden" id="Delete_Id" name="Id" />
+                        <div date-rangepicker class="flex items-center">
+                            <div class="relative">
+                                <div class="pointer-events-none absolute inset-y-0 start-0 flex items-center ps-3">
+                                    <svg class="h-4 w-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
+                                    </svg>
+                                </div>
+                                <p id="Delete_StartTime" class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 ps-10 text-sm text-gray-900 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></p>
+                                    
+                                
+                            </div>
+                            <span class="mx-4 text-gray-500">to</span>
+                            <div class="relative">
+                                <div class="pointer-events-none absolute inset-y-0 start-0 flex items-center ps-3">
+                                    <svg class="h-4 w-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
+                                    </svg>
+                                </div>
+                                <p id="Delete_EndTime"  class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 ps-10 text-sm text-gray-900 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" ></p>
+                                
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="inline-flex items-center rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        <svg class="-ms-1 me-1 h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd"></path></svg>
+                        Done
+                    </button>
+                }
             </div>
-            <form class="mb-6">
-                <div class="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
-                    <label for="comment" class="sr-only">Your comment</label>
-                    <textarea id="comment" rows="6"
-                        class="px-0 w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none dark:text-white dark:placeholder-gray-400 dark:bg-gray-800"
-                        placeholder="Write a comment..." required></textarea>
+        </div>
+    </div>
+
+
+
+    <!-- Main Update modal -->
+    <div id="Update-modal" tabindex="-1" aria-hidden="true" class="h-[calc(100%-1rem)] fixed left-0 right-0 top-0 z-50 hidden max-h-full w-full items-center justify-center overflow-y-auto overflow-x-hidden md:inset-0">
+        <div class="relative max-h-full w-full max-w-md p-4">
+            <!-- Modal content -->
+            <div class="relative rounded-lg bg-white shadow dark:bg-gray-700">
+                <!-- Modal header -->
+                <div class="flex items-center justify-between rounded-t border-b p-4 dark:border-gray-600 md:p-5">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+                        Update Tour Time
+                    </h3>
+                    <button type="button" class="ms-auto inline-flex h-8 w-8 items-center justify-center rounded-lg bg-transparent text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="Update-modal">
+                        <svg class="h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                        </svg>
+                        <span class="sr-only">Close modal</span>
+                    </button>
+                </div>
+                <!-- Modal body -->
+                @using (Html.BeginForm("UpdateActiveTour", "ActiveTours", FormMethod.Post))
+                {
+                    <div class="mb-4 grid gap-4">
+                        <input class="hidden" value="@ViewBag.Tour.Id" name="fk_Tour" />
+                        <input class="" id="Update_Id" name="Id" />
+                        <div date-rangepicker class="flex items-center">
+                            <div class="relative">
+                                <div class="pointer-events-none absolute inset-y-0 start-0 flex items-center ps-3">
+                                    <svg class="h-4 w-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
+                                    </svg>
+                                </div>
+                                <input id="Update_StartTime" name="Start_time" class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 ps-10 text-sm text-gray-900 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            </div>
+                            <span class="mx-4 text-gray-500">to</span>
+                            <div class="relative">
+                                <div class="pointer-events-none absolute inset-y-0 start-0 flex items-center ps-3">
+                                    <svg class="h-4 w-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
+                                    </svg>
+                                </div>
+                                <input id="Update_EndTime" name="End_time" class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 ps-10 text-sm text-gray-900 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="inline-flex items-center rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        Done
+                    </button>
+                }
+            </div>
+        </div>
+    </div>
+
+
+    <!-----------------------------------       End Of Dialog Area       ---------------------------------->
+
+   
+
+    <!-----------------------------------             Comments              ---------------------------------->
+    
+
+    <section class="bg-white py-8 antialiased dark:bg-gray-900 lg:py-16">
+        <div class="mx-auto max-w-2xl px-4">
+            <div class="mb-6 flex items-center justify-between">
+                <h2 class="text-lg font-bold text-gray-900 dark:text-white lg:text-2xl">Discussion (20)</h2>
+            </div>
+            @using (Html.BeginForm("AddComment", "Comments", FormMethod.Post))
+            {
+                <input class="hidden" value="@ViewBag.Tour.Id" name="fk_Tour" />
+                <input class="" value="1" name="fk_Person" />
+                <div class="mb-6">
+                    <div class="mb-4 rounded-lg rounded-t-lg border border-gray-200 bg-white px-4 py-2 dark:bg-gray-800 dark:border-gray-700">
+                    <label  class="sr-only">Your comment</label>
+                    <textarea id="comment" name="Text" rows="6"
+                              class="border-0 w-full px-0 text-sm text-gray-900 focus:ring-0 focus:outline-none dark:text-white dark:placeholder-gray-400 dark:bg-gray-800"
+                              placeholder="Write a comment..." required></textarea>
                 </div>
                 <button type="submit"
-                    class="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-primary-900 hover:bg-blue-800">
+                        class="inline-flex items-center rounded-lg bg-blue-700 px-4 py-2.5 text-center text-xs font-medium text-white hover:bg-blue-800 focus:ring-4 focus:ring-blue-200 dark:focus:ring-primary-900">
                     Post comment
                 </button>
-            </form>
-            <article class="p-6 text-base bg-white rounded-lg dark:bg-gray-900">
-                <footer class="flex justify-between items-center mb-2">
-                    <div class="flex items-center">
-                        <p class="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white font-semibold"><img
-                                class="mr-2 w-6 h-6 rounded-full"
-                                src="https://flowbite.com/docs/images/people/profile-picture-2.jpg"
-                                alt="Michael Gough">Michael Gough</p>
-                        <p class="text-sm text-gray-600 dark:text-gray-400"><time pubdate datetime="2022-02-08"
-                                title="February 8th, 2022">Feb. 8, 2022</time></p>
+            </div>
+            }
+            
+            @foreach (Comments comment in ViewBag.Comments)
+            {
+                <article class="border-t border-gray-200 bg-white p-6 text-base dark:border-gray-700 dark:bg-gray-900">
+                    <footer class="mb-2 flex items-center justify-between">
+                        <div class="flex items-center">
+                            <p class="mr-3 inline-flex items-center text-sm font-semibold text-gray-900 dark:text-white">
+                                <img class="mr-2 h-6 w-6 rounded-full"
+                                     src="https://flowbite.com/docs/images/people/profile-picture-4.jpg"
+                                     alt="Helene Engels" />comment.Person.Username
+                            </p>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">
+                                <time pubdate datetime="2022-06-23"
+                                      title="June 23rd, 2022">@comment.Time</time>
+                            </p>
+                        </div>
+                        <button id="dropdownComment4Button" data-dropdown-toggle="dropdownComment4"
+                                class="inline-flex items-center rounded-lg bg-white p-2 text-center text-sm font-medium text-gray-500 hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-50 dark:text-gray-40 dark:bg-gray-900 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                                type="button">
+                            <svg class="h-4 w-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 3">
+                                <path d="M2 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm6.041 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM14 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Z" />
+                            </svg>
+                        </button>
+                        <!-- Dropdown menu -->
+                        <div id="dropdownComment4"
+                             class="z-10 hidden w-36 divide-y divide-gray-100 rounded bg-white shadow dark:bg-gray-700 dark:divide-gray-600">
+                            <ul class="py-1 text-sm text-gray-700 dark:text-gray-200"
+                                aria-labelledby="dropdownMenuIconHorizontalButton">
+                                <li>
+                                    <a href="#"
+                                       class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Edit</a>
+                                </li>
+                                <li>
+                                    <a href="#"
+                                       class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Remove</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </footer>
+                    <p class="text-gray-500 dark:text-gray-400">@comment.Text</p>
+                    <div class="mt-4 flex items-center space-x-4">
+                        <button type="button"
+                                class="flex items-center text-sm font-medium text-gray-500 hover:underline dark:text-gray-400">
+                            <svg class="mr-1.5 h-3.5 w-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 18">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5h5M5 8h2m6-3h2m-5 3h6m2-7H2a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h3v5l5-5h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1Z" />
+                            </svg>
+                            Reply
+                        </button>
                     </div>
-                    <div>
-                      <button id="dropdownComment1Button" onclick="aaa()" data-dropdown-toggle="dropdownComment1"
-                        class="inline-flex items-center p-2 text-sm font-medium text-center text-gray-500 dark:text-gray-400 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-50 dark:bg-gray-900 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-                        type="button">
-                        <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 3">
-                            <path d="M2 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm6.041 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM14 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Z"/>
-                        </svg>
-                        <span class="sr-only">Comment settings</span>
-                    </button>
-                    <!-- Dropdown menu -->
-                    <div id="dropdownComment1" class="absolute  float-right  invisible  w-36 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
-                      <ul class="py-1 text-sm text-gray-700 dark:text-gray-200"
-                          >
-                          <li>
-                              <a href="#"
-                                  class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Edit</a>
-                          </li>
-                          <li>
-                              <a href="#"
-                                  class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Remove</a>
-                          </li>
-                          <li>
-                              <a href="#"
-                                  class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Report</a>
-                          </li>
-                      </ul>
-                  </div>
-                    </div>
-                </footer>
-                
-                <p class="text-gray-500 dark:text-gray-400">Very straight-to-point article. Really worth time reading. Thank you! But tools are just the
-                    instruments for the UX designers. The knowledge of the design tools are as important as the
-                    creation of the design strategy.</p>
-                <div class="flex items-center mt-4 space-x-4">
-                    <button type="button"
-                        class="flex items-center text-sm text-gray-500 hover:underline dark:text-gray-400 font-medium">
-                        <svg class="mr-1.5 w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 18">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5h5M5 8h2m6-3h2m-5 3h6m2-7H2a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h3v5l5-5h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1Z"/>
-                        </svg>
-                        Reply
-                    </button>
-                </div>
-            </article>
-            <article class="p-6 mb-3 ml-6 lg:ml-12 text-base bg-white rounded-lg dark:bg-gray-900">
-                <footer class="flex justify-between items-center mb-2">
-                    <div class="flex items-center">
-                        <p class="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white font-semibold"><img
-                                class="mr-2 w-6 h-6 rounded-full"
-                                src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
-                                alt="Jese Leos">Jese Leos</p>
-                        <p class="text-sm text-gray-600 dark:text-gray-400"><time pubdate datetime="2022-02-12"
-                                title="February 12th, 2022">Feb. 12, 2022</time></p>
-                    </div>
-                    <button id="dropdownComment2Button" data-dropdown-toggle="dropdownComment2"
-                        class="inline-flex items-center p-2 text-sm font-medium text-center text-gray-500 dark:text-gray-40 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-50 dark:bg-gray-900 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-                        type="button">
-                        <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 3">
-                            <path d="M2 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm6.041 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM14 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Z"/>
-                        </svg>
-                        <span class="sr-only">Comment settings</span>
-                    </button>
-                    <!-- Dropdown menu -->
-                    <div id="dropdownComment2"
-                        class="hidden z-10 w-36 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
-                        <ul class="py-1 text-sm text-gray-700 dark:text-gray-200"
-                            aria-labelledby="dropdownMenuIconHorizontalButton">
-                            <li>
-                                <a href="#"
-                                    class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Edit</a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Remove</a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Report</a>
-                            </li>
-                        </ul>
-                    </div>
-                </footer>
-                <p class="text-gray-500 dark:text-gray-400">Much appreciated! Glad you liked it ☺️</p>
-                <div class="flex items-center mt-4 space-x-4">
-                    <button type="button"
-                        class="flex items-center text-sm text-gray-500 hover:underline dark:text-gray-400 font-medium">
-                        <svg class="mr-1.5 w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 18">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5h5M5 8h2m6-3h2m-5 3h6m2-7H2a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h3v5l5-5h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1Z"/>
-                        </svg>                
-                        Reply
-                    </button>
-                </div>
-            </article>
-            <article class="p-6 mb-3 text-base bg-white border-t border-gray-200 dark:border-gray-700 dark:bg-gray-900">
-                <footer class="flex justify-between items-center mb-2">
-                    <div class="flex items-center">
-                        <p class="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white font-semibold"><img
-                                class="mr-2 w-6 h-6 rounded-full"
-                                src="https://flowbite.com/docs/images/people/profile-picture-3.jpg"
-                                alt="Bonnie Green">Bonnie Green</p>
-                        <p class="text-sm text-gray-600 dark:text-gray-400"><time pubdate datetime="2022-03-12"
-                                title="March 12th, 2022">Mar. 12, 2022</time></p>
-                    </div>
-                    <button id="dropdownComment3Button" data-dropdown-toggle="dropdownComment3"
-                        class="inline-flex items-center p-2 text-sm font-medium text-center text-gray-500 dark:text-gray-40 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-50 dark:bg-gray-900 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-                        type="button">
-                        <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 3">
-                            <path d="M2 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm6.041 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM14 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Z"/>
-                        </svg>
-                        <span class="sr-only">Comment settings</span>
-                    </button>
-                    <!-- Dropdown menu -->
-                    <div id="dropdownComment3"
-                        class="hidden z-10 w-36 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
-                        <ul class="py-1 text-sm text-gray-700 dark:text-gray-200"
-                            aria-labelledby="dropdownMenuIconHorizontalButton">
-                            <li>
-                                <a href="#"
-                                    class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Edit</a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Remove</a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Report</a>
-                            </li>
-                        </ul>
-                    </div>
-                </footer>
-                <p class="text-gray-500 dark:text-gray-400">The article covers the essentials, challenges, myths and stages the UX designer should consider while creating the design strategy.</p>
-                <div class="flex items-center mt-4 space-x-4">
-                    <button type="button"
-                        class="flex items-center text-sm text-gray-500 hover:underline dark:text-gray-400 font-medium">
-                        <svg class="mr-1.5 w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 18">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5h5M5 8h2m6-3h2m-5 3h6m2-7H2a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h3v5l5-5h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1Z"/>
-                        </svg>
-                        Reply
-                    </button>
-                </div>
-            </article>
-            <article class="p-6 text-base bg-white border-t border-gray-200 dark:border-gray-700 dark:bg-gray-900">
-                <footer class="flex justify-between items-center mb-2">
-                    <div class="flex items-center">
-                        <p class="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white font-semibold"><img
-                                class="mr-2 w-6 h-6 rounded-full"
-                                src="https://flowbite.com/docs/images/people/profile-picture-4.jpg"
-                                alt="Helene Engels">Helene Engels</p>
-                        <p class="text-sm text-gray-600 dark:text-gray-400"><time pubdate datetime="2022-06-23"
-                                title="June 23rd, 2022">Jun. 23, 2022</time></p>
-                    </div>
-                    <button id="dropdownComment4Button" data-dropdown-toggle="dropdownComment4"
-                        class="inline-flex items-center p-2 text-sm font-medium text-center text-gray-500 dark:text-gray-40 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-50 dark:bg-gray-900 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-                        type="button">
-                        <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 3">
-                            <path d="M2 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm6.041 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM14 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Z"/>
-                        </svg>
-                    </button>
-                    <!-- Dropdown menu -->
-                    <div id="dropdownComment4"
-                        class="hidden z-10 w-36 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
-                        <ul class="py-1 text-sm text-gray-700 dark:text-gray-200"
-                            aria-labelledby="dropdownMenuIconHorizontalButton">
-                            <li>
-                                <a href="#"
-                                    class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Edit</a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Remove</a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Report</a>
-                            </li>
-                        </ul>
-                    </div>
-                </footer>
-                <p class="text-gray-500 dark:text-gray-400">Thanks for sharing this. I do came from the Backend development and explored some of the tools to design my Side Projects.</p>
-                <div class="flex items-center mt-4 space-x-4">
-                    <button type="button"
-                        class="flex items-center text-sm text-gray-500 hover:underline dark:text-gray-400 font-medium">
-                        <svg class="mr-1.5 w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 18">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5h5M5 8h2m6-3h2m-5 3h6m2-7H2a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h3v5l5-5h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1Z"/>
-                        </svg>
-                        Reply
-                    </button>
-                </div>
-            </article>
-          </div>
-        </section>
-
-
-
-
-
-
-      </div>
-      
-</body>
-</html>
+                </article>
+            }

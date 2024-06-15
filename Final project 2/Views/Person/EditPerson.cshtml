@@ -1,104 +1,166 @@
 ﻿@model Final_project_2.Models.Person
 
 @{
-    ViewData["Title"] = "EditPerson";
+    ViewData["Title"] = "Create Person";
 }
 
-<h1>EditPerson</h1>
+<h1>Edit Person</h1>
 
 <h4>Person</h4>
 <hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="UpdatePerson">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Is_Admin" /> @Html.DisplayNameFor(model => model.Is_Admin)
-                </label>
+<div class="mx-80 mt-20">
+
+    <form asp-action="UpdatePerson" method="post" enctype="multipart/form-data">
+
+        <input class="hidden" value="@Model.Id" asp-for="Id"/>
+
+        <div class="space-y-12">
+            <div class="col-span-full flex">
+
+                <div class="mr-4 sm:col-span-3">
+                    <label for="first-name" class="leading-6 block text-sm font-medium text-gray-900">Verification State</label>
+                    <div class="mt-2">
+                        <input type="checkbox" asp-for="Is_Actived" class="border-0 ring-1 block w-full rounded-md py-1.5 font-bold text-yellow-700 shadow-sm ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+                    </div>
+                </div>
+
+                <div class="mx-4 sm:col-span-3">
+                    <label for="first-name" class="leading-6 block text-sm font-medium text-gray-900">Role</label>
+                    <div class="mt-2">
+                        <input type="checkbox" asp-for="Is_Admin" class="border-0 ring-1 block w-full rounded-md py-1.5 font-bold text-yellow-700 shadow-sm ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
+
+            <div class="border-gray-900/10 border-b pb-12">
+                <h2 class="leading-7 text-base font-semibold text-gray-900">Personal Information</h2>
+                <p class="leading-6 mt-1 text-sm text-gray-600">Use a permanent address where you can receive mail.</p>
+
+                <div class="grid-cols-1 mt-10 grid gap-x-6 gap-y-8 sm:grid-cols-6">
+
+                    <div class="sm:col-span-3">
+                        <label for="first-name" class="leading-6 block text-sm font-medium text-gray-900">First name</label>
+                        <div class="mt-2">
+                            <input type="text" asp-for="@Model.Name" class="border-0 ring-1 block w-full rounded-md py-1.5 text-gray-900 shadow-sm ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                        </div>
+                    </div>
+
+                    <div class="sm:col-span-3">
+                        <label for="last-name" class="leading-6 block text-sm font-medium text-gray-900">Last name</label>
+                        <div class="mt-2">
+                            <input type="text" asp-for="@Model.Family" id="last-name" autocomplete="family-name" class="border-0 ring-1 block w-full rounded-md py-1.5 text-gray-900 shadow-sm ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                        </div>
+                    </div>
+
+                    <div class="sm:col-span-3">
+                        <label class="leading-6 block text-sm font-medium text-gray-900">UserName</label>
+                        <div class="mt-2">
+                            <input type="text" asp-for="@Model.Username" class="border-0 ring-1 block w-full rounded-md py-1.5 text-gray-900 shadow-sm ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                        </div>
+                    </div>
+
+                    <div class="sm:col-span-3">
+                        <label class="leading-6 block text-sm font-medium text-gray-900">Password</label>
+                        <div class="mt-2">
+                            <input type="text" asp-for="@Model.Password" class="border-0 ring-1 block w-full rounded-md py-1.5 text-gray-900 shadow-sm ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                        </div>
+                    </div>
+
+                    <div class="sm:col-span-3">
+                        <label class="leading-6 block text-sm font-medium text-gray-900">Phone Number</label>
+                        <div class="mt-2">
+                            <input type="text" asp-for="@Model.PhoneNumber" class="border-0 ring-1 block w-full rounded-md py-1.5 text-gray-900 shadow-sm ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                        </div>
+                    </div>
+
+                    <div class="sm:col-span-4">
+                        <label for="email" class="leading-6 block text-sm font-medium text-gray-900">Email address</label>
+                        <div class="mt-2">
+                            <input type="email" asp-for="@Model.Email" class="border-0 ring-1 block w-full rounded-md py-1.5 text-gray-900 shadow-sm ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                        </div>
+                    </div>
+
+
+                    <div class="col-span-full">
+                        <label class="leading-6 block text-sm font-medium text-gray-900">City And Country</label>
+                        <div class="mt-2">
+                            <input type="text" asp-for="@Model.City_And_Country" class="border-0 ring-1 block w-full rounded-md py-1.5 text-gray-900 shadow-sm ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                        </div>
+                    </div>
+
+
+                    <div class="col-span-full flex">
+
+                        <div class="mr-4 sm:col-span-3">
+                            <label for="first-name" class="leading-6 block text-sm font-medium text-gray-900">Telegram</label>
+                            <div class="mt-2">
+                                <input type="text" asp-for="@Model.Telegram" class="border-0 ring-1 block w-full rounded-md py-1.5 text-gray-900 shadow-sm ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            </div>
+                        </div>
+
+                        <div class="mx-4 sm:col-span-3">
+                            <label for="first-name" class="leading-6 block text-sm font-medium text-gray-900">Instagram</label>
+                            <div class="mt-2">
+                                <input type="text" asp-for="@Model.Instagram" class="border-0 ring-1 block w-full rounded-md py-1.5 text-gray-900 shadow-sm ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+
+
+                    <div class="col-span-full flex">
+
+                        <div class="mr-4 sm:col-span-3">
+                            <label for="first-name" class="leading-6 block text-sm font-medium text-gray-900">Language</label>
+                            <div class="mt-2">
+                                <input type="text" asp-for="@Model.Language" class="border-0 ring-1 block w-full rounded-md py-1.5 text-gray-900 shadow-sm ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            </div>
+                        </div>
+
+                        <div class="mx-4 sm:col-span-3">
+                            <label for="first-name" class="leading-6 block text-sm font-medium text-gray-900">Favorite Food</label>
+                            <div class="mt-2">
+                                <input type="text" asp-for="@Model.Favorit_food" class="border-0 ring-1 block w-full rounded-md py-1.5 text-gray-900 shadow-sm ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            </div>
+                        </div>
+
+                        <div class="mx-4 sm:col-span-3">
+                            <label for="first-name" class="leading-6 block text-sm font-medium text-gray-900">Favorite Sport</label>
+                            <div class="mt-2">
+                                <input type="text" asp-for="@Model.Favorit_sport" class="border-0 ring-1 block w-full rounded-md py-1.5 text-gray-900 shadow-sm ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+
+
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Family" class="control-label"></label>
-                <input asp-for="Family" class="form-control" />
-                <span asp-validation-for="Family" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Password" class="control-label"></label>
-                <input asp-for="Password" class="form-control" />
-                <span asp-validation-for="Password" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Username" class="control-label"></label>
-                <input asp-for="Username" class="form-control" />
-                <span asp-validation-for="Username" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PhoneNumber" class="control-label"></label>
-                <input asp-for="PhoneNumber" class="form-control" />
-                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Joined_at" class="control-label"></label>
-                <input asp-for="Joined_at" class="form-control" />
-                <span asp-validation-for="Joined_at" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="City_And_Country" class="control-label"></label>
-                <input asp-for="City_And_Country" class="form-control" />
-                <span asp-validation-for="City_And_Country" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Language" class="control-label"></label>
-                <input asp-for="Language" class="form-control" />
-                <span asp-validation-for="Language" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Favorit_food" class="control-label"></label>
-                <input asp-for="Favorit_food" class="form-control" />
-                <span asp-validation-for="Favorit_food" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Favorit_sport" class="control-label"></label>
-                <input asp-for="Favorit_sport" class="form-control" />
-                <span asp-validation-for="Favorit_sport" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Is_Actived" /> @Html.DisplayNameFor(model => model.Is_Actived)
-                </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="Telegram" class="control-label"></label>
-                <input asp-for="Telegram" class="form-control" />
-                <span asp-validation-for="Telegram" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Instagram" class="control-label"></label>
-                <input asp-for="Instagram" class="form-control" />
-                <span asp-validation-for="Instagram" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
+
+        </div>
+
+        <div class="grid gap-4 pb-20 sm:gap-6 lg:gap-8">
+            <input value="Update" type="submit" class="mx-auto mt-5 h-12 w-20 rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" />
+        </div>
+
+    </form>
+
+
 </div>
+
 
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

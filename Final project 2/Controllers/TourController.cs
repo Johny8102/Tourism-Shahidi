@@ -44,6 +44,15 @@ namespace Final_project_2.Controllers
         }
 
 
+        public IActionResult Index()
+        {
+            return View(GetAllTour());
+        }
+
+
+
+
+
 
         public IActionResult CreateTour()
         {
@@ -87,7 +96,7 @@ namespace Final_project_2.Controllers
 
         public Tour GetTour(int id) => _ToursRepo.GetById(id);
 
-        public IActionResult Index(int id)
+        public IActionResult Tour(int id)
         {
             if (id <= 0) return NotFound();
             ViewBag.Tour = _ToursRepo.GetById(id);

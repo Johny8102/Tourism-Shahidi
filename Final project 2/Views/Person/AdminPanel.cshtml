@@ -4,18 +4,17 @@
 }
 
     <!-------   Main   -------->
-    <div class="h-full w-full bg-gray-200">
-        
-        
-       
+    <div class="grid-cols-2 h-full w-full bg-gray-200">
 
-        <!--------Content----->
+    <!--------Content----->
+    
 
+        <!------- Tour ------->
         <div class="float-left my-8 ml-10 w-fit">
-            
 
-            
-                <p class="">Tours List: </p>
+
+                
+                <p class="">Latest in Tours: </p>
                 <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
                     <table class="w-full text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400">
                         <thead class="bg-gray-50 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
@@ -30,7 +29,10 @@
                                     Tour Title
                                 </th>
                                 <th scope="col" class="px-6 py-3">
-                                    More
+                                    Tour Description
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Tour Area
                                 </th>
                                 
                             </tr>
@@ -48,10 +50,11 @@
                             <td class="px-6 py-4">
                                 @tour.Title
                             </td>
-                            <td class="px-6 py-4 text-right">
-                                <a href="#" class="font-medium text-blue-600 hover:underline dark:text-blue-500">
-                                    More
-                                </a>
+                            <td class="px-6 py-4">
+                                @tour.Description
+                            </td>
+                            <td class="px-6 py-4">
+                                @tour.Touring_area
                             </td>
                         </tr>
                     }
@@ -60,18 +63,17 @@
                     </table>
                 </div>
                 <div class="mt-2 w-full">
-                    <a  href="#" class="float-right text-sm text-sky-600 hover:underline dark:text-blue-500">See all Items</a>
-                    <a  href="#" class="text-sm text-sky-600 hover:underline dark:text-blue-500">Add New Item</a>
+                    <a  asp-action="Index" asp-controller="Tour" class="float-right text-sm text-sky-600 hover:underline dark:text-blue-500">See all Items</a>
+                    <a asp-action="CreateTour" asp-controller="Tour" class="text-sm text-sky-600 hover:underline dark:text-blue-500">Add New Item</a>
                 </div>
            
 
         </div>
-    
-        
-        <div class="">
-            
-            <div class="float-right my-8 mr-10 grid w-fit">
-                <p class="">Reservation List: </p>
+
+
+        <!------- Reservation ------->
+        <div class="float-right my-8 mr-10 grid w-fit">
+                <p class="">Latest in Reservations: </p>
 
                 <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
                     <table class="w-full text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400">
@@ -92,9 +94,7 @@
                                 <th scope="col" class="px-6 py-3">
                                     Is Active
                                 </th>
-                                <th scope="col" class="px-6 py-3">
-                                    <span class="sr-only">Accept</span>
-                                </th>
+                                
                                 
                                 
                             </tr>
@@ -103,7 +103,7 @@
                         @foreach(Reservation reserve in ViewBag.Reservation)
                         {
                             <tr class="bg-white hover:bg-gray-50 dark:bg-gray-800 dark:hover:bg-gray-600">
-                                <th scope="row" class="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white">
+                                <th scope="row" class="hidden whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white">
                                     @reserve.Id
                                 </th>
                                 <td class="px-6 py-4">
@@ -115,9 +115,9 @@
                                 <td class="px-6 py-4">
                                     @reserve.Person_Name
                                 </td>
-                                <td class="px-6 py-4 text-right">
-                                    <a href="#" class="font-medium text-blue-600 hover:underline dark:text-blue-500">Edit</a>
-                                </td>
+                            <td class="px-6 py-4">
+                                    @reserve.Is_Actived
+                            </td>
                             </tr>
 
                         }
@@ -125,18 +125,16 @@
                     </table>
                 </div>
                 <div class="mt-2 w-full">
-                    <a  href="#" class="float-right text-sm text-sky-600 hover:underline dark:text-blue-500">See all Items</a>
-                    <a  href="#" class="text-sm text-sky-600 hover:underline dark:text-blue-500">Add New Item</a>
+                    <a asp-action="Index" asp-controller="Reservation" class="float-right text-sm text-sky-600 hover:underline dark:text-blue-500">See all Items</a>
                 </div>
                 
             </div>
-        </div>
         
 
-
+        <!------- Person ------->
         <div class="float-left my-8 ml-10 w-fit">
             
-            <p class="">List of Users: </p>
+            <p class="">Latest in Users: </p>
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
                 <table class="w-full text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400">
                     <thead class="bg-gray-50 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
@@ -154,8 +152,9 @@
                                 UserName
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                <span class="sr-only">Details</span>
+                                Email
                             </th>
+                            
                         </tr>
                     </thead>
                     <tbody>
@@ -174,8 +173,8 @@
                             <td class="px-6 py-4">
                                 @person.Username
                             </td>
-                            <td class="px-6 py-4 text-right">
-                                <a href="#" class="font-medium text-blue-600 hover:underline dark:text-blue-500">More</a>
+                            <td class="px-6 py-4">
+                                @person.Email
                             </td>
                         </tr>
 
@@ -184,13 +183,83 @@
                 </table>
             </div>
             <div class="mt-2 w-full">
-                <a  href="#" class="float-right text-sm text-sky-600 hover:underline dark:text-blue-500">See all Items</a>
-                <a  href="#" class="text-sm text-sky-600 hover:underline dark:text-blue-500">Add New Item</a>
+                <a asp-action="Index" asp-controller="Person" class="float-right text-sm text-sky-600 hover:underline dark:text-blue-500">See all Items</a>
+                <a asp-action="CreatePerson" asp-controller="Person" class="float-left text-sm text-sky-600 hover:underline dark:text-blue-500">Add New Item</a>
             </div>
         </div>
+
+
+        <!------- Comments ------->
+        <div class="float-left my-8 ml-10 w-fit">
+
+            <p class="">Latest in Comments: </p>
+            <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                <table class="w-full text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400">
+                    <thead class="bg-gray-50 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
+                        <tr>
+                            <th scope="col" class="hidden px-6 py-3">
+                                Id
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Person Name
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Tour
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Time
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Text
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Actived
+                            </th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                    @foreach (Comments comment in ViewBag.Comments)
+                    {
+                            <tr class="border-b bg-white hover:bg-gray-50 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-600">
+                                <th scope="row" class="hidden whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white">
+                                    @comment.Id
+                                </th>
+                                <td class="px-6 py-4">
+                                @comment.Person_Name
+                                </td>
+                                <td class="px-6 py-4">
+                                @comment.Tour_Name
+                            </td>
+                            <td class="px-6 py-4">
+                                @comment.Time
+                            </td>
+                                <td class="px-6 py-4">
+                                @comment.Text
+                                </td>
+                            <td class="px-6 py-4">
+                                @{
+                                    var _localdata = "";
+                                    if (comment.Is_Actived) _localdata = "Actived";
+                                    else  _localdata = "Not Actived";
+                                }
+                                @_localdata
+                            </td>
+                                
+                            </tr>
+
+                    }
+                    </tbody>
+                </table>
+            </div>
+            <div class="mt-2 w-full">
+            <a asp-action="Index" asp-controller="Comments" class="float-right text-sm text-sky-600 hover:underline dark:text-blue-500">See all Items</a>
+            </div>
         </div>
 
     </div>
+
+    
 
     
 
