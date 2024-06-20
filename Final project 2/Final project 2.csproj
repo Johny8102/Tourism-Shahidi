@@ -52,7 +52,6 @@
       <Folder Include="Views\ActiveTours\" />
       <Folder Include="Views\Home\Person\" />
       <Folder Include="Views\Home\Tour\" />
-      <Folder Include="wwwroot\Images\" />
     </ItemGroup>
 
 	<Target Name="Tailwind" BeforeTargets="Build">

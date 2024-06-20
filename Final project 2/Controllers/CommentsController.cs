@@ -24,18 +24,20 @@ namespace Final_project_2.Controllers
 
         public IActionResult Index()
         {
-            return View(GetAllComment().Select(x => new Comments()
+            var result = View(GetAllComment().Select(x => new Comments()
             {
                 Is_Actived = x.Is_Actived,
                 Id = x.Id,
                 Text = x.Text,
                 Time = x.Time,
                 Person_Name = _PersonRepo.GetById(x.fk_Person).Username,
-                Tour_Name = _TourRepo.GetById(x.fk_Tour).Tour_Name
+                Tour_Name = _TourRepo.GetById(x.fk_Tour).Tour_Name,
+                fk_Tour = x.fk_Tour
             }));
+            return result;
         }
 
-        public IActionResult Index(int personId)
+        public IActionResult IndexforPerson(int personId)
         {
             return View(GetAllComment().Where(i=>i.fk_Person == personId).Select(x => new Comments()
             {
@@ -54,7 +56,7 @@ namespace Final_project_2.Controllers
         {
             comment.Time = DateTime.Now;
             _CommentsRepo.Create(comment);
-            return RedirectToAction("Tour", "TourController", new { id = comment.fk_Tour });
+            return RedirectToAction("Tour", "Tour", new { id = comment.fk_Tour });
         }
 
         public Comments GetComment(int id)=>  _CommentsRepo.GetById(id);
@@ -75,7 +77,7 @@ namespace Final_project_2.Controllers
         }
 
 
-
+       
 
     }
 }

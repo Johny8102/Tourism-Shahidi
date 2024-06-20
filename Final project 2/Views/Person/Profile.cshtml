@@ -9,49 +9,62 @@
 
 
         <div class="border-gray-900/10 border-b pb-12">
-            <div class="col-span-full flex">
+            <div class="flex w-full justify-between">
 
-                <div class="mr-4 sm:col-span-3">
-                    <label for="first-name" class="leading-6 block text-sm font-medium text-gray-900">Verification State</label>
-                    <div class="mt-2">
-                        @if (ViewBag.Person.Is_Actived == true)
-                        {
-                            <p class="border-0 ring-1 block w-full rounded-md py-1.5 font-bold text-green-800 shadow-sm ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                                Verified
-                            </p>
-                        }
-                        else
-                        {
-                            <p class="border-0 ring-1 block w-full rounded-md py-1.5 font-bold text-red-800 shadow-sm ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                                Not Verified
-                            </p>
-                        }
+               <div class="float-left flex">
+                    <div class="mr-4 sm:col-span-3">
+                        <label for="first-name" class="leading-6 block text-sm font-medium text-gray-900">Verification State</label>
+                        <div class="mt-2">
+                            @if (ViewBag.Person.Is_Actived == true)
+                            {
+                                <p class="border-0 ring-1 block w-full rounded-md py-1.5 font-bold text-green-800 shadow-sm ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                    Verified
+                                </p>
+                            }
+                            else
+                            {
+                                <p class="border-0 ring-1 block w-full rounded-md py-1.5 font-bold text-red-800 shadow-sm ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                    Not Verified
+                                </p>
+                            }
 
-                        
-                        
+
+
+                        </div>
                     </div>
-                </div>
 
-                <div class="mx-4 sm:col-span-3">
-                    <label for="first-name" class="leading-6 block text-sm font-medium text-gray-900">Role</label>
-                    <div class="mt-2">
-                        @if (ViewBag.Person.Is_Admin)
-                        {
-                            <p class="border-0 ring-1 block w-full rounded-md py-1.5 font-bold text-yellow-700 shadow-sm ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                                Admin
+                    <div class="mx-4 sm:col-span-3">
+                        <label for="first-name" class="leading-6 block text-sm font-medium text-gray-900">Role</label>
+                        <div class="mt-2">
+                            @if (ViewBag.Person.Is_Admin)
+                            {
+                                <p class="border-0 ring-1 block w-full rounded-md py-1.5 font-bold text-yellow-700 shadow-sm ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                    Admin
 
-                            </p>
-                        }
-                        else
-                        {
-                            <p class="border-0 ring-1 block w-full rounded-md py-1.5 font-bold text-gray-900 shadow-sm ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                </p>
+                            }
+                            else
+                            {
+                                <p class="border-0 ring-1 block w-full rounded-md py-1.5 font-bold text-gray-900 shadow-sm ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
 
-                                Normal User
-                            </p>
-                        }
+                                    Normal User
+                                </p>
+                            }
 
+                        </div>
                     </div>
-                </div>
+               </div>
+
+
+                <a class="float-right flex h-9 rounded-lg bg-blue-500 px-3 hover:bg-blue-800" asp-action="EditPerson" asp-route-id="@ViewBag.Person.Id">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mr-2 w-5 text-white">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
+                    </svg>
+                    <p class="mt-1 text-xl text-white">
+                        Edit
+                    </p>
+                    </a>
+
             </div>
 
             <div class="grid-cols-1 mt-10 grid gap-x-6 gap-y-8 sm:grid-cols-6">
@@ -188,11 +201,11 @@
 
 
 
-        <div class="grid-cols-2">
+        <div class="">
 
             <!------- Reservation Table ------->
-            <div class="float-right my-8 mr-10 grid w-fit">
-                <p class="">Latest in Reservations: </p>
+            <div class="my-8 grid w-fit">
+                <p class="">My latest Reservs: </p>
 
                 <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
                     <table class="w-full text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400">
@@ -213,8 +226,12 @@
                                 <th scope="col" class="px-6 py-3">
                                     Is Active
                                 </th>
-
-
+                                <th scope="col" class="px-6 py-3">
+                                    View in Page
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Remove
+                                </th>
 
                             </tr>
                         </thead>
@@ -237,6 +254,12 @@
                                     <td class="px-6 py-4">
                                         @reserve.Is_Actived
                                     </td>
+                                    <td class="px-6 py-4">
+                                        <a asp-controller="Tour" asp-action="Tour" asp-route-id="@reserve.fk_Tour">View</a>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <a asp-controller="Reservation" asp-action="DeleteReservation" asp-route-id="@reserve.Id">Edit</a>
+                                    </td>
                                 </tr>
 
                             }
@@ -244,7 +267,7 @@
                     </table>
                 </div>
                 <div class="mt-2 w-full">
-                    <a asp-action="Index" asp-route-id="@ViewBag.Person.Id" asp-controller="Reservation" class="float-right text-sm text-sky-600 hover:underline dark:text-blue-500">See all Items</a>
+                    <a asp-action="IndexforPerson" asp-route-id="@ViewBag.Person.Id" asp-controller="Reservation" class="float-right text-sm text-sky-600 hover:underline dark:text-blue-500">See all Items</a>
                 </div>
 
             </div>
@@ -252,9 +275,9 @@
 
 
             <!------- Comments Table ------->
-            <div class="float-left my-8 ml-10 w-fit">
+            <div class="my-8 w-fit">
 
-                <p class="">Latest in Comments: </p>
+                <p class="">My latest Comments: </p>
                 <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
                     <table class="w-full text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400">
                         <thead class="bg-gray-50 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
@@ -277,7 +300,12 @@
                                 <th scope="col" class="px-6 py-3">
                                     Actived
                                 </th>
-
+                                <th scope="col" class="px-6 py-3">
+                                    View in Page
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Remove
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -307,7 +335,12 @@
                                         }
                                         @_localdata
                                     </td>
-
+                                    <td class="px-6 py-4">
+                                        <a asp-controller="Tour" asp-action="Tour" asp-route-id="@comment.fk_Tour">View</a>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <a asp-controller="Comments" asp-action="DeleteComment" asp-route-id="@comment.Id">Edit</a>
+                                    </td>
                                 </tr>
 
                             }
@@ -315,7 +348,7 @@
                     </table>
                 </div>
                 <div class="mt-2 w-full">
-                    <a asp-action="Index" asp-route-id="@ViewBag.Person.Id" asp-controller="Comments" class="float-right text-sm text-sky-600 hover:underline dark:text-blue-500">See all Items</a>
+                    <a asp-action="IndexforPerson" asp-route-id="@ViewBag.Person.Id" asp-controller="Comments" class="float-right text-sm text-sky-600 hover:underline dark:text-blue-500">See all Items</a>
                 </div>
             </div>
 

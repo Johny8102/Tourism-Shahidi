@@ -36,14 +36,16 @@ namespace Final_project_2.Controllers
         public IActionResult AdminPanel()
         {
             
-            ViewBag.Tours = _TourRepo.GetAll().Select(i => new Tour()
+            ViewBag.Tours = _TourRepo.GetAll().Take(4).Select(i => new Tour()
             {
                 Id = i.Id,
                 Title = i.Title,
-                Tour_Name = i.Tour_Name
+                Tour_Name = i.Tour_Name,
+                Description= i.Description,
+                Touring_area = i.Touring_area
             });
 
-            ViewBag.Person = _PersonRepo.GetAll().Select(i => new Person
+            ViewBag.Person = _PersonRepo.GetAll().Take(4).Take(4).Select(i => new Person
             {
                 Id = i.Id,
                 Name = i.Name,
@@ -52,7 +54,7 @@ namespace Final_project_2.Controllers
                 Email = i.Email
             });
 
-            ViewBag.Reservation = _ReservationsRepo.GetAll().Select(i => new Reservation()
+            ViewBag.Reservation = _ReservationsRepo.GetAll().Take(4).Select(i => new Reservation()
             {
                 Id = i.Id,
                 Reserved_Count = i.Reserved_Count,
@@ -61,7 +63,7 @@ namespace Final_project_2.Controllers
                 Is_Actived = i.Is_Actived,
             });
             
-            ViewBag.Comments = _CommentsRepo.GetAll().Select(i => new Comments()
+            ViewBag.Comments = _CommentsRepo.GetAll().Take(4).Select(i => new Comments()
             {
                 Id = i.Id,
                 Person_Name = _PersonRepo.GetById(i.fk_Person).Name,
@@ -110,6 +112,7 @@ namespace Final_project_2.Controllers
                 Tour_Name = _TourRepo.GetById(_ActiveToursRepo.GetById(i.fk_Active_Tour).fk_Tour).Tour_Name,
                 Person_Name = _PersonRepo.GetById(i.fk_Person).Name,
                 Is_Actived = i.Is_Actived,
+                fk_Tour = _ActiveToursRepo.GetById(i.fk_Active_Tour).fk_Tour
             });
             return View();
         }

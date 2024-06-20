@@ -6,13 +6,13 @@
 
     <!-- --------   Main   -------- -->
 
-    <div>
+    <div class="bg-gray-100" >
 
         <!-- npx tailwindcss -i ./wwwroot/css/site.css -o ./wwwroot/css/style.css --watch --->
 
         <!-- --------   Content   -------- -->
 
-        <img src="../Media/Photo/main-banner-desktop.webp"/> 
+        <img src="./Images/main-banner-desktop.webp"/> 
 
         <!------------ All Context ------------>
         <div class="lg:mx-16">
@@ -32,7 +32,7 @@
               </ol>
           </ul>
   
-          <div style="width: 70rem;;" class="mb-0 mt-4 flex h-14 overflow-hidden">
+          @* <div style="width: 70rem;;" class="mb-0 mt-4 flex h-14 overflow-hidden">
             
               <label class="mx-4 flex cursor-pointer items-center justify-center rounded-full border bg-white text-sm font-medium text-gray-900 shadow-sm hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6">
                 <input type="radio" name="size-choice" value="M" class="sr-only" aria-labelledby="size-choice-3-label">
@@ -119,61 +119,31 @@
                 -->
                 <span class="pointer-events-none absolute -inset-px rounded-full" aria-hidden="true"></span>
               </label>
-          <!-----
-                  <button type="button" class="ring-1 inline-flex items-center rounded-full bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-inset ring-gray-300 hover:bg-gray-50 sm:block">
-                      همه تور ها
-                  </button>
-                
-  
-                  <button type="button" class="ring-1 mr-4 inline-flex items-center rounded-full bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-inset ring-gray-300 hover:bg-gray-50 sm:block">
-                      تور اروپا
-                  </button>
-  
-                  <button type="button" class="ring-1 mr-4 inline-flex items-center rounded-full bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-inset ring-gray-300 hover:bg-gray-50 sm:block">
-                      تور آسیا
-                  </button>
-  
-                  <button type="button" class="ring-1 mr-4 inline-flex items-center rounded-full bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-inset ring-gray-300 hover:bg-gray-50 sm:block">
-                      تور آفریقا
-                  </button>
-  
-                  <button type="button" class="ring-1 mr-4 inline-flex items-center rounded-full bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-inset ring-gray-300 hover:bg-gray-50 sm:block">
-                      تور آمریکای جنوبی
-                  </button>
-  
-                  <button type="button" class="ring-1 mr-4 inline-flex items-center rounded-full bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-inset ring-gray-300 hover:bg-gray-50 sm:block">
-                      تور کروز
-                  </button>
-                  
-                  <button type="button" class="ring-1 mr-4 inline-flex items-center rounded-full bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-inset ring-gray-300 hover:bg-gray-50 sm:block">
-                      تور داخلی
-                  </button>
-
-                  ----->
-          </div>
+          
+          </div> *@
   
         
   
           <!----------------        Selling Items       ---------------->
   
           <div class="lg:space-y-0">
-            <div class="max-w-7xl sm:px-6">
-              <div class="mx-auto max-w-2xl sm:py-24 lg:max-w-none">
+            <div class="sm:px-6">
+              <div class="mx-auto sm:py-24 lg:max-w-none">
                 <!---- A Row of pictures------>
                 <div class="lg:grid lg:grid-cols-3 lg:gap-x-6">
-                        @foreach (Tour tour in ViewBag.Tours)
+                    @foreach (Tour tour in ViewBag.Tours)
                     {
                         <div class="">
-                            <a href="">
+                            <a asp-action="Tour" asp-controller="Tour" asp-route-id="@tour.Id">
                                 <div class="w-full overflow-hidden rounded-2xl border border-gray-300 bg-gray-50 group-hover:opacity-75">
-                                        <img src="@Url.Content("~/Images/" + tour.Image5)" alt="TourPicture" class="object-contain object-top">
-                                    <h3 class="bold mr-2 mt-1 text-xl font-semibold text-black">
+                                    <img src="@Url.Content("~/Images/" + tour.Image5)" alt="TourPicture" class="object-contain object-top">
+                                    <h3 class="bold mr-2 mt-1 px-2 text-xl font-semibold text-black">
                                         @tour.Tour_Name
                                     </h3>
 
-                                    <p class="font mr-2 mt-1 text-base text-gray-700">@tour.Title</p>
-                                    <p class="font mr-2 mt-4 text-base text-gray-700">Price stats from</p>
-                                    <p class="float-left my-4 ml-2 text-xl font-semibold text-green-900">@tour.Price_per_person</p>
+                                    <p class="font mr-2 mt-1 px-2 text-base text-gray-700">@tour.Title</p>
+                                    <p class="float-right mr-2 mt-4 px-2 text-base text-gray-700">Price stats from</p>
+                                    <p class="float-left my-4 ml-2 px-2 text-xl font-semibold text-green-900">@tour.Price_per_person</p>
 
 
                                 </div>

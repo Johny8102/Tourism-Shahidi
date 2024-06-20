@@ -14,10 +14,10 @@
 <div class="bg-gray-100">
 
 
-    <h2 class="leading-7 my-10 text-center text-2xl font-semibold text-gray-900">@ViewBag.Tour.Tour_Name</h2>
+    
 
 
-        <div class="border-gray-900/25 mt-2 flex justify-center rounded-lg border border-dashed px-6 py-10">
+        <div class="mt-2 flex justify-center px-0 pb-2">
 
 
         <img class="w-full" id="blah_bg" src="@Url.Content("~/Images/" + ViewBag.Tour.Image_bg)" />
@@ -35,50 +35,56 @@
 
         <div class="grid-cols-1 mx-auto grid max-w-2xl items-center gap-x-8 gap-y-16 px-4 py-24 sm:px-6 sm:py-32 lg:max-w-7xl lg:grid-cols-2 lg:px-8">
             <div>
-                <div style="display: grid;  column-gap: 20px;" class="grid-cols-5">
+            <div style="display: grid;  column-gap: 20px;" class="grid-cols-5 mt-2 border-b border-gray-300">
 
-                    <div class="col-span-2">
+                <div class="col-span-2">
 
-                        <div class="my-2 flex sm:max-w-md">
-                            <p class="flex-1 block py-1.5 pl-1 text-gray-900 sm:text-sm sm:leading-6">
+                        <div class="my-2 sm:max-w-md">
+                        <label for="TourName" class="leading-6 block text-sm font-medium text-gray-900">Tour Name</label>
+                        <p class="flex-1 block rounded-md py-1.5 text-gray-900 sm:text-sm sm:leading-6">
                             @ViewBag.Tour.Tour_Name
-                            </p>
+                        </p>
                         </div>
                     </div>
                     <div class="col-span-3">
-                        <div class="my-2 flex sm:max-w-md">
-                            <p class="flex-1 block py-1.5 pl-1 text-gray-900 sm:text-sm sm:leading-6">
-                            @ViewBag.Title
+                        <div class="my-2 sm:max-w-md">
+                            <label for="TourName" class="leading-6 block text-sm font-medium text-gray-900">Title</label>
+                        <p class="flex-1 block rounded-md py-1.5 text-gray-900 sm:text-sm sm:leading-6">
+                            @ViewBag.Tour.Title
                             </p>
 
                         </div>
                     </div>
                 </div>
 
-                <div class="col-span-full my-2">
+            <div class="col-span-full my-2 mt-2 border-b border-gray-300">
+                
+                    <label for="TourName" class="leading-6 block text-sm font-medium text-gray-900">Description</label>
                     <p class="block w-full rounded-md py-1.5 text-gray-900 sm:text-sm sm:leading-6">
-                    @ViewBag.Description
+                    @ViewBag.Tour.Description
                     </p>
                 </div>
 
-                <div class="col-span-full my-2">
-
+            <div class="col-span-full my-2 mt-2 border-b border-gray-300">
+                <label for="TourName" class="leading-6 block text-sm font-medium text-gray-900">Rules</label>
                     <p class="block w-full rounded-md py-1.5 text-gray-900 ring-inset sm:text-sm sm:leading-6">
-                    @ViewBag.Rules
+                    @ViewBag.Tour.Rules
                     </p>
 
                 </div>
 
 
-                <div class="col-span-full my-2">
+            <div class="col-span-full my-2 mt-2 border-b border-gray-300">
+                <label for="TourName" class="leading-6 block text-sm font-medium text-gray-900">Status Limit</label>
                     <p class="block w-full rounded-md py-1.5 text-gray-900 ring-inset sm:text-sm sm:leading-6">
                     @ViewBag.Tour.Status_limit
                     </p>
                 </div>
 
-                <div style="display: grid; grid-template-columns: auto auto ; column-gap: 20px;" class="">
+            <div style="display: grid; grid-template-columns: auto auto ; column-gap: 20px;" class="my-2 mt-2 border-b border-gray-300">
                     <div class="">
                         <div class="mt-2">
+                        <label for="TourName" class="leading-6 block text-sm font-medium text-gray-900">Quality</label>
                             <p class="block w-full rounded-md py-1.5 text-gray-900 sm:text-sm sm:leading-6">
                             @ViewBag.Tour.Quality_level
                             </p>
@@ -87,6 +93,7 @@
                     </div>
                     <div class="">
                         <div class="mt-2">
+                        <label for="TourName" class="leading-6 block text-sm font-medium text-gray-900">Touring Area</label>
                             <a class="block w-full rounded-md py-1.5 text-gray-900 sm:text-sm sm:leading-6">
                             @ViewBag.Tour.Touring_area
                             </a>
@@ -95,10 +102,10 @@
 
                 </div>
 
-                <div style="display: grid; grid-template-columns: auto auto auto; column-gap: 20px;" class="mt-5">
+            <div style="display: grid; grid-template-columns: auto auto auto; column-gap: 20px;" class="mt-2">
 
                     <div class="mt-2">
-
+                    <label for="TourName" class="leading-6 block text-sm font-medium text-gray-900">Capacity</label>
                         <p class="block w-full rounded-md py-1.5 text-gray-900 sm:text-sm sm:leading-6">
                         @ViewBag.Tour.Capacity
                         </p>
@@ -106,7 +113,7 @@
 
 
                     <div class="mt-2">
-
+                    <label for="TourName" class="leading-6 block text-sm font-medium text-gray-900">Price per person</label>
                         <p class="block w-full rounded-md py-1.5 text-gray-900 sm:text-sm sm:leading-6">
                         @ViewBag.Tour.Price_per_person
                         </p>
@@ -114,6 +121,7 @@
                     </div>
 
                     <div class="mt-2">
+                    <label for="TourName" class="leading-6 block text-sm font-medium text-gray-900">Activation Status2</label>
                         @{
                             string data;
                         if (ViewBag.Tour.Is_Acive) data = "Activated Tour";
@@ -137,15 +145,15 @@
 
             <!--- All images ----->
 
-            <div class="grid-cols-2 grid-rows-2 grid gap-4 sm:gap-6 lg:gap-8">
+            <div class="grid-cols-2 grid-rows-2 grid gap-2 sm:gap-6 lg:gap-6">
 
                 <!--- image 1 ----->
 
                 <div class="">
 
-                    <div class="border-gray-900/25 mt-2 flex justify-center rounded-lg border border-dashed px-6 py-10">
+                    <div class="justify-center px-4 py-4">
 
-                    <img class="" id="blah_1" src="@Url.Content("~/Images/" + ViewBag.Tour.Image1)" alt="your image" />
+                    <img class="w-full rounded-lg" id="blah_1" src="@Url.Content("~/Images/" + ViewBag.Tour.Image1)" alt="your image" />
 
 
                     </div>
@@ -154,8 +162,8 @@
                 <!----- image 2 ------->
                 <div class="">
 
-                    <div class="border-gray-900/25 mt-2 flex justify-center rounded-lg border border-dashed px-6 py-10">
-                    <img class="h-24" id="blah_2" src="@Url.Content("~/Images/" + ViewBag.Tour.Image2)" alt="" />
+                    <div class="justify-center px-4 py-4">
+                    <img class="w-full rounded-lg" id="blah_2" src="@Url.Content("~/Images/" + ViewBag.Tour.Image2)" alt="" />
 
                     </div>
                 </div>
@@ -163,8 +171,8 @@
                 <!----- image 3 ------->
                 <div class="">
 
-                    <div class="border-gray-900/25 mt-2 flex justify-center rounded-lg border border-dashed px-6 py-10">
-                    <img class="h-24" id="blah_3" src="@Url.Content("~/Images/" + ViewBag.Tour.Image3)" alt="" />
+                    <div class="justify-center px-4 py-4">
+                    <img class="w-full rounded-lg" id="blah_3" src="@Url.Content("~/Images/" + ViewBag.Tour.Image3)" alt="" />
 
                     </div>
                 </div>
@@ -172,8 +180,8 @@
                 <!----- image 4 ------->
                 <div class="">
 
-                    <div class="border-gray-900/25 mt-2 flex justify-center rounded-lg border border-dashed px-6 py-10">
-                        <img class="h-24" id="blah_4" src="@Url.Content("~/Images/" + ViewBag.Tour.Image4)" alt="" />
+                    <div class="justify-center px-4 py-4">
+                    <img class="w-full rounded-lg" id="blah_4" src="@Url.Content("~/Images/" + ViewBag.Tour.Image4)" alt="" />
 
 
                     </div>
@@ -182,9 +190,9 @@
                 <!----- image 5 ------->
                 <div class="col-span-2">
 
-                    <div class="border-gray-900/25 mt-2 flex justify-center rounded-lg border border-dashed px-6 py-10">
-                    <img class="h-24" id="blah_5" src="@Url.Content("~/Images/" + ViewBag.Tour.Image5)" alt="" />
-
+                    <div class="w-full justify-center px-6 py-4">
+                    <img class="w-full rounded-lg" id="blah_5" src="@Url.Content("~/Images/" + ViewBag.Tour.Image5)" alt="" />
+                    
                     </div>
                 </div>
 
@@ -204,28 +212,24 @@
 
 
 
-    <div class="relative mx-auto w-4/5 overflow-x-auto sm:rounded-lg">
+    <div class="relative mx-auto w-1/2 overflow-x-auto sm:rounded-lg">
         
             <p class="mb-12 text-lg">Active tours</p>
-            <table class="mb-2 w-full text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400">
+        <table class="mx-auto mb-2 w-full px-3 text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400">
                 <thead class="bg-gray-50 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-2 py-3">
                             Start Date
                         </th>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-2 py-3">
                             End Date
                         </th>
-                        <th scope="col" class="px-6 py-3">
-                            Edit
+                       
+                        <th scope="col" class="px-2 py-3">
+                            Remove
                         </th>
-                        <th scope="col" class="px-6 py-3">
-                            Delete
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            Count
-                        </th>
-                        <th scope="col" class="px-6 py-3">
+
+                        <th scope="col" class="px-2 py-3">
                             Reserve
                         </th>
                     </tr>
@@ -235,58 +239,34 @@
                     @foreach (Active_Tours ActiveTour in ViewBag.Active_Tours)
                     {
                         <tr class="border-b bg-white dark:bg-gray-800 dark:border-gray-700">
-                            <th scope="row" class="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white">
+                        <td scope="row" class="whitespace-nowrap px-2 py-4 font-medium text-gray-900 dark:text-white">
                                 @ActiveTour.Start_time
-                            </th>
-                            <td class="px-6 py-4">
+                            </td>
+                        <td class="px-2 py-4 font-medium text-gray-900 dark:text-white">
                                 @ActiveTour.End_time
                             </td>
-                            
 
-                            <td class="px-6 py-4">
-                            <button class="hover:text-blue-600" onclick="UdateDialogBox('@ActiveTour.Start_time' , '@ActiveTour.End_time' ,'@ActiveTour.Id')" data-modal-target="Update-modal" data-modal-toggle="Update-modal">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
-                                    </svg>
-                                    Update
-                                </button>
 
-                        </td>
-                            <td class="px-6 py-4">
-                            <button class="hover:text-red-600" onclick="RemoveDialogBox('@ActiveTour.Start_time' , '@ActiveTour.End_time' ,'@ActiveTour.Id')" data-modal-target="Delete-modal" data-modal-toggle="Delete-modal">
+                        
+                        <td class="w-2 justify-around pl-4">
+                            <button class="mx-auto h-5 w-5 hover:text-red-900" onclick="RemoveDialogBox('@ActiveTour.Start_time' , '@ActiveTour.End_time' ,'@ActiveTour.Id')" data-modal-target="Delete-modal" data-modal-toggle="Delete-modal">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
                                     </svg>
-                                    Remove
+                                    
                                 </button>
 
                             </td>
-                            <td class="px-6 py-4">
-                                <div class="flex items-center">
-                                    <button class="me-3 inline-flex h-6 w-6 items-center justify-center rounded-full border border-gray-300 bg-white p-1 text-sm font-medium text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700" type="button">
-                                        <span class="sr-only">Quantity button</span>
-                                        <svg class="h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
-                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h16" />
-                                        </svg>
-                                    </button>
-                                    <div>
-                                        <input type="number" id="first_product" class="block w-14 rounded-lg border border-gray-300 bg-gray-50 px-2.5 py-1 text-sm text-gray-900 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required />
-                                    </div>
-                                    <button class="ms-3 inline-flex h-6 w-6 items-center justify-center rounded-full border border-gray-300 bg-white p-1 text-sm font-medium text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700" type="button">
-                                        <span class="sr-only">Quantity button</span>
-                                        <svg class="h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16" />
-                                        </svg>
-                                    </button>
-                                </div>
-                            </td>
-                        <td class="px-6 py-4">
-                            <button class="hover:text-red-600" onclick="ReserveDialogBox(@ActiveTour.Id)" data-modal-target="Reserve-modal" data-modal-toggle="Reserve-modal">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z" />
-                                </svg>
 
-                                Reserve
+                        <td class="w-2 justify-around pl-5">
+                            <button class="mx-auto h-5 w-5 hover:text-blue-600" onclick="ReserveDialogBox(@ActiveTour.Id)" data-modal-target="Reserve-modal" data-modal-toggle="Reserve-modal">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M10.05 4.575a1.575 1.575 0 1 0-3.15 0v3m3.15-3v-1.5a1.575 1.575 0 0 1 3.15 0v1.5m-3.15 0 .075 5.925m3.075.75V4.575m0 0a1.575 1.575 0 0 1 3.15 0V15M6.9 7.575a1.575 1.575 0 1 0-3.15 0v8.175a6.75 6.75 0 0 0 6.75 6.75h2.018a5.25 5.25 0 0 0 3.712-1.538l1.732-1.732a5.25 5.25 0 0 0 1.538-3.712l.003-2.024a.668.668 0 0 1 .198-.471 1.575 1.575 0 1 0-2.228-2.228 3.818 3.818 0 0 0-1.12 2.687M6.9 7.575V12m6.27 4.318A4.49 4.49 0 0 1 16.35 15m.002 0h-.002" />
+                                </svg>
+                                
+
+
+                                
                             </button>
 
                         </td>
@@ -366,15 +346,19 @@
                 @using (Html.BeginForm("AddReserve", "Reservation", FormMethod.Post))
                 {
                     <div class="mb-4 grid gap-4">
-                        <input class="" value="" id="ReserveActiveTourDialog" name="fk_Active_Tour" />
-                        <input class="" value="1" id="ReservePersonDialog" name="fk_Person" />
-                        <div date-rangepicker class="flex items-center">
-                            <div>
-                                <input type="number"  name="Reserved_Count" id="" class="block w-14 rounded-lg border border-gray-300 bg-gray-50 px-2.5 py-1 text-sm text-gray-900 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required />
-                            </div>
-                            <button type="submit" class="inline-flex items-center rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                <svg class="-ms-1 me-1 h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd"></path></svg>
-                                Add new product
+                        <input class="hidden" value="" id="ReserveActiveTourDialog" name="fk_Active_Tour" />
+                        <input class="hidden" value="1" id="ReservePersonDialog" name="fk_Person" />
+                        <div date-rangepicker class="items-center">
+                            <div class="my-4 flex justify-center">
+                                <p class="mr-2 mt-2">Please Select your desired number</p>
+                                <input type="number"  name="Reserved_Count" id="" class="block w-20 rounded-lg border border-gray-300 bg-gray-50 text-sm text-gray-900 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="1" required />
+                                
+                                </div>
+                            <button type="submit" class="mx-auto my-2 flex h-12 bg-blue-700 px-3 py-2.5 text-center font-medium text-white hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mx-2 w-8">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M18 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0ZM3 19.235v-.11a6.375 6.375 0 0 1 12.75 0v.109A12.318 12.318 0 0 1 9.374 21c-2.331 0-4.512-.645-6.374-1.766Z" />
+                                </svg>
+                                <p class="mt-1">Request for Reserve</p>
                             </button>
                         </div>
                     </div>
@@ -396,7 +380,7 @@
                 <!-- Modal header -->
                 <div class="flex items-center justify-between rounded-t border-b p-4 dark:border-gray-600 md:p-5">
                     <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
-                        Create New Product
+                        Add New Tour Priod
                     </h3>
                     <button type="button" class="ms-auto inline-flex h-8 w-8 items-center justify-center rounded-lg bg-transparent text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="Create-modal">
                         <svg class="h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
@@ -408,11 +392,11 @@
                 <!-- Modal body -->
                     @using (Html.BeginForm("AddTour", "ActiveTours", FormMethod.Post))
                     {
-                        <div class="mb-4 grid gap-4">
+                    <div class="mx-auto mb-4 grid items-center gap-4">
                             <input class="hidden" value="@ViewBag.Tour.Id" name="fk_Tour" />
-                            <div date-rangepicker class="flex items-center">
+                        <div date-rangepicker class="flex">
                                 <div class="relative">
-                                    <div class="pointer-events-none absolute inset-y-0 start-0 flex items-center ps-3">
+                                <div class="pointer-events-none absolute inset-y-0 start-0 flex items-center ps-3">
                                         <svg class="h-4 w-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                                             <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
                                         </svg>
@@ -447,11 +431,11 @@
     <div id="Delete-modal" tabindex="-1" aria-hidden="true" class="h-[calc(100%-1rem)] fixed left-0 right-0 top-0 z-50 hidden max-h-full w-full items-center justify-center overflow-y-auto overflow-x-hidden md:inset-0">
         <div class="relative max-h-full w-full max-w-md p-4">
             <!-- Modal content -->
-            <div class="relative rounded-lg bg-white shadow dark:bg-gray-700">
+            <div class="relative w-full rounded-lg bg-white shadow dark:bg-gray-700">
                 <!-- Modal header -->
                 <div class="flex items-center justify-between rounded-t border-b p-4 dark:border-gray-600 md:p-5">
                     <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
-                        Delete New Product
+                        Delete Tour Priod
                     </h3>
                     <button type="button" class="ms-auto inline-flex h-8 w-8 items-center justify-center rounded-lg bg-transparent text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="Delete-modal">
                         <svg class="h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
@@ -463,9 +447,9 @@
                 <!-- Modal body -->
                 @using (Html.BeginForm("DeleteActiveTour", "ActiveTours", FormMethod.Post))
                 {
-                    <div class="mb-4 grid gap-4">
+                    <div class="my-4 grid gap-4">
                         <input class="hidden" id="Delete_Id" name="Id" />
-                        <div date-rangepicker class="flex items-center">
+                        <div date-rangepicker class="mx-auto flex">
                             <div class="relative">
                                 <div class="pointer-events-none absolute inset-y-0 start-0 flex items-center ps-3">
                                     <svg class="h-4 w-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
@@ -489,70 +473,28 @@
                             </div>
                         </div>
                     </div>
-                    <button type="submit" class="inline-flex items-center rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                        <svg class="-ms-1 me-1 h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd"></path></svg>
-                        Done
-                    </button>
-                }
-            </div>
-        </div>
-    </div>
+                    <button type="submit" class="mx-auto inline-flex bg-red-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">
 
-
-
-    <!-- Main Update modal -->
-    <div id="Update-modal" tabindex="-1" aria-hidden="true" class="h-[calc(100%-1rem)] fixed left-0 right-0 top-0 z-50 hidden max-h-full w-full items-center justify-center overflow-y-auto overflow-x-hidden md:inset-0">
-        <div class="relative max-h-full w-full max-w-md p-4">
-            <!-- Modal content -->
-            <div class="relative rounded-lg bg-white shadow dark:bg-gray-700">
-                <!-- Modal header -->
-                <div class="flex items-center justify-between rounded-t border-b p-4 dark:border-gray-600 md:p-5">
-                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
-                        Update Tour Time
-                    </h3>
-                    <button type="button" class="ms-auto inline-flex h-8 w-8 items-center justify-center rounded-lg bg-transparent text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="Update-modal">
-                        <svg class="h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="mr-2 w-5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
                         </svg>
-                        <span class="sr-only">Close modal</span>
+                        <p>Done</p>
                     </button>
-                </div>
-                <!-- Modal body -->
-                @using (Html.BeginForm("UpdateActiveTour", "ActiveTours", FormMethod.Post))
-                {
-                    <div class="mb-4 grid gap-4">
-                        <input class="hidden" value="@ViewBag.Tour.Id" name="fk_Tour" />
-                        <input class="" id="Update_Id" name="Id" />
-                        <div date-rangepicker class="flex items-center">
-                            <div class="relative">
-                                <div class="pointer-events-none absolute inset-y-0 start-0 flex items-center ps-3">
-                                    <svg class="h-4 w-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                                        <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
-                                    </svg>
-                                </div>
-                                <input id="Update_StartTime" name="Start_time" class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 ps-10 text-sm text-gray-900 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            </div>
-                            <span class="mx-4 text-gray-500">to</span>
-                            <div class="relative">
-                                <div class="pointer-events-none absolute inset-y-0 start-0 flex items-center ps-3">
-                                    <svg class="h-4 w-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                                        <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
-                                    </svg>
-                                </div>
-                                <input id="Update_EndTime" name="End_time" class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 ps-10 text-sm text-gray-900 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            </div>
-                        </div>
-                    </div>
-                    <button type="submit" class="inline-flex items-center rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                        Done
-                    </button>
+
+                        
                 }
             </div>
         </div>
     </div>
 
 
-    <!-----------------------------------       End Of Dialog Area       ---------------------------------->
+
+    
+
+
+    <!-----------------------------------       
+    End Of Dialog Area    
+    ---------------------------------->
 
    
 
@@ -567,7 +509,8 @@
             @using (Html.BeginForm("AddComment", "Comments", FormMethod.Post))
             {
                 <input class="hidden" value="@ViewBag.Tour.Id" name="fk_Tour" />
-                <input class="" value="1" name="fk_Person" />
+                <input class="hidden" value="1" name="fk_Person" />
+                <input class="" value="" name="fk_comment" id="fk_comment_holder" />
                 <div class="mb-6">
                     <div class="mb-4 rounded-lg rounded-t-lg border border-gray-200 bg-white px-4 py-2 dark:bg-gray-800 dark:border-gray-700">
                     <label  class="sr-only">Your comment</label>
@@ -622,7 +565,7 @@
                     </footer>
                     <p class="text-gray-500 dark:text-gray-400">@comment.Text</p>
                     <div class="mt-4 flex items-center space-x-4">
-                        <button type="button"
+                        <button type="button" onclick="ReplyComment(@comment.Id)"
                                 class="flex items-center text-sm font-medium text-gray-500 hover:underline dark:text-gray-400">
                             <svg class="mr-1.5 h-3.5 w-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 18">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5h5M5 8h2m6-3h2m-5 3h6m2-7H2a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h3v5l5-5h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1Z" />
@@ -630,5 +573,64 @@
                             Reply
                         </button>
                     </div>
+                    @foreach (Comments Reply in @comment.Replies)
+                    {
+                        <article class="border-t border-gray-200 bg-white p-6 text-base dark:border-gray-700 dark:bg-gray-900">
+                            <footer class="mb-2 flex items-center justify-between">
+                                <div class="flex items-center">
+                                    <p class="mr-3 inline-flex items-center text-sm font-semibold text-gray-900 dark:text-white">
+                                        <img class="mr-2 h-6 w-6 rounded-full"
+                                             src="https://flowbite.com/docs/images/people/profile-picture-4.jpg"
+                                             alt="Helene Engels" />Reply.Person.Username
+                                    </p>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">
+                                        <time pubdate datetime="2022-06-23"
+                                              title="June 23rd, 2022">@Reply.Time</time>
+                                    </p>
+                                </div>
+                                <button id="dropdownComment4Button" data-dropdown-toggle="dropdownComment4"
+                                        class="inline-flex items-center rounded-lg bg-white p-2 text-center text-sm font-medium text-gray-500 hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-50 dark:text-gray-40 dark:bg-gray-900 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                                        type="button">
+                                    <svg class="h-4 w-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 3">
+                                        <path d="M2 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm6.041 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM14 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Z" />
+                                    </svg>
+                                </button>
+                                <!-- Dropdown menu -->
+                                <div id="dropdownComment4"
+                                     class="z-10 hidden w-36 divide-y divide-gray-100 rounded bg-white shadow dark:bg-gray-700 dark:divide-gray-600">
+                                    <ul class="py-1 text-sm text-gray-700 dark:text-gray-200"
+                                        aria-labelledby="dropdownMenuIconHorizontalButton">
+                                        <li>
+                                            <a href="#"
+                                               class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Edit</a>
+                                        </li>
+                                        <li>
+                                            <a href="#"
+                                               class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Remove</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </footer>
+                            <p class="text-gray-500 dark:text-gray-400">@Reply.Text</p>
+                            
+                        </article>
+                    }
                 </article>
+                
+
+
+
+
+
+
             }
+
+
+
+
+
+<script>
+    function ReplyComment(Id) {
+        document.getElementById("fk_comment_holder").setAttribute("value", Id)
+    }
+</script>

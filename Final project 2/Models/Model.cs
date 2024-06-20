@@ -62,15 +62,15 @@ namespace Final_project_2.Models
         public string Touring_area { get; set;}
     }
 
-    public class Image_properties: Tour_Items
-    {
-        public Image Image_propertie0 { get; set; }
-        public Image Image_propertie1 { get; set; }
-        public Image Image_propertie2 { get; set; }
-        public Image Image_propertie3 { get;set; }
-        public Image Image_propertie4 { get; set;}
-        public Image Image_propertie5 { get; set;}
-    }
+    //public class Image_properties: Tour_Items
+    //{
+    //    public Image Image_propertie0 { get; set; }
+    //    public Image Image_propertie1 { get; set; }
+    //    public Image Image_propertie2 { get; set; }
+    //    public Image Image_propertie3 { get;set; }
+    //    public Image Image_propertie4 { get; set;}
+    //    public Image Image_propertie5 { get; set;}
+    //}
 
 
 
@@ -95,6 +95,8 @@ namespace Final_project_2.Models
         public DateTime Time { get; set; }
 
         [NotMapped]
+        public IEnumerable<Comments> Replies { get; set; }
+        [NotMapped]
         public string Tour_Name { get; set; }
         [NotMapped]
         public string Person_Name { get; set; }
@@ -116,6 +118,8 @@ namespace Final_project_2.Models
        
         [NotMapped]
         public string Tour_Name { get; set; }
+        [NotMapped]
+        public int fk_Tour { get; set; }
         [NotMapped]
         public string Person_Name { get; set; }
         public Active_Tours Active_Tour { get; set; }

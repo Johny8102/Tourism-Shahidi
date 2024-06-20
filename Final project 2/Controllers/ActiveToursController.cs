@@ -22,13 +22,13 @@ namespace Final_project_2.Controllers
         public IEnumerable<Active_Tours> GetAllActiveTour() => _Repository.GetAll();
 
         [HttpPost]
-        public string AddTour(Active_Tours activetour)
+        public IActionResult AddTour(Active_Tours activetour)
         {
             
             //activetour.Tour = new TourController(new Repository<Tour>()).GetTour(activetour.fk_Tour);
             _Repository.Create(activetour);
 
-            return "Added Successfully";
+            return RedirectToAction("Index", "Tour");
         }
 
         public Active_Tours GetActiveTour(int id)=> _Repository.GetById(id);

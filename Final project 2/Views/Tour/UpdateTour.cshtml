@@ -1,5 +1,5 @@
-﻿@* @model Final_project_2.Models.Tour_Items *@
-@model Final_project_2.Models.Image_properties
+﻿ @model Final_project_2.Models.Tour_Items 
+@*@model Final_project_2.Models.Image_properties*@
 
 @{
     ViewData["Title"] = "Update Tour";
@@ -10,7 +10,7 @@
     <div class="bg-gray-100">
 
 
-        <h2 class="leading-7 my-10 text-center text-2xl font-semibold text-gray-900">Add New Tour</h2>
+        <h2 class="leading-7 py-10 text-center text-2xl font-semibold text-gray-900">Udpdate @Model.Tour_Name Tour</h2>
 
 
         <div class="border-gray-900/25 mt-2 flex justify-center rounded-lg border border-dashed px-6 py-10">
@@ -22,7 +22,7 @@
 
                     <label for="myImagebg" class="relative cursor-pointer rounded-md font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500">
                         <span>Upload a file</span>
-                        <img class="h-24" id="blah_bg" src="@Url.Content("~/Images/" + Model.Image_bg)" />
+                        <img class="h-24" id="blah_bg" src="@Url.Content("~/Images/" + Model.Image_bg)" alt="" />
                         <input name="Image_holderbg" id="myImagebg" onchange="readURL(this,blah_bg ,'svg-bg')" type="file" class="sr-only">
                     </label>
 
@@ -157,7 +157,7 @@
                             </svg>
                             <div class="leading-6 mt-4 flex text-sm text-gray-600">
                                 <label for="Image1_id" class="relative cursor-pointer rounded-md font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500">
-                                    <img class="h-24" id="blah_1" src="@Url.Content("~/Images/" + Model.Image1)" alt="your image" />
+                                    <img class="h-24" id="blah_1" src="@Url.Content("~/Images/" + Model.Image1)" alt="" />
                                     <span>Upload a file</span>
                                     <input name="Image_holder1" onchange="readURL(this,blah_1,'svg-1')" id="Image1_id" type="file" class="Image-input sr-only">
                                 </label>

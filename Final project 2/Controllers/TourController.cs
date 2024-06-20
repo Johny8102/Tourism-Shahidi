@@ -101,15 +101,27 @@ namespace Final_project_2.Controllers
             if (id <= 0) return NotFound();
             ViewBag.Tour = _ToursRepo.GetById(id);
             ViewBag.Active_Tours = _ActiveToursRepo.GetAll().Where(i=>i.fk_Tour == id);
-            ViewBag.Comments = _CommentsRepo.GetAll();
-                
-            
+            ViewBag.Comments = GetCommentsWithRep(id);
+
+
+
             return View();
         }
 
+        public IEnumerable<Comments> GetCommentsWithRep(int fk_tour, int? fk_Comment = null)
+        {
+            var result =  _CommentsRepo.GetAll().Where(i => i.fk_Tour == fk_tour).Where(u => u.Is_Actived).Where(i => i.fk_comment == fk_Comment).Select(i => new Comments
+            {
+                Id = i.Id,
+                Person_Name = i.Person_Name,
+                Text = i.Text,
+                Time = i.Time,
+                Replies = GetCommentsWithRep(fk_tour,i.Id)
+            });
+            return result;
+        }
 
 
-        
 
         public IEnumerable<Tour> GetAllTour() => _ToursRepo.GetAll();
 
@@ -139,36 +151,36 @@ namespace Final_project_2.Controllers
         {
             if (id == 0) return View("/Error/NotFound");
             var temp_data = GetTour(id);
-            //var form_data = new Image_properties()
-            //{
-            //    Capacity = temp_data.Capacity,
-            //    Description = temp_data.Description,
-            //    Is_Acive = temp_data.Is_Acive,
-            //    Price_per_person = temp_data.Price_per_person,
-            //    Quality_level = temp_data.Quality_level,
-            //    Rules = temp_data.Rules,
-            //    Status_limit = temp_data.Status_limit,
-            //    Title = temp_data.Title ,
-            //    Touring_area = temp_data.Touring_area,
-            //    Tour_Name = temp_data.Tour_Name,
-            //    //Image_propertie0 = findImage(temp_data.Image_bg),
-            //    //Image_propertie1 = findImage(temp_data.Image1),
-            //    //Image_propertie2 = findImage(temp_data.Image2),
-            //    //Image_propertie3 = findImage(temp_data.Image3),
-            //    //Image_propertie4 = findImage(temp_data.Image4),
-            //    //Image_propertie5 = findImage(temp_data.Image5),
-            //    Image_bg = temp_data.Image_bg,
-            //    Image1 = temp_data.Image1,
-            //    Image2 = temp_data.Image2,
-            //    Image3 = temp_data.Image3,  
-            //    Image4 = temp_data.Image4,
-            //    Image5 = temp_data.Image5,
-            //    Id = id 
-            //};
-            
+            Tour_Items form_data = new()
+            {
+                Capacity = temp_data.Capacity,
+                Description = temp_data.Description,
+                Is_Acive = temp_data.Is_Acive,
+                Price_per_person = temp_data.Price_per_person,
+                Quality_level = temp_data.Quality_level,
+                Rules = temp_data.Rules,
+                Status_limit = temp_data.Status_limit,
+                Title = temp_data.Title,
+                Touring_area = temp_data.Touring_area,
+                Tour_Name = temp_data.Tour_Name,
+                //Image_propertie0 = findImage(temp_data.Image_bg),
+                //Image_propertie1 = findImage(temp_data.Image1),
+                //Image_propertie2 = findImage(temp_data.Image2),
+                //Image_propertie3 = findImage(temp_data.Image3),
+                //Image_propertie4 = findImage(temp_data.Image4),
+                //Image_propertie5 = findImage(temp_data.Image5),
+                Image_bg = temp_data.Image_bg,
+                Image1 = temp_data.Image1,
+                Image2 = temp_data.Image2,
+                Image3 = temp_data.Image3,
+                Image4 = temp_data.Image4,
+                Image5 = temp_data.Image5,
+                Id = id
+            };
 
 
-            return View(temp_data);
+
+            return View(form_data);
         }
 
         [HttpPost]
@@ -198,8 +210,8 @@ namespace Final_project_2.Controllers
             };
 
 
-            _ToursRepo.Update(tour);
-            return tour;
+            _ToursRepo.Update(tour_temp);
+            return tour_temp;
 
         }
 

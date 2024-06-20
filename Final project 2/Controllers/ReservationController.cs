@@ -38,9 +38,9 @@ namespace Final_project_2.Controllers
             }));
         }
 
-        public IActionResult Index(int personId)
+        public IActionResult IndexforPerson(int personId)
         {
-            return View(GetAllReserve().Where(o=>o.fk_Person==personId).Select(i => new Reservation
+            return View(GetAllReserve().Where(o => o.fk_Person == personId).Select(i => new Reservation
             {
                 Id = i.Id,
                 Reserved_Count = i.Reserved_Count,
@@ -50,7 +50,6 @@ namespace Final_project_2.Controllers
                 Active_Tour = _ActiveTourRepo.GetById(i.fk_Active_Tour),
             }));
         }
-
 
 
         public string AddReserve(Reservation reserve)
