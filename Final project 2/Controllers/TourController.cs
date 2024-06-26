@@ -14,12 +14,14 @@ namespace Final_project_2.Controllers
         private readonly ITourismRepository<Tour> _ToursRepo;
         private readonly ITourismRepository<Active_Tours> _ActiveToursRepo;
         private readonly ITourismRepository<Comments> _CommentsRepo;
+        private readonly ITourismRepository<Person> _PersonRepo;
 
-        public TourController(ITourismRepository<Tour> ToursRepo, ITourismRepository<Active_Tours> ActiveToursRepo, ITourismRepository<Comments> CommentsRepo)
+        public TourController(ITourismRepository<Tour> ToursRepo, ITourismRepository<Active_Tours> ActiveToursRepo, ITourismRepository<Comments> CommentsRepo, ITourismRepository<Person> PersonRepo)
         {
             _ToursRepo = ToursRepo;
             _ActiveToursRepo = ActiveToursRepo;
             _CommentsRepo = CommentsRepo;
+            _PersonRepo = PersonRepo;
         }
 
         public string ImageAdder(IFormFile file)
@@ -113,9 +115,10 @@ namespace Final_project_2.Controllers
             var result =  _CommentsRepo.GetAll().Where(i => i.fk_Tour == fk_tour).Where(u => u.Is_Actived).Where(i => i.fk_comment == fk_Comment).Select(i => new Comments
             {
                 Id = i.Id,
-                Person_Name = i.Person_Name,
+                Person_Name = _PersonRepo.GetById(i.fk_Person).Username,
                 Text = i.Text,
                 Time = i.Time,
+               
                 Replies = GetCommentsWithRep(fk_tour,i.Id)
             });
             return result;

@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Final project 2", "Final project 2\Final project 2.csproj", "{286A8B2C-649A-4741-B597-D0027E8DBCF7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Final project 2", "Final project 2\Final project 2.csproj", "{286A8B2C-649A-4741-B597-D0027E8DBCF7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E,ailVerification", "E,ailVerification\E,ailVerification.csproj", "{B1F5D575-581A-4D34-829A-7C2FD3C17839}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{286A8B2C-649A-4741-B597-D0027E8DBCF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{286A8B2C-649A-4741-B597-D0027E8DBCF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{286A8B2C-649A-4741-B597-D0027E8DBCF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1F5D575-581A-4D34-829A-7C2FD3C17839}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1F5D575-581A-4D34-829A-7C2FD3C17839}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1F5D575-581A-4D34-829A-7C2FD3C17839}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1F5D575-581A-4D34-829A-7C2FD3C17839}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -86,9 +86,10 @@
 
                     <div id="prof_popover" class="z-10 ring-1 ring-opacity-5 invisible absolute left-0 mt-2 w-40 origin-top-right rounded-md bg-gray-50 py-1 shadow-lg ring-black focus:outline-none" >
                         <!-- Active: "bg-gray-100", Not Active: "" -->
+                        <a asp-action="Login" asp-controller="Access"  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-700 hover:text-white" role="menuitem" tabindex="-1" id="user-menu-item-0"> Login </a>
                         <a asp-action="Profile" asp-controller="person" asp-route-id="1" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-700 hover:text-white" role="menuitem" tabindex="-1" id="user-menu-item-0"> Profile </a>
                         <a asp-action="AdminPanel" asp-controller="person" asp-route-id="1" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-700 hover:text-white" role="menuitem" tabindex="-1" id="user-menu-item-1"> Admin Panel </a>
-                        <a href="#"  class="block px-5 py-2 text-sm text-gray-700 hover:bg-gray-700 hover:text-white" role="menuitem" tabindex="-1" id="user-menu-item-1"> sign out </a>
+                        <a asp-action="LogOut" asp-controller="Home"  class="block px-5 py-2 text-sm text-red-700 hover:bg-gray-700 hover:text-white" role="menuitem" tabindex="-1" id="user-menu-item-1"> sign out </a>
 
                     </div>
                 </div>

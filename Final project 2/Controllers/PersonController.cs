@@ -1,6 +1,7 @@
 ﻿using Final_project_2.Models;
 using Final_project_2.Repository;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace Final_project_2.Controllers
 {
@@ -32,6 +33,75 @@ namespace Final_project_2.Controllers
         {
             return View();
         }
+
+        //public IActionResult Login()
+        //{
+        //    return View();
+        //}
+
+        public IActionResult Signup()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Login(Person person)
+        {
+            //if (ModelState.IsValid)
+            //{
+               
+            //        var user = _PersonRepo.GetAll().Where(i=>i.Username == person.Username).FirstOrDefault();
+                    
+            //        if (user != null)
+            //        {
+            //            Person userModel = new Person()
+            //            {
+            //                Id = user.Id,
+            //                Name = user.Name,
+            //                Family = user.Family,
+            //                Is_Admin = user.Is_Admin
+            //                //UserId = user.UserId,
+            //                //FirstName = user.FirstName,
+            //                //LastName = user.LastName,
+            //                //RoleName = user.Roles.Select(r => r.RoleName).ToList()
+            //            };
+
+            //            string userData = JsonConvert.SerializeObject(userModel);
+            //            FormsAuthenticationTicket authTicket = new FormsAuthenticationTicket
+            //                (
+            //                1, loginView.UserName, DateTime.Now, DateTime.Now.AddMinutes(15), false, userData
+            //                );
+
+            //            string enTicket = FormsAuthentication.Encrypt(authTicket);
+            //            HttpCookie faCookie = new HttpCookie("Cookie1", enTicket);
+            //            Response.Cookies.Add(faCookie);
+            //        }
+
+            //        if (Url.IsLocalUrl(ReturnUrl))
+            //        {
+            //            return Redirect(ReturnUrl);
+            //        }
+            //        else
+            //        {
+            //            return RedirectToAction("Index");
+            //        }
+                
+            //}
+            //ModelState.AddModelError("", "Something Wrong : Username or Password invalid ^_^ ");
+            //return View(loginView);
+
+            return View();
+        }
+
+        public IActionResult Signup(Person person)
+        {
+            return View();
+        }
+
+
+
+
+
 
         public IActionResult AdminPanel()
         {

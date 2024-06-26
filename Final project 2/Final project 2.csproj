@@ -22,9 +22,11 @@
     <Content Remove="Views\Home\Tour\DeleteTour.cshtml" />
     <Content Remove="Views\Home\Tour\EditTour.cshtml" />
     <Content Remove="Views\Home\Tour\Tour.cshtml" />
+    <Content Remove="Views\Person\login.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.4">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -32,6 +34,7 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.4" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.0.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.2" />
+    <PackageReference Include="NETCore.MailKit" Version="2.1.0" />
   </ItemGroup>
     
     <ItemGroup>
@@ -41,9 +44,8 @@
     
     <ItemGroup>
       <None Include="Views\Person\AdminPanel.cshtml" />
-      <None Include="Views\Person\login.cshtml" />
       <None Include="Views\Person\Profile.cshtml" />
-      <None Include="Views\Person\signin.cshtml" />
+      <None Include="Views\Person\Signup.cshtml" />
       <None Include="Views\Tour\CreateTour.cshtml" />
       <None Include="Views\Tour\DeleteTour.cshtml" />
     </ItemGroup>

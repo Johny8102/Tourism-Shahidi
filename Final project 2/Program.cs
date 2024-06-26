@@ -3,12 +3,21 @@ using Final_project_2.Repository;
 using Final_project_2.Services;
 using Microsoft.EntityFrameworkCore;
 using NuGet.Protocol.Core.Types;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.Extensions.DependencyInjection;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(i => 
+{
+    i.LoginPath = "/Access/Login";
+    i.ExpireTimeSpan = TimeSpan.FromMinutes(15);
+});
 
 IConfiguration configuration = null;
 
@@ -29,7 +38,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
