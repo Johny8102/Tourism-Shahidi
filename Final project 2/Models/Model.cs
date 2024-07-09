@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Drawing;
 
@@ -20,20 +21,20 @@ namespace Final_project_2.Models
         [Required]
         public string Email { get; set; }
 
-        
+
         [Required]
         [MinLength(11)]
         public string PhoneNumber { get; set; } 
-        public DateTime Joined_at { get; set; }
-        public string City_And_Country { get; set; }
-        public string Language { get; set; }
-        public string Favorit_food { get; set; }
-        public string Favorit_sport { get; set; }
-        
-        public bool Is_Actived { get; set; }
+        public DateTime Joined_at { get; set; } =DateTime.Now;
+        public string City_And_Country { get; set; } = string.Empty;
+        public string Language { get; set; } = string.Empty;
+        public string Favorit_food { get; set; } = string.Empty;
+        public string Favorit_sport { get; set; } = string.Empty;
 
-        public string Telegram { get; set; }
-        public string Instagram { get; set; }
+        public bool Is_Actived { get; set; } = false;
+
+        public string Telegram { get; set; } = string.Empty;
+        public string Instagram { get; set; } = string.Empty;
 
     }
 

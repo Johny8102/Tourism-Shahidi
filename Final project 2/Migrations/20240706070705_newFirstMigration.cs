@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Final_project_2.Migrations
 {
     /// <inheritdoc />
-    public partial class SecondInitial : Migration
+    public partial class newFirstMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -72,16 +72,16 @@ namespace Final_project_2.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    TourId = table.Column<int>(type: "int", nullable: false),
-                    Start_time = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    End_time = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    fk_Tour = table.Column<int>(type: "int", nullable: false),
+                    Start_time = table.Column<DateOnly>(type: "date", nullable: false),
+                    End_time = table.Column<DateOnly>(type: "date", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Active_Tours", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Active_Tours_Tour_TourId",
-                        column: x => x.TourId,
+                        name: "FK_Active_Tours_Tour_fk_Tour",
+                        column: x => x.fk_Tour,
                         principalTable: "Tour",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -93,23 +93,25 @@ namespace Final_project_2.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    TourId = table.Column<int>(type: "int", nullable: false),
-                    PersonId = table.Column<int>(type: "int", nullable: false),
                     Text = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Is_Actived = table.Column<bool>(type: "bit", nullable: false)
+                    Is_Actived = table.Column<bool>(type: "bit", nullable: false),
+                    Time = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    fk_comment = table.Column<int>(type: "int", nullable: true),
+                    fk_Tour = table.Column<int>(type: "int", nullable: false),
+                    fk_Person = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Comments", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Comments_Person_PersonId",
-                        column: x => x.PersonId,
+                        name: "FK_Comments_Person_fk_Person",
+                        column: x => x.fk_Person,
                         principalTable: "Person",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Comments_Tour_TourId",
-                        column: x => x.TourId,
+                        name: "FK_Comments_Tour_fk_Tour",
+                        column: x => x.fk_Tour,
                         principalTable: "Tour",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -121,15 +123,15 @@ namespace Final_project_2.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    TourId = table.Column<int>(type: "int", nullable: false),
+                    fk_Tour = table.Column<int>(type: "int", nullable: false),
                     Image_Address = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Images", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Images_Tour_TourId",
-                        column: x => x.TourId,
+                        name: "FK_Images_Tour_fk_Tour",
+                        column: x => x.fk_Tour,
                         principalTable: "Tour",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -141,57 +143,57 @@ namespace Final_project_2.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Active_TourId = table.Column<int>(type: "int", nullable: false),
-                    PersonId = table.Column<int>(type: "int", nullable: false),
                     Is_Actived = table.Column<bool>(type: "bit", nullable: false),
-                    Reserved_Count = table.Column<int>(type: "int", nullable: false)
+                    Reserved_Count = table.Column<int>(type: "int", nullable: false),
+                    fk_Active_Tour = table.Column<int>(type: "int", nullable: false),
+                    fk_Person = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Reservations", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Reservations_Active_Tours_Active_TourId",
-                        column: x => x.Active_TourId,
+                        name: "FK_Reservations_Active_Tours_fk_Active_Tour",
+                        column: x => x.fk_Active_Tour,
                         principalTable: "Active_Tours",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Reservations_Person_PersonId",
-                        column: x => x.PersonId,
+                        name: "FK_Reservations_Person_fk_Person",
+                        column: x => x.fk_Person,
                         principalTable: "Person",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Active_Tours_TourId",
+                name: "IX_Active_Tours_fk_Tour",
                 table: "Active_Tours",
-                column: "TourId");
+                column: "fk_Tour");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Comments_PersonId",
+                name: "IX_Comments_fk_Person",
                 table: "Comments",
-                column: "PersonId");
+                column: "fk_Person");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Comments_TourId",
+                name: "IX_Comments_fk_Tour",
                 table: "Comments",
-                column: "TourId");
+                column: "fk_Tour");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Images_TourId",
+                name: "IX_Images_fk_Tour",
                 table: "Images",
-                column: "TourId");
+                column: "fk_Tour");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Reservations_Active_TourId",
+                name: "IX_Reservations_fk_Active_Tour",
                 table: "Reservations",
-                column: "Active_TourId");
+                column: "fk_Active_Tour");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Reservations_PersonId",
+                name: "IX_Reservations_fk_Person",
                 table: "Reservations",
-                column: "PersonId");
+                column: "fk_Person");
         }
 
         /// <inheritdoc />

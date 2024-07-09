@@ -5,6 +5,17 @@ using Microsoft.EntityFrameworkCore;
 using NuGet.Protocol.Core.Types;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.Extensions.DependencyInjection;
+using System.Configuration;
+using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages.Manage;
+using EmailVerification.Models;
+using Microsoft.AspNetCore.Identity.UI.Services;
+using NETCore.MailKit.Core;
+using EmailVerification.Services;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using NuGet.Common;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,18 +24,55 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 
-builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(i => 
+//builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(i => 
+//{
+//    i.LoginPath = "/Access/Login";
+//    i.ExpireTimeSpan = TimeSpan.FromMinutes(15);
+//});
+var configuration = builder.Configuration;
+
+
+builder.Services.AddAuthentication(o =>
 {
-    i.LoginPath = "/Access/Login";
-    i.ExpireTimeSpan = TimeSpan.FromMinutes(15);
+    o.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    o.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    o.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+}).AddJwtBearer(op =>
+{
+    op.SaveToken = true;
+    op.RequireHttpsMetadata = false;
+    op.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters()
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidAudience = configuration["JWT:ValidAudience"],
+        ValidIssuer = configuration["JWT:ValidIssuer"],
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JWT:Secret"]))
+};
 });
 
-IConfiguration configuration = null;
+
+
+
 
 builder.Services.AddDbContext<Tourism>(options => options.UseSqlServer("server=DESKTOP-JP3GS28\\SQLEXPRESS;database=Tourism;TrustServerCertificate=True;Trusted_Connection=true;Multiple Active Result Sets=True;"));
 builder.Services.AddScoped(typeof(ITourismRepository<>), typeof(Repository<>));
+
+builder.Services.Configure<IdentityOptions>(
+    o => o.SignIn.RequireConfirmedEmail = true
+    );
+
+var emailConfig = configuration.GetSection("EmailConfiguration").Get<EmailConfiguration>();
+builder.Services.AddSingleton(emailConfig!);
+
+builder.Services.AddScoped<IEmailServices, EmailServices>();
+//builder.Services.AddIdentity<Person, IdentityRole>()
+//        .AddEntityFrameworkStores<Tourism>()
+//        .AddDefaultTokenProviders();
+
 //builder.Services.AddScoped(typeof(RepositoryServices<>));
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

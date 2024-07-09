@@ -7,6 +7,10 @@
     <RootNamespace>Final_project_2</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="TODOAdvanced\UserManagerFunctions.cs" />
+  </ItemGroup>
+
 	
     
 
@@ -26,15 +30,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.6" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.6" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.4">
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.6">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.6" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.0.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.2" />
-    <PackageReference Include="NETCore.MailKit" Version="2.1.0" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.6.2" />
   </ItemGroup>
     
     <ItemGroup>
@@ -51,9 +56,14 @@
     </ItemGroup>
     
     <ItemGroup>
+      <Folder Include="TODOAdvanced\" />
       <Folder Include="Views\ActiveTours\" />
       <Folder Include="Views\Home\Person\" />
       <Folder Include="Views\Home\Tour\" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <ProjectReference Include="..\E,ailVerification\EmailVerification.csproj" />
     </ItemGroup>
 
 	<Target Name="Tailwind" BeforeTargets="Build">
