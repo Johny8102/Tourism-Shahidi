@@ -1,6 +1,6 @@
 ﻿@model System.Dynamic.ExpandoObject;
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = @Final_project_2.LangResource.Resource.Adminpnl;
 }
 
     <!-------   Main   -------->
@@ -13,26 +13,26 @@
         <div class="float-left my-8 ml-10 w-fit">
 
 
-                
-                <p class="">Latest in Tours: </p>
+
+        <p class="">@Final_project_2.LangResource.Resource.LatestTour</p>
                 <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
                     <table class="w-full text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400">
                         <thead class="bg-gray-50 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
                             <tr>
                                 <th scope="col" class="hidden px-6 py-3">
-                                    Id
+                            @Final_project_2.LangResource.Resource.Id
                                 </th>
                                 <th scope="col" class="px-6 py-3">
-                                    Tour Name
+                            @Final_project_2.LangResource.Resource.TourName
                                 </th>
                                 <th scope="col" class="px-6 py-3">
-                                    Tour Title
+                            @Final_project_2.LangResource.Resource.TourTitle
                                 </th>
                                 <th scope="col" class="px-6 py-3">
-                                    Tour Description
+                            @Final_project_2.LangResource.Resource.TourDescription
                                 </th>
                                 <th scope="col" class="px-6 py-3">
-                                    Tour Area
+                            @Final_project_2.LangResource.Resource.Tour_Area
                                 </th>
                                 
                             </tr>
@@ -63,8 +63,8 @@
                     </table>
                 </div>
                 <div class="mt-2 w-full">
-                    <a  asp-action="Index" asp-controller="Tour" class="float-right text-sm text-sky-600 hover:underline dark:text-blue-500">See all Items</a>
-                    <a asp-action="CreateTour" asp-controller="Tour" class="text-sm text-sky-600 hover:underline dark:text-blue-500">Add New Item</a>
+            <a asp-action="Index" asp-controller="Tour" class="float-right text-sm text-sky-600 hover:underline dark:text-blue-500">@Final_project_2.LangResource.Resource.SeeAll</a>
+            <a asp-action="CreateTour" asp-controller="Tour" class="text-sm text-sky-600 hover:underline dark:text-blue-500">@Final_project_2.LangResource.Resource.AddNew</a>
                 </div>
            
 
@@ -73,26 +73,26 @@
 
         <!------- Reservation ------->
         <div class="float-right my-8 mr-10 grid w-fit">
-                <p class="">Latest in Reservations: </p>
+        <p class="">@Final_project_2.LangResource.Resource.Latest_Reservation</p>
 
                 <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
                     <table class="w-full text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400">
                         <thead class="bg-gray-50 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
                             <tr>
                                 <th scope="col" class="hidden px-6 py-3">
-                                    id
+                            @Final_project_2.LangResource.Resource.Id
                                 </th>
                                 <th scope="col" class="px-6 py-3">
-                                    Tour Name
+                            @Final_project_2.LangResource.Resource.TourName
                                 </th>
                                 <th scope="col" class="px-6 py-3">
-                                    Count
+                            @Final_project_2.LangResource.Resource.Count
                                 </th>
                                 <th scope="col" class="px-6 py-3">
-                                    Reserved By
+                            @Final_project_2.LangResource.Resource.Owner
                                 </th>
                                 <th scope="col" class="px-6 py-3">
-                                    Is Active
+                            @Final_project_2.LangResource.Resource.Activation
                                 </th>
                                 
                                 
@@ -125,7 +125,7 @@
                     </table>
                 </div>
                 <div class="mt-2 w-full">
-                    <a asp-action="Index" asp-controller="Reservation" class="float-right text-sm text-sky-600 hover:underline dark:text-blue-500">See all Items</a>
+            <a asp-action="Index" asp-controller="Reservation" class="float-right text-sm text-sky-600 hover:underline dark:text-blue-500">@Final_project_2.LangResource.Resource.SeeAll</a>
                 </div>
                 
             </div>
@@ -133,26 +133,26 @@
 
         <!------- Person ------->
         <div class="float-left my-8 ml-10 w-fit">
-            
-            <p class="">Latest in Users: </p>
+
+        <p class="">@Final_project_2.LangResource.Resource.LatestPerson</p>
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
                 <table class="w-full text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400">
                     <thead class="bg-gray-50 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
                             <th scope="col" class="hidden px-6 py-3">
-                                Id
+                            @Final_project_2.LangResource.Resource.Id
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Name
+                            @Final_project_2.LangResource.Resource.Name
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Family
+                            @Final_project_2.LangResource.Resource.Family
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                UserName
+                            @Final_project_2.LangResource.Resource.Username
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Email
+                            @Final_project_2.LangResource.Resource.Email
                             </th>
                             
                         </tr>
@@ -183,8 +183,8 @@
                 </table>
             </div>
             <div class="mt-2 w-full">
-                <a asp-action="Index" asp-controller="Person" class="float-right text-sm text-sky-600 hover:underline dark:text-blue-500">See all Items</a>
-                <a asp-action="CreatePerson" asp-controller="Person" class="float-left text-sm text-sky-600 hover:underline dark:text-blue-500">Add New Item</a>
+            <a asp-action="Index" asp-controller="Person" class="float-right text-sm text-sky-600 hover:underline dark:text-blue-500">@Final_project_2.LangResource.Resource.SeeAll</a>
+            <a asp-action="CreatePerson" asp-controller="Person" class="float-left text-sm text-sky-600 hover:underline dark:text-blue-500">@Final_project_2.LangResource.Resource.AddNew</a>
             </div>
         </div>
 
@@ -192,28 +192,28 @@
         <!------- Comments ------->
         <div class="float-left my-8 ml-10 w-fit">
 
-            <p class="">Latest in Comments: </p>
+        <p class="">@Final_project_2.LangResource.Resource.LatestComment</p>
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
                 <table class="w-full text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400">
                     <thead class="bg-gray-50 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
                             <th scope="col" class="hidden px-6 py-3">
-                                Id
+                            @Final_project_2.LangResource.Resource.Id
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Person Name
+                            @Final_project_2.LangResource.Resource.Owner
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Tour
+                            @Final_project_2.LangResource.Resource.TourName
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Time
+                            @Final_project_2.LangResource.Resource.Time
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Text
+                            @Final_project_2.LangResource.Resource.Text
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Actived
+                            @Final_project_2.LangResource.Resource.Activation
                             </th>
                             
                         </tr>
@@ -253,7 +253,7 @@
                 </table>
             </div>
             <div class="mt-2 w-full">
-            <a asp-action="Index" asp-controller="Comments" class="float-right text-sm text-sky-600 hover:underline dark:text-blue-500">See all Items</a>
+            <a asp-action="Index" asp-controller="Comments" class="float-right text-sm text-sky-600 hover:underline dark:text-blue-500">@Final_project_2.LangResource.Resource.SeeAll</a>
             </div>
         </div>
 

@@ -18,14 +18,14 @@
             <div class="col-span-full flex">
 
                 <div class="mr-4 sm:col-span-3">
-                    <label for="first-name" class="leading-6 block text-sm font-medium text-gray-900">Verification State</label>
+                    <label for="first-name" class="leading-6 block text-sm font-medium text-gray-900">@Final_project_2.LangResource.Resource.EmailVerify</label>
                     <div class="mt-2">
                         <input type="checkbox" asp-for="Is_Actived" class="border-0 ring-1 block w-full rounded-md py-1.5 font-bold text-yellow-700 shadow-sm ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
                     </div>
                 </div>
 
                 <div class="mx-4 sm:col-span-3">
-                    <label for="first-name" class="leading-6 block text-sm font-medium text-gray-900">Role</label>
+                    <label for="first-name" class="leading-6 block text-sm font-medium text-gray-900">@Final_project_2.LangResource.Resource.Role</label>
                     <div class="mt-2">
                         <input type="checkbox" asp-for="Is_Admin" class="border-0 ring-1 block w-full rounded-md py-1.5 font-bold text-yellow-700 shadow-sm ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
                     </div>
@@ -33,48 +33,49 @@
             </div>
 
             <div class="border-gray-900/10 border-b pb-12">
-                <h2 class="leading-7 text-base font-semibold text-gray-900">Personal Information</h2>
-                <p class="leading-6 mt-1 text-sm text-gray-600">Use a permanent address where you can receive mail.</p>
+                <h2 class="leading-7 text-base font-semibold text-gray-900">@Final_project_2.LangResource.Resource.PersonalInfo</h2>
+             
+
 
                 <div class="grid-cols-1 mt-10 grid gap-x-6 gap-y-8 sm:grid-cols-6">
 
                     <div class="sm:col-span-3">
-                        <label for="first-name" class="leading-6 block text-sm font-medium text-gray-900">First name</label>
+                        <label for="first-name" class="leading-6 block text-sm font-medium text-gray-900">@Final_project_2.LangResource.Resource.Name</label>
                         <div class="mt-2">
                             <input type="text" asp-for="@Model.Name" class="border-0 ring-1 block w-full rounded-md py-1.5 text-gray-900 shadow-sm ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                         </div>
                     </div>
 
                     <div class="sm:col-span-3">
-                        <label for="last-name" class="leading-6 block text-sm font-medium text-gray-900">Last name</label>
+                        <label for="last-name" class="leading-6 block text-sm font-medium text-gray-900">@Final_project_2.LangResource.Resource.Family</label>
                         <div class="mt-2">
                             <input type="text" asp-for="@Model.Family" id="last-name" autocomplete="family-name" class="border-0 ring-1 block w-full rounded-md py-1.5 text-gray-900 shadow-sm ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                         </div>
                     </div>
 
                     <div class="sm:col-span-3">
-                        <label class="leading-6 block text-sm font-medium text-gray-900">UserName</label>
+                        <label class="leading-6 block text-sm font-medium text-gray-900">@Final_project_2.LangResource.Resource.Username</label>
                         <div class="mt-2">
                             <input type="text" asp-for="@Model.Username" class="border-0 ring-1 block w-full rounded-md py-1.5 text-gray-900 shadow-sm ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                         </div>
                     </div>
 
                     <div class="sm:col-span-3">
-                        <label class="leading-6 block text-sm font-medium text-gray-900">Password</label>
+                        <label class="leading-6 block text-sm font-medium text-gray-900">@Final_project_2.LangResource.Resource.Password</label>
                         <div class="mt-2">
                             <input type="text" asp-for="@Model.Password" class="border-0 ring-1 block w-full rounded-md py-1.5 text-gray-900 shadow-sm ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                         </div>
                     </div>
 
                     <div class="sm:col-span-3">
-                        <label class="leading-6 block text-sm font-medium text-gray-900">Phone Number</label>
+                        <label class="leading-6 block text-sm font-medium text-gray-900">@Final_project_2.LangResource.Resource.Phonenumer</label>
                         <div class="mt-2">
                             <input type="text" asp-for="@Model.PhoneNumber" class="border-0 ring-1 block w-full rounded-md py-1.5 text-gray-900 shadow-sm ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                         </div>
                     </div>
 
                     <div class="sm:col-span-4">
-                        <label for="email" class="leading-6 block text-sm font-medium text-gray-900">Email address</label>
+                        <label for="email" class="leading-6 block text-sm font-medium text-gray-900">@Final_project_2.LangResource.Resource.Email</label>
                         <div class="mt-2">
                             <input type="email" asp-for="@Model.Email" class="border-0 ring-1 block w-full rounded-md py-1.5 text-gray-900 shadow-sm ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                         </div>
@@ -82,7 +83,7 @@
 
 
                     <div class="col-span-full">
-                        <label class="leading-6 block text-sm font-medium text-gray-900">City And Country</label>
+                        <label class="leading-6 block text-sm font-medium text-gray-900">@Final_project_2.LangResource.Resource.CityCountry</label>
                         <div class="mt-2">
                             <input type="text" asp-for="@Model.City_And_Country" class="border-0 ring-1 block w-full rounded-md py-1.5 text-gray-900 shadow-sm ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                         </div>
@@ -92,14 +93,14 @@
                     <div class="col-span-full flex">
 
                         <div class="mr-4 sm:col-span-3">
-                            <label for="first-name" class="leading-6 block text-sm font-medium text-gray-900">Telegram</label>
+                            <label for="first-name" class="leading-6 block text-sm font-medium text-gray-900">@Final_project_2.LangResource.Resource.Telegram</label>
                             <div class="mt-2">
                                 <input type="text" asp-for="@Model.Telegram" class="border-0 ring-1 block w-full rounded-md py-1.5 text-gray-900 shadow-sm ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                             </div>
                         </div>
 
                         <div class="mx-4 sm:col-span-3">
-                            <label for="first-name" class="leading-6 block text-sm font-medium text-gray-900">Instagram</label>
+                            <label for="first-name" class="leading-6 block text-sm font-medium text-gray-900">@Final_project_2.LangResource.Resource.Instagram</label>
                             <div class="mt-2">
                                 <input type="text" asp-for="@Model.Instagram" class="border-0 ring-1 block w-full rounded-md py-1.5 text-gray-900 shadow-sm ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                             </div>
@@ -114,21 +115,21 @@
                     <div class="col-span-full flex">
 
                         <div class="mr-4 sm:col-span-3">
-                            <label for="first-name" class="leading-6 block text-sm font-medium text-gray-900">Language</label>
+                            <label for="first-name" class="leading-6 block text-sm font-medium text-gray-900">@Final_project_2.LangResource.Resource.Lang</label>
                             <div class="mt-2">
                                 <input type="text" asp-for="@Model.Language" class="border-0 ring-1 block w-full rounded-md py-1.5 text-gray-900 shadow-sm ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                             </div>
                         </div>
 
                         <div class="mx-4 sm:col-span-3">
-                            <label for="first-name" class="leading-6 block text-sm font-medium text-gray-900">Favorite Food</label>
+                            <label for="first-name" class="leading-6 block text-sm font-medium text-gray-900">@Final_project_2.LangResource.Resource.FavFood</label>
                             <div class="mt-2">
                                 <input type="text" asp-for="@Model.Favorit_food" class="border-0 ring-1 block w-full rounded-md py-1.5 text-gray-900 shadow-sm ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                             </div>
                         </div>
 
                         <div class="mx-4 sm:col-span-3">
-                            <label for="first-name" class="leading-6 block text-sm font-medium text-gray-900">Favorite Sport</label>
+                            <label for="first-name" class="leading-6 block text-sm font-medium text-gray-900">@Final_project_2.LangResource.Resource.FavSport</label>
                             <div class="mt-2">
                                 <input type="text" asp-for="@Model.Favorit_sport" class="border-0 ring-1 block w-full rounded-md py-1.5 text-gray-900 shadow-sm ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                             </div>
@@ -146,7 +147,7 @@
         </div>
 
         <div class="grid gap-4 pb-20 sm:gap-6 lg:gap-8">
-            <input value="Update" type="submit" class="mx-auto mt-5 h-12 w-20 rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" />
+            <input value="@Final_project_2.LangResource.Resource.Update" type="submit" class="mx-auto mt-5 h-12 w-20 rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" />
         </div>
 
     </form>
@@ -155,9 +156,6 @@
 </div>
 
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
 
 @section Scripts {
     @{

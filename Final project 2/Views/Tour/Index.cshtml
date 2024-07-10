@@ -4,10 +4,10 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>@Final_project_2.LangResource.Resource.ListOfTours</h1>
 
 <p>
-    <a asp-action="CreateTour">Create New Tour</a>
+    <a asp-action="CreateTour">@Final_project_2.LangResource.Resource.CreateTour</a>
 </p>
 <table class="table">
     <thead>
@@ -79,9 +79,9 @@
                 @Html.DisplayFor(modelItem => item.Touring_area)
             </td>
             <td>
-                <a asp-action="UpdateTour" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Tour" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="DeleteTour" asp-route-id="@item.Id">Delete</a>
+                    <a asp-action="UpdateTour" asp-route-id="@item.Id">@Final_project_2.LangResource.Resource.Edit</a> |
+                    <a asp-action="Tour" asp-route-id="@item.Id">@Final_project_2.LangResource.Resource.Details</a> |
+                    <a asp-action="DeleteTour" asp-route-id="@item.Id">@Final_project_2.LangResource.Resource.Delete</a>
             </td>
         </tr>
 }

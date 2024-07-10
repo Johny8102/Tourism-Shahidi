@@ -89,8 +89,33 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
+app.Use(async (context, next) =>
+{
+    string cookie = string.Empty;
+    if (context.Request.Cookies.TryGetValue("Language", out cookie))
+    {
+        Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo(cookie);
+        Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(cookie);
+    }
+    else
+    {
+        Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en");
+        Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en");
+    }
+    await next.Invoke();
+});
+
+
+
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
+
+
+
+
+
+
+

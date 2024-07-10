@@ -54,5 +54,27 @@ namespace Final_project_2.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+    
+        
+        public IActionResult chngLng(string lang)
+        {
+            if (!string.IsNullOrEmpty(lang))
+            {
+                Thread.CurrentThread.CurrentCulture = System.Globalization.CultureInfo.CreateSpecificCulture(lang);
+                Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(lang);
+            }
+            else
+            {
+                Thread.CurrentThread.CurrentCulture = System.Globalization.CultureInfo.CreateSpecificCulture("en");
+                Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en");
+                lang = "en";
+            }
+            Response.Cookies.Append("Language", lang);
+            return Redirect(Request.GetTypedHeaders().Referer.ToString());
+
+        }
+
+
+    
     }
 }

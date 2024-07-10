@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="LangResource\Resource.zh.Designer.cs" />
     <Compile Remove="TODOAdvanced\UserManagerFunctions.cs" />
   </ItemGroup>
 
@@ -27,6 +28,16 @@
     <Content Remove="Views\Home\Tour\EditTour.cshtml" />
     <Content Remove="Views\Home\Tour\Tour.cshtml" />
     <Content Remove="Views\Person\login.cshtml" />
+    <Content Remove="Views\Person\Prfile.cshtml" />
+    <Content Remove="Views\Person\Signup.cshtml" />
+  </ItemGroup>
+
+	
+    
+
+    
+  <ItemGroup>
+    <EmbeddedResource Remove="LangResource\Resource.zh.resx" />
   </ItemGroup>
 
   <ItemGroup>
@@ -50,7 +61,6 @@
     <ItemGroup>
       <None Include="Views\Person\AdminPanel.cshtml" />
       <None Include="Views\Person\Profile.cshtml" />
-      <None Include="Views\Person\Signup.cshtml" />
       <None Include="Views\Tour\CreateTour.cshtml" />
       <None Include="Views\Tour\DeleteTour.cshtml" />
     </ItemGroup>
@@ -64,6 +74,30 @@
     
     <ItemGroup>
       <ProjectReference Include="..\E,ailVerification\EmailVerification.csproj" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <Compile Update="LangResource\Resource - Copy.Designer.cs">
+        <DependentUpon>Resource - Copy.resx</DependentUpon>
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+      </Compile>
+      <Compile Update="LangResource\Resource.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Resource.resx</DependentUpon>
+      </Compile>
+    </ItemGroup>
+    
+    <ItemGroup>
+      <EmbeddedResource Update="LangResource\Resource - Copy.resx">
+        <LastGenOutput>Resource - Copy.Designer.cs</LastGenOutput>
+        <Generator>PublicResXFileCodeGenerator</Generator>
+      </EmbeddedResource>
+      <EmbeddedResource Update="LangResource\Resource.resx">
+        <Generator>PublicResXFileCodeGenerator</Generator>
+        <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
     </ItemGroup>
 
 	<Target Name="Tailwind" BeforeTargets="Build">
