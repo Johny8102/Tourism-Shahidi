@@ -212,6 +212,12 @@ To book your desired tour on FlyToday, you can use the following two methods:</v
   <data name="FavSport" xml:space="preserve">
     <value>Favorit Sport</value>
   </data>
+  <data name="Help" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Home</value>
+  </data>
   <data name="Id" xml:space="preserve">
     <value>Id</value>
   </data>
@@ -222,6 +228,9 @@ To book your desired tour on FlyToday, you can use the following two methods:</v
     <value>IsActive</value>
   </data>
   <data name="Lang" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="Language" xml:space="preserve">
     <value>Language</value>
   </data>
   <data name="Latest Reservation" xml:space="preserve">
@@ -281,6 +290,9 @@ To book your desired tour on FlyToday, you can use the following two methods:</v
   <data name="Post Comment" xml:space="preserve">
     <value>Post Comment</value>
   </data>
+  <data name="Profile" xml:space="preserve">
+    <value>Profile</value>
+  </data>
   <data name="Register" xml:space="preserve">
     <value>Register</value>
   </data>
@@ -316,6 +328,9 @@ To book your desired tour on FlyToday, you can use the following two methods:</v
   </data>
   <data name="SigninToacc" xml:space="preserve">
     <value>Sing in to our account</value>
+  </data>
+  <data name="Signout" xml:space="preserve">
+    <value>Sign Out</value>
   </data>
   <data name="Signup" xml:space="preserve">
     <value>Creat account</value>

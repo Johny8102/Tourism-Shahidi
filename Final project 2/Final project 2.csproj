@@ -77,8 +77,8 @@
     </ItemGroup>
     
     <ItemGroup>
-      <Compile Update="LangResource\Resource - Copy.Designer.cs">
-        <DependentUpon>Resource - Copy.resx</DependentUpon>
+      <Compile Update="LangResource\Resource.ar.Designer.cs">
+        <DependentUpon>Resource.ar.resx</DependentUpon>
         <DesignTime>True</DesignTime>
         <AutoGen>True</AutoGen>
       </Compile>
@@ -90,8 +90,8 @@
     </ItemGroup>
     
     <ItemGroup>
-      <EmbeddedResource Update="LangResource\Resource - Copy.resx">
-        <LastGenOutput>Resource - Copy.Designer.cs</LastGenOutput>
+      <EmbeddedResource Update="LangResource\Resource.ar.resx">
+        <LastGenOutput>Resource.ar.Designer.cs</LastGenOutput>
         <Generator>PublicResXFileCodeGenerator</Generator>
       </EmbeddedResource>
       <EmbeddedResource Update="LangResource\Resource.resx">

@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Final_project_2.Migrations
 {
-    [DbContext(typeof(Tourism))]
+    [DbContext(typeof(TourismDbcontext))]
     [Migration("20240706070705_newFirstMigration")]
     partial class newFirstMigration
     {

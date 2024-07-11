@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Final_project_2.Migrations
 {
-    [DbContext(typeof(Tourism))]
+    [DbContext(typeof(TourismDbcontext))]
     partial class TourismModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

@@ -45,7 +45,7 @@
                 <div class="flex space-x-4">
                     <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                     <a asp-action="Index" asp-controller="Home" class="flex rounded-md px-5 py-2 text-sm font-medium text-black hover:bg-gray-200">
-                        <p class="mx-1 mt-1">Home</p>
+                        <p class="mx-1 mt-1">@Final_project_2.LangResource.Resource.Home</p>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
                         </svg>
@@ -57,7 +57,7 @@
                         <div>
                             <button type="button" onclick="open_menu('Lang_popover')" class="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button">
                                 
-                                <p class="sr-only">Language</p>
+                                <p class="sr-only">@Final_project_2.LangResource.Resource.Language</p>
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="m10.5 21 5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 0 1 6-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C11.176 10.658 7.69 15.08 3 17.502m9.334-12.138c.896.061 1.785.147 2.666.257m-4.589 8.495a18.023 18.023 0 0 1-3.827-5.802" />
                                 </svg>
@@ -68,7 +68,7 @@
                         <div id="Lang_popover" class="z-10 ring-1 ring-opacity-5 invisible absolute left-0 mt-2 w-40 origin-top-right rounded-md bg-gray-50 py-1 shadow-lg ring-black focus:outline-none">
                             <!-- Active: "bg-gray-100", Not Active: "" -->
                             <a asp-action="chngLng" asp-controller="Home" asp-route-lang="en" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-700 hover:text-white" role="menuitem" tabindex="-1" id="user-menu-item-0"> English </a>
-                            <a asp-action="chngLng" asp-controller="Home" asp-route-lang="zh" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-700 hover:text-white" role="menuitem" tabindex="-1" id="user-menu-item-0"> عربی </a>
+                            <a asp-action="chngLng" asp-controller="Home" asp-route-lang="ar" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-700 hover:text-white" role="menuitem" tabindex="-1" id="user-menu-item-0"> عربی </a>
                             
                         </div>
                     </div>
@@ -78,7 +78,7 @@
 
                     <a href="#" class="flex rounded-md px-3 py-2 text-sm font-medium text-black hover:bg-gray-200">
 
-                        <p class="mx-1 mt-1"> Help</p>
+                        <p class="mx-1 mt-1"> @Final_project_2.LangResource.Resource.Help</p>
 
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
@@ -104,10 +104,10 @@
 
                     <div id="prof_popover" class="z-10 ring-1 ring-opacity-5 invisible absolute left-0 mt-2 w-40 origin-top-right rounded-md bg-gray-50 py-1 shadow-lg ring-black focus:outline-none" >
                         <!-- Active: "bg-gray-100", Not Active: "" -->
-                        <a asp-action="Login" asp-controller="Access"  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-700 hover:text-white" role="menuitem" tabindex="-1" id="user-menu-item-0"> Login </a>
-                        <a asp-action="Profile" asp-controller="person" asp-route-id="1" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-700 hover:text-white" role="menuitem" tabindex="-1" id="user-menu-item-0"> Profile </a>
-                        <a asp-action="AdminPanel" asp-controller="person" asp-route-id="1" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-700 hover:text-white" role="menuitem" tabindex="-1" id="user-menu-item-1"> Admin Panel </a>
-                        <a asp-action="LogOut" asp-controller="Home"  class="block px-5 py-2 text-sm text-red-700 hover:bg-gray-700 hover:text-white" role="menuitem" tabindex="-1" id="user-menu-item-1"> sign out </a>
+                        <a asp-action="Login" asp-controller="Access" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-700 hover:text-white" role="menuitem" tabindex="-1" id="user-menu-item-0">@Final_project_2.LangResource.Resource.Login </a>
+                        <a asp-action="Profile" asp-controller="person" asp-route-id="1" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-700 hover:text-white" role="menuitem" tabindex="-1" id="user-menu-item-0">@Final_project_2.LangResource.Resource.Profile </a>
+                        <a asp-action="AdminPanel" asp-controller="person" asp-route-id="1" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-700 hover:text-white" role="menuitem" tabindex="-1" id="user-menu-item-1">@Final_project_2.LangResource.Resource.Adminpnl </a>
+                        <a asp-action="LogOut" asp-controller="Home" class="block px-5 py-2 text-sm text-red-700 hover:bg-gray-700 hover:text-white" role="menuitem" tabindex="-1" id="user-menu-item-1">@Final_project_2.LangResource.Resource.Signout</a>
 
                     </div>
                 </div>

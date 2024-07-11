@@ -15,6 +15,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.IdentityModel.Tokens.Jwt;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.Authorization;
 
 
 
@@ -22,37 +23,69 @@ using Microsoft.IdentityModel.Tokens;
 namespace Final_project_2.Controllers
 {
     [Route("/Access/[action]")]
+    [Authorize]
     public class AccessController : Controller
     {
         //private readonly UserManager<IdentityUser> _userManager;
         private readonly IEmailServices _emailServices;
         private readonly ITourismRepository<Person> _personRepo;
         private readonly IConfiguration _configuration;
-        public AccessController(IEmailServices emailServices, ITourismRepository<Person> PersonRepo , IConfiguration configuration)
+        private readonly TourismDbcontext _context;
+        public AccessController(IEmailServices emailServices, ITourismRepository<Person> PersonRepo, IConfiguration configuration
+             , TourismDbcontext context )
         {
             _emailServices = emailServices;
             _personRepo = PersonRepo;
             _configuration = configuration;
+            _context = context;
         }
 
 
-
-
+        [HttpGet]
+        [AllowAnonymous]
         public IActionResult Login()
         {
-            ClaimsPrincipal claimsPrincipal = HttpContext.User;
-            if(claimsPrincipal.Identity.IsAuthenticated )
+            return View();
+        }
+
+        [AllowAnonymous]
+        [HttpPost]
+        public IActionResult Login(LoginModel model)
+        {
+            //var userexist = _context.Person.Any(p => p.Email == model.Email && p.Password == model.Password);
+            var userexist = true;
+            if (userexist is not true)
             {
+                return Unauthorized();
+            }
+            else
+            {
+                var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
+                var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
+
+                var Sectoken = new JwtSecurityToken(_configuration["Jwt:Issuer"],
+                  _configuration["Jwt:Issuer"],
+                  null,
+                  expires: DateTime.Now.AddMinutes(15),
+                  signingCredentials: credentials);
+
+                var token = new JwtSecurityTokenHandler().WriteToken(Sectoken);
+                HttpContext.Session.SetString("token" , token);
                 return RedirectToAction("Index", "home");
             }
+            //ClaimsPrincipal claimsPrincipal = HttpContext.User;
+            //if(claimsPrincipal.Identity.IsAuthenticated )
+            //{
+            //    return RedirectToAction("Index", "home");
+            //}
 
             
-            return View();
+            //return View();
         }
 
 
         [HttpPost]
-        public IActionResult OldLogin(VMLogin data)
+        public IActionResult OldLogin(LoginModel data)
         {
             //todo
             if(data.Email == "aa@gmail.com" && data.Password =="123" ) {

@@ -7,9 +7,9 @@ namespace Final_project_2.Services
 {
     public class Repository<T> :ITourismRepository<T> where T:class
     {
-        private readonly Tourism _context;
+        private readonly TourismDbcontext _context;
 
-        public Repository(Tourism tourism)
+        public Repository(TourismDbcontext tourism)
         {
             _context = tourism;
         }

@@ -5,9 +5,9 @@ namespace Final_project_2.Controllers
 {
     public class ImagesController : Controller
     {
-        private readonly Tourism _context;
+        private readonly TourismDbcontext _context;
 
-        public ImagesController(Tourism context)
+        public ImagesController(TourismDbcontext context)
         {
             _context = context;
         }

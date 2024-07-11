@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Final_project_2.Models
 {
-    public class Tourism : DbContext
+    public class TourismDbcontext : DbContext
     {
-        public Tourism(DbContextOptions<Tourism> options)
+        public TourismDbcontext(DbContextOptions<TourismDbcontext> options)
             : base(options)
         { }
 

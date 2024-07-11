@@ -118,275 +118,290 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Activation" xml:space="preserve">
-    <value>Actvation</value>
+    <value>التنشيط</value>
   </data>
   <data name="Actived" xml:space="preserve">
-    <value>Actived</value>
+    <value>نشط</value>
   </data>
   <data name="ActiveTours" xml:space="preserve">
-    <value>Active Tours</value>
+    <value>جولات نشطة</value>
   </data>
   <data name="Add" xml:space="preserve">
-    <value>Add</value>
+    <value>يضيف</value>
   </data>
   <data name="AddActiveTour" xml:space="preserve">
-    <value>Add Active Tour</value>
+    <value>أضف جولة نشطة</value>
   </data>
   <data name="AddNew" xml:space="preserve">
-    <value>Add new Item</value>
+    <value>أضف أداة جديدة</value>
   </data>
   <data name="AddPriod" xml:space="preserve">
-    <value>Add New Tour Priod</value>
+    <value>أضف دورتك الشهرية الجديدة</value>
   </data>
   <data name="Admin" xml:space="preserve">
-    <value>Admin</value>
+    <value>مسؤل</value>
   </data>
   <data name="Adminpnl" xml:space="preserve">
-    <value>Admin Panel</value>
+    <value>لوحة الادارة</value>
   </data>
   <data name="Alreadyhaveacc" xml:space="preserve">
-    <value>Already have account?</value>
+    <value>هل لديك حساب بالفعل؟</value>
   </data>
   <data name="CityCountry" xml:space="preserve">
-    <value>City and Country</value>
+    <value>المدينة والبلد</value>
   </data>
   <data name="Comments" xml:space="preserve">
-    <value>Comments</value>
+    <value>تعليقات</value>
   </data>
   <data name="CommentsList" xml:space="preserve">
-    <value>List of Comments</value>
+    <value>قائمة التعليقات</value>
   </data>
   <data name="Count" xml:space="preserve">
-    <value>Count</value>
+    <value>عدد</value>
   </data>
   <data name="CreatePerson" xml:space="preserve">
-    <value>CreatePerson</value>
+    <value>إنشاء شخص</value>
   </data>
   <data name="CreateTour" xml:space="preserve">
-    <value>Create New Tour</value>
+    <value>إنشاء جولة جديدة</value>
   </data>
   <data name="Delete" xml:space="preserve">
-    <value>Delete</value>
+    <value>يمسح</value>
   </data>
   <data name="DeleteComment" xml:space="preserve">
-    <value>Delet Comment</value>
+    <value>حذف تعليق</value>
   </data>
   <data name="DeleteItemSure" xml:space="preserve">
-    <value>Are you sure you want Delete this Item?</value>
+    <value>هل أنت متأكد أنك تريد حذف هذا العنصر؟</value>
   </data>
   <data name="DeleteTour" xml:space="preserve">
-    <value>Delete Tour</value>
+    <value>حذف الجولة</value>
   </data>
   <data name="DeleteTourPriod" xml:space="preserve">
-    <value>Delete Tour Priod</value>
+    <value>حذف دورتك الشهرية</value>
   </data>
   <data name="destitle" xml:space="preserve">
-    <value>Buying a tour is an ideal solution to experience more trips at a reasonable cost. By purchasing travel tours, you can easily receive all the services related to plane tickets, hotel reservations, obtaining visas, transfers and sightseeing plans at your destination. Flytoday has provided you with the possibility of buying a tour to different destinations in the world with the best price and the most complete service.
-Flytoday is considered one of the most reliable providers of foreign tours, domestic tours and last minute tours. In general, special travel tour services include buying round-trip tickets, hotel reservations, visa services, obtaining travel insurance, transfers, programs for visiting attractions and entertainment, etc.
-To book your desired tour on FlyToday, you can use the following two methods:</value>
+    <value>يعد شراء جولة حلاً مثاليًا لتجربة المزيد من الرحلات بتكلفة معقولة. من خلال شراء رحلات السفر، يمكنك بسهولة الحصول على جميع الخدمات المتعلقة بتذاكر الطائرة وحجوزات الفنادق والحصول على التأشيرات والانتقالات وخطط مشاهدة المعالم السياحية في وجهتك. لقد وفرت لك Flytoday إمكانية شراء جولة إلى وجهات مختلفة في العالم بأفضل الأسعار والخدمة الأكثر اكتمالا.
+تعتبر Flytoday واحدة من أكثر مقدمي الجولات الموثوقة للجولات الأجنبية والجولات المحلية وجولات اللحظة الأخيرة. بشكل عام، تشمل خدمات رحلات السفر الخاصة شراء تذاكر ذهابًا وإيابًا، وحجوزات الفنادق، وخدمات التأشيرات، والحصول على تأمين السفر، والانتقالات، وبرامج زيارة المعالم السياحية والترفيهية، وما إلى ذلك.
+لحجز جولتك المرغوبة على FlyToday، يمكنك استخدام الطريقتين التاليتين:</value>
   </data>
   <data name="Details" xml:space="preserve">
-    <value>Details</value>
+    <value>تفاصيل</value>
   </data>
   <data name="Edit" xml:space="preserve">
-    <value>Edit</value>
+    <value>يحرر</value>
   </data>
   <data name="EditPerson" xml:space="preserve">
-    <value>Edit Person Form</value>
+    <value>تحرير نموذج الشخص</value>
   </data>
   <data name="Email" xml:space="preserve">
-    <value>Email</value>
+    <value>بريد إلكتروني</value>
   </data>
   <data name="EmailVerify" xml:space="preserve">
-    <value>Email Vrification</value>
+    <value>تأكيد بواسطة البريد الالكتروني</value>
   </data>
   <data name="EndDate" xml:space="preserve">
-    <value>Ends At</value>
+    <value>ينتهي عند</value>
   </data>
   <data name="Family" xml:space="preserve">
-    <value>Family</value>
+    <value>اسم العائلة</value>
   </data>
   <data name="FavFood" xml:space="preserve">
-    <value>Favorit Food</value>
+    <value>الطعام المفضل</value>
   </data>
   <data name="FavSport" xml:space="preserve">
-    <value>Favorit Sport</value>
+    <value>الرياضة المفضلة</value>
+  </data>
+  <data name="Help" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Home</value>
   </data>
   <data name="Id" xml:space="preserve">
-    <value>Id</value>
+    <value>بطاقة تعريف</value>
   </data>
   <data name="Instagram" xml:space="preserve">
-    <value>Instagram</value>
+    <value>انستغرام</value>
   </data>
   <data name="IsActive" xml:space="preserve">
-    <value>IsActive</value>
+    <value>نشط</value>
   </data>
   <data name="Lang" xml:space="preserve">
+    <value>لغة</value>
+  </data>
+  <data name="Language" xml:space="preserve">
     <value>Language</value>
   </data>
   <data name="Latest Reservation" xml:space="preserve">
-    <value>Latest in Reservation :</value>
+    <value>آخر المستجدات في الحجز:</value>
   </data>
   <data name="LatestComment" xml:space="preserve">
-    <value>Latest in Comment :</value>
+    <value>الأحدث في التعليق :</value>
   </data>
   <data name="LatestPerson" xml:space="preserve">
-    <value>Latest in Person :</value>
+    <value>الأحدث شخصياً :</value>
   </data>
   <data name="LatestTour" xml:space="preserve">
-    <value>Latest in Tours :</value>
+    <value>الأحدث في الجولات :</value>
   </data>
   <data name="ListOfTours" xml:space="preserve">
-    <value>List of Tours</value>
+    <value>قائمة الجولات</value>
   </data>
   <data name="Login" xml:space="preserve">
-    <value>login</value>
+    <value>تسجيل الدخول</value>
   </data>
   <data name="Name" xml:space="preserve">
-    <value>Tour Name</value>
+    <value>اسم الجولة</value>
   </data>
   <data name="NewItem" xml:space="preserve">
-    <value>New Item</value>
+    <value>عنصر جديد</value>
   </data>
   <data name="NormalUser" xml:space="preserve">
-    <value>Normal User</value>
+    <value>مستخدم عادي</value>
   </data>
   <data name="NotMember" xml:space="preserve">
-    <value>Not a member?</value>
+    <value>ليس عضوا؟</value>
   </data>
   <data name="NotVerfied" xml:space="preserve">
-    <value>Not Verified</value>
+    <value>لم يتم التحقق منها</value>
   </data>
   <data name="ol_destitle1" xml:space="preserve">
-    <value>By referring to the Flytoday website or application, fill in the form on the tour page of your desired destination so that our experts will contact you..</value>
+    <value>من خلال الرجوع إلى موقع أو تطبيق Flytoday، قم بملء النموذج الموجود على صفحة الجولة للوجهة التي تريدها حتى يتمكن خبراؤنا من الاتصال بك.</value>
   </data>
   <data name="ol_destitle2" xml:space="preserve">
-    <value>Contact the travel tours department directly at 42405000 extension 4.</value>
+    <value>تواصل مباشرة مع قسم الرحلات السياحية على الرقم 42405000 داخلي 4.</value>
   </data>
   <data name="Owner" xml:space="preserve">
-    <value>Owner</value>
+    <value>مالك</value>
   </data>
   <data name="Password" xml:space="preserve">
-    <value>Password</value>
+    <value>كلمة المرور</value>
   </data>
   <data name="PersonalInfo" xml:space="preserve">
-    <value>Personal Information</value>
+    <value>معلومات شخصية</value>
   </data>
   <data name="PersonList" xml:space="preserve">
-    <value>List of Users</value>
+    <value>قائمة المستخدمين</value>
   </data>
   <data name="Phonenumer" xml:space="preserve">
-    <value>PhoneNumer</value>
+    <value>رقم التليفون</value>
   </data>
   <data name="Post Comment" xml:space="preserve">
-    <value>Post Comment</value>
+    <value>أضف تعليقا</value>
+  </data>
+  <data name="Profile" xml:space="preserve">
+    <value>Profile</value>
   </data>
   <data name="Register" xml:space="preserve">
-    <value>Register</value>
+    <value>يسجل</value>
   </data>
   <data name="RegisterReserve" xml:space="preserve">
-    <value>Confirm Reserve</value>
+    <value>تأكيد الاحتياطي</value>
   </data>
   <data name="Reply" xml:space="preserve">
-    <value>Reply</value>
+    <value>رد</value>
   </data>
   <data name="ReqReserve" xml:space="preserve">
-    <value>Request for Reservation</value>
+    <value>طلب الحجز</value>
   </data>
   <data name="Reservation" xml:space="preserve">
-    <value>Reservation</value>
+    <value>حجز</value>
   </data>
   <data name="ReservedBy" xml:space="preserve">
-    <value>Reserved By</value>
+    <value>محفوظة بواسطة</value>
   </data>
   <data name="ReserveList" xml:space="preserve">
-    <value>List of Reservations</value>
+    <value>قائمة التحفظات</value>
   </data>
   <data name="Role" xml:space="preserve">
-    <value>Role</value>
+    <value>دور</value>
   </data>
   <data name="SeeAll" xml:space="preserve">
-    <value>See All Items</value>
+    <value>رؤية كافة العناصر</value>
   </data>
   <data name="SelectCount" xml:space="preserve">
-    <value>Please Select your desired number</value>
+    <value>الرجاء تحديد الرقم المطلوب</value>
   </data>
   <data name="signin" xml:space="preserve">
-    <value>Sing in</value>
+    <value>تسجيل الدخول</value>
   </data>
   <data name="SigninToacc" xml:space="preserve">
-    <value>Sing in to our account</value>
+    <value>تسجيل الدخول إلى حسابك</value>
+  </data>
+  <data name="Signout" xml:space="preserve">
+    <value>Sign Out</value>
   </data>
   <data name="Signup" xml:space="preserve">
-    <value>Creat account</value>
+    <value>إنشاء حساب</value>
   </data>
   <data name="SignuptoAcc" xml:space="preserve">
-    <value>Signup To Your Account</value>
+    <value>قم بالتسجيل في حسابك</value>
   </data>
   <data name="startDate" xml:space="preserve">
-    <value>Starts At</value>
+    <value>يبدأ عند</value>
   </data>
   <data name="StatLimit" xml:space="preserve">
-    <value>Status Limit</value>
+    <value>حد الحالة</value>
   </data>
   <data name="Submit" xml:space="preserve">
-    <value>Submit</value>
+    <value>يُقدِّم</value>
   </data>
   <data name="Telegram" xml:space="preserve">
-    <value>Telegram Adress</value>
+    <value>عنوان برقية</value>
   </data>
   <data name="Text" xml:space="preserve">
-    <value>Text</value>
+    <value>نص</value>
   </data>
   <data name="Till" xml:space="preserve">
-    <value>Till</value>
+    <value>حتى</value>
   </data>
   <data name="Time" xml:space="preserve">
-    <value>Time</value>
+    <value>وقت</value>
   </data>
   <data name="Tour Area" xml:space="preserve">
-    <value>Area</value>
+    <value>منطقة</value>
   </data>
   <data name="Tour Capacity" xml:space="preserve">
-    <value>Capacity</value>
+    <value>سعة</value>
   </data>
   <data name="TourDescription" xml:space="preserve">
-    <value>Description</value>
+    <value>وصف</value>
   </data>
   <data name="TourName" xml:space="preserve">
-    <value>Tour Name</value>
+    <value>اسم الجولة</value>
   </data>
   <data name="TourPrice" xml:space="preserve">
-    <value>Price for each person</value>
+    <value>السعر لكل شخص</value>
   </data>
   <data name="TourQl" xml:space="preserve">
-    <value>Quality Level</value>
+    <value>مستوى الجودة</value>
   </data>
   <data name="TourRules" xml:space="preserve">
-    <value>Rules</value>
+    <value>قواعد</value>
   </data>
   <data name="TourTitle" xml:space="preserve">
-    <value>Title</value>
+    <value>عنوان</value>
   </data>
   <data name="Update" xml:space="preserve">
-    <value>Update</value>
+    <value>تحديث</value>
   </data>
   <data name="UploadFile" xml:space="preserve">
-    <value>Upload FIle</value>
+    <value>رفع ملف</value>
   </data>
   <data name="Username" xml:space="preserve">
-    <value>Username</value>
+    <value>اسم المستخدم</value>
   </data>
   <data name="Verified" xml:space="preserve">
-    <value>Verified</value>
+    <value>تم التحقق</value>
   </data>
   <data name="View" xml:space="preserve">
-    <value>View</value>
+    <value>منظر</value>
   </data>
   <data name="Welcome" xml:space="preserve">
-    <value>Welcome to our Tourism Website</value>
+    <value>مرحبا بكم في موقعنا السياحي</value>
   </data>
   <data name="YourComment" xml:space="preserve">
-    <value>Your Comment</value>
+    <value>تعليقك</value>
   </data>
 </root>
