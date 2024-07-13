@@ -5,13 +5,14 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
+using Final_project_2.Services;
 
 
 
 namespace Final_project_2.Controllers
 {
     [Route("/Home/[action]")]
-    
+    [SessionAuthorize]
     public class HomeController : Controller
     {
         //private readonly ILogger<HomeController> _logger;

@@ -10,7 +10,7 @@ namespace Final_project_2.ActionFilter
             // Check if the action has [AllowAnonymous] attribute
             var endpoint = context.HttpContext.GetEndpoint();
             var allowAnonymous = endpoint?.Metadata?.GetMetadata<IAllowAnonymous>() != null;
-
+            
             if (!allowAnonymous)
             {
                 var token = context.HttpContext.Session.GetString("token");

@@ -16,6 +16,7 @@ using System.Text;
 using System.IdentityModel.Tokens.Jwt;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages;
 
 
 
@@ -23,7 +24,7 @@ using Microsoft.AspNetCore.Authorization;
 namespace Final_project_2.Controllers
 {
     [Route("/Access/[action]")]
-    [Authorize]
+    
     public class AccessController : Controller
     {
         //private readonly UserManager<IdentityUser> _userManager;
@@ -31,6 +32,7 @@ namespace Final_project_2.Controllers
         private readonly ITourismRepository<Person> _personRepo;
         private readonly IConfiguration _configuration;
         private readonly TourismDbcontext _context;
+        private const string SecretKey = "thisismykeythisismykeythisismykeythisismykeythisismykeythisismykeythisismykeythisismykey";
         public AccessController(IEmailServices emailServices, ITourismRepository<Person> PersonRepo, IConfiguration configuration
              , TourismDbcontext context )
         {
@@ -52,82 +54,35 @@ namespace Final_project_2.Controllers
         [HttpPost]
         public IActionResult Login(LoginModel model)
         {
-            //var userexist = _context.Person.Any(p => p.Email == model.Email && p.Password == model.Password);
-            var userexist = true;
-            if (userexist is not true)
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var key = Encoding.ASCII.GetBytes(SecretKey);
+            var tokenDescriptor = new SecurityTokenDescriptor
             {
-                return Unauthorized();
-            }
-            else
-            {
-                var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
-                var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
-
-                var Sectoken = new JwtSecurityToken(_configuration["Jwt:Issuer"],
-                  _configuration["Jwt:Issuer"],
-                  null,
-                  expires: DateTime.Now.AddMinutes(15),
-                  signingCredentials: credentials);
-
-                var token = new JwtSecurityTokenHandler().WriteToken(Sectoken);
-                HttpContext.Session.SetString("token" , token);
-                return RedirectToAction("Index", "home");
-            }
-            //ClaimsPrincipal claimsPrincipal = HttpContext.User;
-            //if(claimsPrincipal.Identity.IsAuthenticated )
-            //{
-            //    return RedirectToAction("Index", "home");
-            //}
-
-            
-            //return View();
-        }
-
-
-        [HttpPost]
-        public IActionResult OldLogin(LoginModel data)
-        {
-            //todo
-            if(data.Email == "aa@gmail.com" && data.Password =="123" ) {
-                List<Claim> claims = new List<Claim>() { new Claim(ClaimTypes.NameIdentifier , data.Email),
-                    new Claim("AA " , "vv")
-                
-                };
-                
-                ClaimsIdentity identity = new ClaimsIdentity(claims , 
-                    CookieAuthenticationDefaults.AuthenticationScheme);
-
-                AuthenticationProperties properties = new AuthenticationProperties()
+                Subject = new ClaimsIdentity(new Claim[]
                 {
-                    AllowRefresh = true,
-                    IsPersistent = data.KeepedLogedin,
-                };  
+                    new Claim(ClaimTypes.Name, model.Email)
+                }),
+                Expires = DateTime.UtcNow.AddDays(7),
+                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+            };
+            var token = tokenHandler.CreateToken(tokenDescriptor);
+            var tokenString = tokenHandler.WriteToken(token);
 
-                HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme , new ClaimsPrincipal(identity), properties);
+            HttpContext.Session.SetString("JWToken", tokenString);
 
-
-                return RedirectToAction("Index" , "Home");
-
-
-
-
-            }
-
-
-            ViewData["ValidateMessage"] = "NotFound";
-
-            return View();
+            return RedirectToAction("index" , "home");
         }
 
-
-        [HttpPost]
         
+        public IActionResult Logout()
+        {
+            // Remove the token from the session
+            HttpContext.Session.Remove("JWToken");
 
-
-
+            return RedirectToAction("login");
+        }
 
         [HttpGet]
-
         public void SendEmail()
         {
             var message = new Message(new string[] { "johnyw810@gmail.com" }, "Test Mail", "Mail to Jaghi");

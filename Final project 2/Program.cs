@@ -55,10 +55,6 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
-builder.Services.AddAuthorization();
-
-
-
 builder.Services.AddDbContext<TourismDbcontext>(options => options.UseSqlServer("server=DESKTOP-JP3GS28\\SQLEXPRESS;database=Tourism;TrustServerCertificate=True;Trusted_Connection=true;Multiple Active Result Sets=True;"));
 builder.Services.AddScoped(typeof(ITourismRepository<>), typeof(Repository<>));
 
