@@ -64,13 +64,9 @@ builder.Services.Configure<IdentityOptions>(
 
 var emailConfig = configuration.GetSection("EmailConfiguration").Get<EmailConfiguration>();
 builder.Services.AddSingleton(emailConfig!);
-
+builder.Services.AddSingleton<TokenServices>();
 builder.Services.AddScoped<IEmailServices, EmailServices>();
-//builder.Services.AddIdentity<Person, IdentityRole>()
-//        .AddEntityFrameworkStores<Tourism>()
-//        .AddDefaultTokenProviders();
 
-//builder.Services.AddScoped(typeof(RepositoryServices<>));
 var app = builder.Build();
 
 
