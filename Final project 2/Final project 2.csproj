@@ -8,8 +8,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Services\LangResource\**" />
+    <Content Remove="Services\LangResource\**" />
+    <EmbeddedResource Remove="Services\LangResource\**" />
+    <None Remove="Services\LangResource\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Remove="Controllers\AuthenticationController.cs" />
-    <Compile Remove="LangResource\Resource.zh.Designer.cs" />
     <Compile Remove="TODOAdvanced\UserManagerFunctions.cs" />
   </ItemGroup>
 
@@ -31,16 +37,6 @@
     <Content Remove="Views\Person\login.cshtml" />
     <Content Remove="Views\Person\Prfile.cshtml" />
     <Content Remove="Views\Person\Signup.cshtml" />
-  </ItemGroup>
-
-	
-    
-
-    
-  <ItemGroup>
-    <EmbeddedResource Remove="LangResource\Resource.zh.resx" />
-    <EmbeddedResource Remove="LangResource\Resource1.resx" />
-    <EmbeddedResource Remove="LangResource\Resource2.resx" />
   </ItemGroup>
 
   <ItemGroup>
@@ -78,6 +74,30 @@
     
     <ItemGroup>
       <ProjectReference Include="..\E,ailVerification\EmailVerification.csproj" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <Compile Update="LangResource\Resource.ar.Designer.cs">
+        <DependentUpon>Resource.ar.resx</DependentUpon>
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+      </Compile>
+      <Compile Update="LangResource\Resource.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Resource.resx</DependentUpon>
+      </Compile>
+    </ItemGroup>
+    
+    <ItemGroup>
+      <EmbeddedResource Update="LangResource\Resource.ar.resx">
+        <LastGenOutput>Resource.ar.Designer.cs</LastGenOutput>
+        <Generator>PublicResXFileCodeGenerator</Generator>
+      </EmbeddedResource>
+      <EmbeddedResource Update="LangResource\Resource.resx">
+        <Generator>PublicResXFileCodeGenerator</Generator>
+        <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
     </ItemGroup>
 
 	<Target Name="Tailwind" BeforeTargets="Build">

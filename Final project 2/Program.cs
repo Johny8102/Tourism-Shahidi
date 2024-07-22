@@ -17,9 +17,14 @@ using NuGet.Common;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Final_project_2.ActionFilter;
+using System.Globalization;
+using Microsoft.AspNetCore.Localization;
 
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddLocalization(options => options.ResourcesPath = "LangResource");
+
 
 // Add services to the container.
 builder.Services.AddControllersWithViews(options => {
@@ -27,13 +32,24 @@ builder.Services.AddControllersWithViews(options => {
 });
 
 builder.Services.AddSession();
-//builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(i => 
-//{ 
-//    i.LoginPath = "/Access/Login";
-//    i.ExpireTimeSpan = TimeSpan.FromMinutes(15);
-//});
-var configuration = builder.Configuration;
 
+
+builder.Services.Configure<RequestLocalizationOptions>(options =>
+{
+    var supportedCultures = new List<CultureInfo>
+        {
+            new CultureInfo("en"),
+            new CultureInfo("ar")
+        };
+
+    options.DefaultRequestCulture = new RequestCulture("en");
+    options.SupportedCultures = supportedCultures;
+    options.SupportedUICultures = supportedCultures;
+});
+
+
+
+var configuration = builder.Configuration;
 
 builder.Services.AddAuthentication(options =>
 {
@@ -80,16 +96,8 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+app.UseRequestLocalization();
 app.UseSession();
-
-app.UseAuthentication();
-app.UseRouting();
-app.UseAuthorization();
-app.UseEndpoints(endpoints =>
-{
-    endpoints.MapControllers();
-});
-
 app.Use(async (context, next) =>
 {
     string cookie = string.Empty;
@@ -105,6 +113,19 @@ app.Use(async (context, next) =>
     }
     await next.Invoke();
 });
+
+
+
+
+app.UseAuthentication();
+app.UseAuthorization();
+
+app.UseRouting();
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllers();
+});
+
 
 
 
